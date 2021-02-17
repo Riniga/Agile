@@ -1,0 +1,23 @@
+﻿extends ../templates/startpage.pug
+block content
+  main.inner(role='main')
+      h2.cover-heading SAFe Devops hälsoradar
+      div.row
+        p Förklarande text vad denna häsloradar innebär m.m.
+      .mb-3.row
+        label.col-sm-2.col-form-label(for='role') Roll
+        .col-sm-10
+          select.form-select.form-select-sm(aria-label='Roller')
+            option(value='1') levererande team
+            option(value='scrumledare') scrumledare
+            option(value='produktägare') Produktägare
+            option(value='produktägare') Processområdesledare 
+            option(value='produktägare') ITSM 
+            option(value='produktägare') Arkitekt
+      input#saveandnext(type="button" value="Nästa >" onclick="saveAndNext()")
+      input#next(type="hidden" value="explore1.html")
+      div#result
+block scripts 
+  script(src="/scripts/azurefunctions.js")
+      
+

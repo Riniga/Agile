@@ -1,0 +1,20 @@
+﻿extends ../templates/startpage.pug
+block content
+  main.inner(role='main')
+      h2.cover-heading Kontinuerligt utforska - Fråga 1
+      div.row
+        p Vad ....
+      
+      form.form-check
+        input#flexRadioDefault1.form-check-input(type='radio' name='flexRadioDefault')
+        label.form-check-label(for='flexRadioDefault1')
+          | Sitter
+      .form-check
+        input#flexRadioDefault2.form-check-input(type='radio' name='flexRadioDefault' checked='')
+        label.form-check-label(for='flexRadioDefault2')
+          | Kryper
+        br
+        input#saveandnext(type="button" value="Nästa >" onclick="saveAndNext()")
+        div#result
+block scripts 
+  script(src="/scripts/azurefunctions.js")
