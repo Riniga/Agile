@@ -1,29 +1,31 @@
 ﻿extends ../templates/startpage.pug
 block content
-  main.inner(role='main')
-      h2.cover-heading Kontinuerlig leverans - Deploy
+      h2 Kontinuerlig leverans 
+      h3 Deploy
       div.row
         p#description Deployment is the actual migration of features into the production environment. Because the Continuous Delivery Pipeline separates deployment from release, deployed features are not assumed to be live to end users. 
-        p#rate Please rate your team's ability to continuously deploy features to production as well as the ability to control their visibility using feature toggles and/or other means.
+        hr
+        h5#rate Please rate your team's ability to continuously deploy features to production as well as the ability to control their visibility using feature toggles and/or other means.
+      hr
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Features are deployed to production every .form-check
+        label.form-check-label(for='radio1') Sitter - Features are deployed to production every .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') months; deployments are manual and painful; "deployed" implies "released".
+        label.form-check-label(for='radio1') Går - months; deployments are manual and painful; "deployed" implies "released".
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Features are deployed to production at PI boundaries; deployments are mostly manual; "deployed" implies "released".
+        label.form-check-label(for='radio1') Kryper - Features are deployed to production at PI boundaries; deployments are mostly manual; "deployed" implies "released".
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Features are deployed to production every iteration; deployments are mostly automated; some features can be deployed without being released.
+        label.form-check-label(for='radio1') Går - Features are deployed to production every iteration; deployments are mostly automated; some features can be deployed without being released.
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Features are deployed to production every iteration and fully automated through the pipeline; dark releases are common.
+        label.form-check-label(for='radio1') Springer - Features are deployed to production every iteration and fully automated through the pipeline; dark releases are common.
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Features  are deployed continuously throughout each iteration; Dev teams initiate deployments directly via pipeline tools; release is completely decoupled from deployment; dark releases are the norm.
-      br
-      input#saveandnext(type="button" value="Nästa >" disabled onclick="answer_saveandnext(9, 'delivery2.html')")
+        label.form-check-label(for='radio1') Flyger - Features  are deployed continuously throughout each iteration; Dev teams initiate deployments directly via pipeline tools; release is completely decoupled from deployment; dark releases are the norm.
+      hr
+      input#saveandnext(type="button" value="Nästa >"  onclick="answer_saveandnext(9, 'delivery2.html')")
       div#result
 block scripts 
   script(src="/scripts/azurefunctions.js")

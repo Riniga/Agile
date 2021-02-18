@@ -1,27 +1,29 @@
 ﻿extends ../templates/startpage.pug
 block content
-  main.inner(role='main')
-      h2.cover-heading Integrerar kontinuerlig - Stage
+      h2 Integrerar kontinuerlig
+      h3 Stage
       div.row
         p#description Staging involves deploying features to a full copy of the production environment, from where they can be demonstrated to stakeholders, user acceptance tested and hosted for training purposes prior to production launch. 
-        p#rate Please rate your team's ability to stage features in full production-like (non-test) environments for final validation prior to production deployment.
+        hr
+        h5#rate Please rate your team's ability to stage features in full production-like (non-test) environments for final validation prior to production deployment.
+      hr
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Bedöm leveransteamets förmåga attverifiera funnktioner i helt produktionlik miljö (stage)
+        label.form-check-label(for='radio1') Sitter -  Bedöm leveransteamets förmåga attverifiera funnktioner i helt produktionlik miljö (stage)
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') No staging environment exists or we use a test environment for staging.
+        label.form-check-label(for='radio1') Kryper - No staging environment exists or we use a test environment for staging.
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Features are deployed manually to a staging environment once every PI.
+        label.form-check-label(for='radio1') Går - Features are deployed manually to a staging environment once every PI.
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Features are deployed to a staging environment once per month and demonstrated to Product Management.
+        label.form-check-label(for='radio1') Springer - Features are deployed to a staging environment once per month and demonstrated to Product Management.
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Features and infrastructure are auto-deployed to a staging environment every iteration and accepted by Product Management.   Stories, changes and infrastructure are auto-deployed to a staging environment, validated, and immediately proceed to deployment.
-      br
-      input#saveandnext(type="button" value="Nästa >" disabled  onclick="answer_saveandnext(8, 'delivery1.html')")
+        label.form-check-label(for='radio1') Flyger - Features and infrastructure are auto-deployed to a staging environment every iteration and accepted by Product Management.   Stories, changes and infrastructure are auto-deployed to a staging environment, validated, and immediately proceed to deployment.
+      hr
+      input#saveandnext(type="button" value="Nästa >"   onclick="answer_saveandnext(8, 'delivery1.html')")
       div#result
 block scripts 
   script(src="/scripts/azurefunctions.js")

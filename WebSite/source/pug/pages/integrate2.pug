@@ -1,27 +1,29 @@
 ﻿extends ../templates/startpage.pug
 block content
-  main.inner(role='main')
-      h2.cover-heading Integrerar kontinuerlig - Build
+      h2 Integrerar kontinuerlig
+      h3 Build
       div.row
         p#description Build is triggered at the moment of check-in and involves compiling, unit testing (and other forms of component-level validation), successfully merging to trunk/main, committing to the repository and producing deploy-able artifacts. 
-        p#rate Bedöm leveransteamets att få ut saker bygga och få ut saker för test
+        hr
+        h5#rate Bedöm leveransteamets att få ut saker bygga och få ut saker för test
+      hr
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Builds are run fewer than once per iteration and/or are completely manual.
+        label.form-check-label(for='radio1') Sitter -  Builds are run fewer than once per iteration and/or are completely manual.
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Builds are run once per iteration and are partially automated; dev branches are open for a month or more; builds break often.
+        label.form-check-label(for='radio1') Kryper - Builds are run once per iteration and are partially automated; dev branches are open for a month or more; builds break often.
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Automated builds run once a day; broken builds are corrected in 2-4 hours; manual unit tests are run against each build; dev branches are open for 2-4 weeks.
+        label.form-check-label(for='radio1') Går - Automated builds run once a day; broken builds are corrected in 2-4 hours; manual unit tests are run against each build; dev branches are open for 2-4 weeks.
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Builds run automatically upon code commit; broken builds are corrected within 1 hour; automated unit tests are run against each build; dev branches are merged to trunk every iteration. 
+        label.form-check-label(for='radio1') Springer - Builds run automatically upon code commit; broken builds are corrected within 1 hour; automated unit tests are run against each build; dev branches are merged to trunk every iteration. 
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Builds run on every commit; builds include static code analysis and security testing; gated commits prevent defects from entering the version control; dev branches are merged to trunk on every commit."
-      br
-      input#saveandnext(type="button" value="Nästa >" disabled  onclick="answer_saveandnext(6, 'integrate3.html')")
+        label.form-check-label(for='radio1') Flyger - Builds run on every commit; builds include static code analysis and security testing; gated commits prevent defects from entering the version control; dev branches are merged to trunk on every commit."
+      hr
+      input#saveandnext(type="button" value="Nästa >"   onclick="answer_saveandnext(6, 'integrate3.html')")
       div#result
 block scripts 
   script(src="/scripts/azurefunctions.js")

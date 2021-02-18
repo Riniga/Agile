@@ -1,26 +1,28 @@
 ﻿extends ../templates/startpage.pug
 block content
-  main.inner(role='main')
-      h2.cover-heading Release vid behov - Learn
+      h2 Release vid behov
+      h3 Learn
       div.row
         p#description Learning entails making a judgment call to validate or invalidate the original hypothesis based on objective measures of business value, system performance and customer feedback.
-        p#rate Please rate your team's ability to make strategic, ""pivot-or-persevere"" decisions based on empirical performance data and commitment to actively applying those insights to continuously improve the pipeline.
+        hr
+        h5#rate Please rate your team's ability to make strategic, ""pivot-or-persevere"" decisions based on empirical performance data and commitment to actively applying those insights to continuously improve the pipeline.
+      hr
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Features are never evaluated post-release.
+        label.form-check-label(for='radio1') Sitter -  Features are never evaluated post-release.
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Features are sometimes evaluated using subjective information and/or unilateral opinions.
+        label.form-check-label(for='radio1') Kryper - Features are sometimes evaluated using subjective information and/or unilateral opinions.
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Hypotheses are evaluated using objective measures but actions are heavily influenced by corporate politics.
+        label.form-check-label(for='radio1') Går - Hypotheses are evaluated using objective measures but actions are heavily influenced by corporate politics.
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Hypotheses are objectively evaluated; pivot or persevere decisions are made without mercy or guilt.
+        label.form-check-label(for='radio1') Springer - Hypotheses are objectively evaluated; pivot or persevere decisions are made without mercy or guilt.
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Continuous learning and experimentation are ingrained in the DNA of the organization.
-      br
+        label.form-check-label(for='radio1') Flyger - Continuous learning and experimentation are ingrained in the DNA of the organization.
+      hr
       input#saveandnext(type="button" value="Skicka in" disabled  onclick="answer_saveandsubmit(16)")
       div#result
 block scripts 

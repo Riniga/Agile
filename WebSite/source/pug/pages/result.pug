@@ -1,0 +1,18 @@
+﻿extends ../templates/startpage.pug
+block content
+      h2 Resultatet för SAFe Devops hälsoradar
+      div.row
+        p#description nedan ser du ett spindeldiagram för samtliga personer
+        hr
+        ul 
+          li Varje svart prick är de indiviudella svaren 
+          li Röda prickar är snittet
+      hr
+      img#radarimage(src="/images/HealtRadarBackground.png" width="1px")
+      canvas#thecanvas(width='800px' height='800px' style)
+      hr  
+      div#result
+block scripts 
+  script(src="/scripts/drawradar.js")
+      
+

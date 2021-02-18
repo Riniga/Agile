@@ -1,27 +1,28 @@
 ﻿extends ../templates/startpage.pug
 block content
-  main.inner(role='main')
-      h2.cover-heading Release vid behov - Stabilize
+      h2 Release vid behov
+      h3 Stabilize
       div.row
         p#description The Continuous Delivery Pipeline requires the production environment to be continually stable, reliable, available, supportable and secure.
       Please rate your team's effectiveness at maintaining stable solutions that avoid unplanned down time and security breaches.
+      hr
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') We experience frequent unplanned outages and/or security breaches with long recovery times.
+        label.form-check-label(for='radio1') Sitter -  We experience frequent unplanned outages and/or security breaches with long recovery times.
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') We experience occasional unplanned outages but recover within our service level agreements.
+        label.form-check-label(for='radio1') Kryper - We experience occasional unplanned outages but recover within our service level agreements.
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') We have very few unplanned outages; availability, security, and disaster recovery measures are effective.
+        label.form-check-label(for='radio1') Går - We have very few unplanned outages; availability, security, and disaster recovery measures are effective.
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') We have no unplanned outages; We plan and rehearse failure and recovery.
+        label.form-check-label(for='radio1') Springer - We have no unplanned outages; We plan and rehearse failure and recovery.
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') We maximize resiliency by deliberately injecting faults into our production environment and rehearsing recovery procedures.
-      br
-      input#saveandnext(type="button" value="Nästa >" disabled  onclick="answer_saveandnext(14, 'release3.html')")
+        label.form-check-label(for='radio1') Flyger - We maximize resiliency by deliberately injecting faults into our production environment and rehearsing recovery procedures.
+      hr
+      input#saveandnext(type="button" value="Nästa >"   onclick="answer_saveandnext(14, 'release3.html')")
       div#result
 block scripts 
   script(src="/scripts/azurefunctions.js")

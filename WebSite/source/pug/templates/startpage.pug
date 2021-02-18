@@ -6,29 +6,69 @@ head
   meta(name='author' content='')
   title SAFe Devops hälsoradar 
   link(rel='stylesheet' href='/stylesheets/style.css')
-body.text-left
-  .main-container.d-flex.h-100.p-3.mx-auto.flex-column
-    header.mb-auto
-      nav.navbar.navbar-expand-lg.navbar-dark
-        a.navbar-brand(href='/') 
+body
+  nav.navbar.navbar-expand-md.navbar-light.bg-light.fixed-top
+    .container-fluid
+      a.navbar-brand(href='/') 
+        img(src="https://www.skanska.se/4991f5/globalassets/common-items/skanska-orig-logo-rgb-534.png" width="200px")
+      #navbarsExampleDefault.collapse.navbar-collapse
+        ul.navbar-nav.me-auto.mb-2.mb-md-0
+          li.nav-item
+            a.nav-link.active(aria-current='page' href='index.html')  Start
+          li.nav-item.dropdown
+            a#dropdown01.nav-link.dropdown-toggle(href='#' data-bs-toggle='dropdown' aria-expanded='false') Utforska
+            ul.dropdown-menu(aria-labelledby='dropdown01')
+              li
+                a.dropdown-item(href='explore1.html') Fråga 1
+              li
+                a.dropdown-item(href='explore2.html') Fråga 2
+              li
+                a.dropdown-item(href='explore3.html') Fråga 3
+                li
+                a.dropdown-item(href='explore4.html') Fråga 4
+          li.nav-item.dropdown
+            a#dropdown01.nav-link.dropdown-toggle(href='#' data-bs-toggle='dropdown' aria-expanded='false') Integrera
+            ul.dropdown-menu(aria-labelledby='dropdown01')
+              li
+                a.dropdown-item(href='integrate1.html') Fråga 1
+              li
+                a.dropdown-item(href='integrate2.html') Fråga 2
+              li
+                a.dropdown-item(href='integrate3.html') Fråga 3
+                li
+                a.dropdown-item(href='integrate4.html') Fråga 4                
+          li.nav-item.dropdown
+            a#dropdown01.nav-link.dropdown-toggle(href='#' data-bs-toggle='dropdown' aria-expanded='false') Leverans
+            ul.dropdown-menu(aria-labelledby='dropdown01')
+              li
+                a.dropdown-item(href='delivery1.html') Fråga 1
+              li
+                a.dropdown-item(href='delivery2.html') Fråga 2
+              li
+                a.dropdown-item(href='delivery3.html') Fråga 3
+                li
+                a.dropdown-item(href='delivery3.html') Fråga 4                
+          li.nav-item.dropdown
+            a#dropdown01.nav-link.dropdown-toggle(href='#' data-bs-toggle='dropdown' aria-expanded='false') Release
+            ul.dropdown-menu(aria-labelledby='dropdown01')
+              li
+                a.dropdown-item(href='release1.html') Fråga 1
+              li
+                a.dropdown-item(href='release2.html') Fråga 2
+              li
+                a.dropdown-item(href='release3.html') Fråga 3
+                li
+                a.dropdown-item(href='release4.html') Fråga 4
+          li.nav-item
+            a.nav-link(href='result.html') Resultat
+        form.d-flex
           h3 Devops hälsoradar
-        #navbarSupportedContent.collapse.navbar-collapse
-          ul.navbar-nav.mr-auto
-            li.nav-item.active
-              a.nav-link(href='explore1.html') Utforskar
-            li.nav-item.active
-              a.nav-link(href='integrate1.html') Integrerar
-            li.nav-item.active
-              a.nav-link(href='deploy1.html') Produktionssätter
-            li.nav-item.active
-              a.nav-link(href='release1.html') Levererar
+  main.container
     block content
-    footer.mt-auto
-      .inner
-        p
-          | SAFe Devops hälsoradar
-          a(href='https://getbootstrap.com/') Bootstrap
-          | , av 
-          a(href='https://www.nisses-gagner.se') Rickard Nisses-Gagnér
-          | .
+  footer.mt-auto
+      p
+        | SAFe Devops hälsoradar av 
+        a(href='https://www.nisses-gagner.se') Rickard Nisses-Gagnér
+  script(src="https://getbootstrap.com/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous")
   block scripts
+    

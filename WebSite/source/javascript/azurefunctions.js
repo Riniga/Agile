@@ -1,8 +1,11 @@
+const saveUrl = "http://localhost:7071/api/SaveUserHealthRadarResult";
+
 function page1_saveandnext(nextpage)
 {
   var areaselect = document.getElementById("area");
   var roleselect = document.getElementById("role");
   var userresult = JSON.parse(localStorage.getItem('result')); 
+  
   if ((!userresult))
   {
       userresult = {id:"", area:areaselect.options[areaselect.selectedIndex].value, role:roleselect.options[roleselect.selectedIndex].value, answers:["0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"]};
@@ -12,22 +15,18 @@ function page1_saveandnext(nextpage)
     userresult.area = areaselect.options[areaselect.selectedIndex].value;
     userresult.role = roleselect.options[roleselect.selectedIndex].value;
   }
-
-  console.log(userresult);
-  localStorage.setItem('result', JSON.stringify(userresult) );
-  saveToAzure(result)
-  window.location=nextpage;
+  SaveAndRedirect(userresult, nextpage);
 }
 
 function answer_saveandnext(id, nextpage)
 {
   var userresult = JSON.parse(localStorage.getItem('result')); 
   var answer = document.querySelector('input[name="answer"]:checked');
+  
   if (answer)
   {
     userresult.answers[id-1] = answer.value;
-    saveToAzure(result)
-    window.location=nextpage;
+    SaveAndRedirect(userresult, nextpage);
   }
   else
   {
@@ -42,9 +41,9 @@ function answer_saveandsubmit(id)
   if (answer)
   {
     userresult.answers[id-1] = answer.value;
-    saveToAzure(result)
-    console.log(userresult)
-    //window.location=nextpage;
+    console.log(answer.value);
+    console.log(userresult);
+    SaveAndRedirect(userresult, "result.html")
   }
   else
   {
@@ -52,27 +51,17 @@ function answer_saveandsubmit(id)
   }
 }
 
-
- 
-
-
-function saveToAzure()
+function SaveAndRedirect(userresult, page)
 {
-  var data = localStorage.getItem('result'); 
-  
-    var pageUrl = "http://localhost:7071/api/SaveUserHealthRadarResult";
-    fetch(pageUrl, { method: 'POST', body: data})
+  localStorage.setItem('result', JSON.stringify(userresult) );
+  fetch(saveUrl, { method: 'POST', body: JSON.stringify(userresult)})
     .then(response => response.json())
     .then(id => {
-      var userresult = JSON.parse(data); 
-      if (userresult.id === "") 
-      {
-        userresult.id = id;
-        localStorage.setItem('result', JSON.stringify(userresult) );
-      }
-      document.getElementById("result").innerHTML = "Saved to Azure!";
-      console.log("Saved to Azure")
-      console.log(userresult);
+      if (userresult.id === "") userresult.id = id;
+      
+      document.getElementById("result").innerHTML = "Saved!";
+      window.location=page;
+      
     });
 }
 

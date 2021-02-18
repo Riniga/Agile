@@ -1,27 +1,29 @@
 ﻿extends ../templates/startpage.pug
 block content
-  main.inner(role='main')
-      h2.cover-heading Kontinuerligt utforska - Arkitektur
+      h2 Kontinuerligt utforska
+      h3Arkitektur
       div.row
         p#description Architecting for continuous delivery involves applying ""just enough"" intentional architecture to assure policy compliance without sacrificing product development flow, to ensure solutions are loosely coupled and to continuously pay down technical debt.
-        p#rate Bedöm teamets förmåga att utforma effektiv kontinuerlig leverans  
+        hr
+        h5#rate Bedöm teamets förmåga att utforma effektiv kontinuerlig leverans  
+      hr
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Det är svårt att genomföra förändringar, det finns komplexa beroenden mellan många komponenter och system (Ömtåligt) 
+        label.form-check-label(for='radio1') Sitter -  Det är svårt att genomföra förändringar, det finns komplexa beroenden mellan många komponenter och system (Ömtåligt) 
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Vissa system separerade men det mesta är komplext och sammankopplat
+        label.form-check-label(for='radio1') Kryper - Vissa system separerade men det mesta är komplext och sammankopplat
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Det mesta är separerat men det tillåter inte ”Release vid behov”
+        label.form-check-label(for='radio1') Går - Det mesta är separerat men det tillåter inte ”Release vid behov”
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Få sammankopplade system och leveranser är baserat på att leverera värde 
+        label.form-check-label(for='radio1') Springer - Få sammankopplade system och leveranser är baserat på att leverera värde 
       .form-check
         input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Arkitekturen är byggd för ”Release vid behov” och funktionalitet.
-      br
-      input#saveandnext(type="button" value="Nästa >" disabled onclick="answer_saveandnext(3, 'explore4.html')")
+        label.form-check-label(for='radio1') Flyger - Arkitekturen är byggd för ”Release vid behov” och funktionalitet.
+      hr
+      input#saveandnext(type="button" value="Nästa >"  onclick="answer_saveandnext(3, 'explore4.html')")
       div#result
 block scripts 
   script(src="/scripts/azurefunctions.js")

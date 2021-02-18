@@ -11,7 +11,7 @@
   "author": "Rickard Nisses-Gagnér",
   "license": "ISC",
   "devDependencies": {
-    "bootstrap": "^4.6.0",
+    "bootstrap": "^5.0.0-beta2",
     "express": "^4.17.1",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
