@@ -1,0 +1,27 @@
+﻿extends ../templates/startpage.pug
+block content
+  main.inner(role='main')
+      h2.cover-heading Kontinuerlig leverans - Verifikation
+      div.row
+        p#description Deployments must be verified for completeness and integrity before releasing to end users. 
+        p#rate Please rate your team's ability to accurately determine deployment success or failure and ability to roll back or fix forward as appropriate to correct deployment issues.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="1")
+        label.form-check-label(for='radio1') Deployments are not verified in production before being released to end users.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="2")
+        label.form-check-label(for='radio1') Deployments are verified with manual smoke tests and/or UAT; we address deployment issues within a stated grace/triage/warranty period; we often correct issues directly in production.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="3")
+        label.form-check-label(for='radio1') Deployments are verified with manual tests prior to releasing to end users; rolling back is painful or impossible; we do not make changes directly in production.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="4")
+        label.form-check-label(for='radio1') Deployments are verified using automated smoke tests, synthetic transactions and penetration tests prior to release; we can easily roll back or fix forward to recover from failed deployments.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="5")
+        label.form-check-label(for='radio1') Automated production tests run on an ongoing basis and feed monitoring systems; failed deployments can be rolled back instantly or fixed forward through the entire pipeline.
+      br
+      input#saveandnext(type="button" value="Nästa >" disabled  onclick="answer_saveandnext(10, 'delivery3.html')")
+      div#result
+block scripts 
+  script(src="/scripts/azurefunctions.js")

@@ -1,0 +1,27 @@
+﻿extends ../templates/startpage.pug
+block content
+  main.inner(role='main')
+      h2.cover-heading Kontinuerlig leverans - Övervakning
+      div.row
+        p#description Monitoring implies that full-stack telemetry is active for all features deployed through the Continuous Delivery Pipeline so that system performance, end-user behavior, incidents and business value can be determined quickly and accurately in production.
+        p#rate Please rate your team's effectiveness at monitoring the full solution stack (front end, middle tier, back end, infrastructure, etc.) and ability to analyze feature value based on these events.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="1")
+        label.form-check-label(for='radio1') No feature level production monitoring exists; only infrastructure monitoring is in place.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="2")
+        label.form-check-label(for='radio1') Features only log faults and exceptions; analyzing events involves manually correlating logs from multiple systems.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="3")
+        label.form-check-label(for='radio1') Features log faults, user activity and other events; data is analyzed manually to investigate incidents and measure business value of features.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="4")
+        label.form-check-label(for='radio1') Full-stack monitoring is in place; events can be correlated throughout the architecture; data is presented through system-specific dashboards.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="5")
+        label.form-check-label(for='radio1') Federated monitoring platform provides one-stop access to full-stack insights; data is used to gauge system performance and business value.
+      br
+      input#saveandnext(type="button" value="Nästa >" disabled onclick="answer_saveandnext(11, 'delivery4.html')")
+      div#result
+block scripts 
+  script(src="/scripts/azurefunctions.js")

@@ -1,0 +1,27 @@
+﻿extends ../templates/startpage.pug
+block content
+  main.inner(role='main')
+      h2.cover-heading Release vid behov - Release
+      div.row
+        p#description Releasing involves making deployed features available to end users. 
+        p#rate Please rate your team's ability to release features to users on demand using feature toggles, blue/green environments, canary releases, etc.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="1")
+        label.form-check-label(for='radio1') Releases are tightly coupled to deployments and customers are extremely dissatisfied with the frequency of releases.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="2")
+        label.form-check-label(for='radio1') Releases are tightly coupled to deployments but customers are somewhat dissatisfied with the frequency of releases.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="3")
+        label.form-check-label(for='radio1') Release and deployment are coupled but both occur continuously or on demand.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="4")
+        label.form-check-label(for='radio1') Release is decoupled from deployment; deployed features are released to the end user population based on business readiness.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="5")
+        label.form-check-label(for='radio1') Deployed features can be released to individual segments of the user population; feature toggles are refactored when no longer used.
+      br
+      input#saveandnext(type="button" value="Nästa >" disabled onclick="answer_saveandnext(13, 'release2.html')")
+      div#result
+block scripts 
+  script(src="/scripts/azurefunctions.js")

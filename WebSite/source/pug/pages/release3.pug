@@ -1,0 +1,27 @@
+﻿extends ../templates/startpage.pug
+block content
+  main.inner(role='main')
+      h2.cover-heading Release vid behov - Measure
+      div.row
+        p#description Measurement involves collecting factual information about the value of a deployed feature and evaluating it against the original hypothesis statement.
+        p#rate Please rate your team's ability to collect objective information about the actual value realized by deployed features so that it can inform strategic financial decisions.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="1")
+        label.form-check-label(for='radio1') We don’t define or measure the value of features.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="2")
+        label.form-check-label(for='radio1') We’ve defined what ‘value’ is but don’t know how to measure it.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="3")
+        label.form-check-label(for='radio1') We capture qualitative feedback from the business about the value of our features. 
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="4")
+        label.form-check-label(for='radio1') We capture qualitative and quantitative feedback from the business and our monitoring systems about the value of our features.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="5")
+        label.form-check-label(for='radio1') We aggregate the quantitative and qualitative feedback to objectively validate the original hypothesis and inform pivot-or-persevere decisions.
+      br
+      input#saveandnext(type="button" value="Nästa >" disabled onclick="answer_saveandnext(15, 'release4.html')")
+      div#result
+block scripts 
+  script(src="/scripts/azurefunctions.js")

@@ -1,0 +1,27 @@
+﻿extends ../templates/startpage.pug
+block content
+  main.inner(role='main')
+      h2.cover-heading Integrerar kontinuerlig - Develop
+      div.row
+        p#description Developing in the Continuous Delivery Pipeline involves splitting features into stories, implementing stories in vertical slices using Test-Driven Development (TDD), and committing changes to version control as they are made.
+        p#rate Bedöm leveransteamens förmåga att snabbt och stabilt definiera och genomföra aktiviteter
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="1")
+        label.form-check-label(for='radio1') The team backlog does not exist or is not used to manage daily work.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="2")
+        label.form-check-label(for='radio1') Stories are either incomplete or too verbose; unit tests are generally not written; peer reviews are not conducted.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="3")
+        label.form-check-label(for='radio1') Stories are complete; most changes have unit tests; peer reviews are usually conducted.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="4")
+        label.form-check-label(for='radio1') Code is checked in daily; unit test coverage is 80%+; peer reviews are always conducted.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="5")
+        label.form-check-label(for='radio1') Code is checked in multiple times per day; tests are written before code (TDD); pair work and other Built-in quality practices are the norm.
+      br
+      input#saveandnext(type="button" value="Nästa >" disabled onclick="answer_saveandnext(5, 'integrate2.html')")
+      div#result
+block scripts 
+  script(src="/scripts/azurefunctions.js")

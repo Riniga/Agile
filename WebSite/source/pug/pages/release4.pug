@@ -1,0 +1,27 @@
+﻿extends ../templates/startpage.pug
+block content
+  main.inner(role='main')
+      h2.cover-heading Release vid behov - Learn
+      div.row
+        p#description Learning entails making a judgment call to validate or invalidate the original hypothesis based on objective measures of business value, system performance and customer feedback.
+        p#rate Please rate your team's ability to make strategic, ""pivot-or-persevere"" decisions based on empirical performance data and commitment to actively applying those insights to continuously improve the pipeline.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="1")
+        label.form-check-label(for='radio1') Features are never evaluated post-release.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="2")
+        label.form-check-label(for='radio1') Features are sometimes evaluated using subjective information and/or unilateral opinions.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="3")
+        label.form-check-label(for='radio1') Hypotheses are evaluated using objective measures but actions are heavily influenced by corporate politics.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="4")
+        label.form-check-label(for='radio1') Hypotheses are objectively evaluated; pivot or persevere decisions are made without mercy or guilt.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="5")
+        label.form-check-label(for='radio1') Continuous learning and experimentation are ingrained in the DNA of the organization.
+      br
+      input#saveandnext(type="button" value="Skicka in" disabled  onclick="answer_saveandsubmit(16)")
+      div#result
+block scripts 
+  script(src="/scripts/azurefunctions.js")

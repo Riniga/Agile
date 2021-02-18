@@ -1,0 +1,27 @@
+﻿extends ../templates/startpage.pug
+block content
+  main.inner(role='main')
+      h2.cover-heading Kontinuerligt utforska - Behovsinsamling
+      div.row
+        p#description Synthesizing involves combining the outputs of Hypothesize, Collaborate & Research and Architect to produce well-formed, prioritized features. These features then become the primary vehicle of value delivery through the remainder of the Continuous Delivery Pipeline
+        p#rate Bedöm teamets förmåga att kontinuerligt utforska och utveckla behov i backloggen 
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="1")
+        label.form-check-label(for='radio1') Det finns ingen backlog eller är inte delad
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="2")
+        label.form-check-label(for='radio1') Backlog finns men behov är inkompletta och inte prioriterade 
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="3")
+        label.form-check-label(for='radio1') Backlog innehåller fullt definerade behov, men är inte prioriterade enligt WSJF.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="4")
+        label.form-check-label(for='radio1') Backlog innehåller fullt definerade behov, är prioriterade enligt WSJF och justerad efter resurstillgänglighet.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="5")
+        label.form-check-label(for='radio1') Backlog ä ren uppsättning av Minimum Marketable Features skapde med BDD och prioriterade enligt WSJF.
+      br
+      input#saveandnext(type="button" value="Nästa >" disabled  onclick="answer_saveandnext(4, 'integrate1.html')")
+      div#result
+block scripts 
+  script(src="/scripts/azurefunctions.js")

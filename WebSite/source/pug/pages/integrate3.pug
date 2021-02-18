@@ -1,0 +1,27 @@
+﻿extends ../templates/startpage.pug
+block content
+  main.inner(role='main')
+      h2.cover-heading Integrerar kontinuerlig - Test End-To-End
+      div.row
+        p#description Testing involves validating feature-level functionality in production-like environments. This typically includes functional testing, integration testing, regression testing, performance testing and exploratory testing.
+        p#rate Bedöm leveransteamets förmåga att kontinuerligt testa i produktionslika förhållande.
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="1")
+        label.form-check-label(for='radio1') Testing is performed manually in environments that do not mimic production; testing occurs in large batches during a scheduled "testing" phase
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="2")
+        label.form-check-label(for='radio1') Testing is mostly manual in non-production-like environments; stories are implemented and tested independently within a single PI
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="3")
+        label.form-check-label(for='radio1') Half the testing is automated and performed in production-like, or production-simulated, environments every PI
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="4")
+        label.form-check-label(for='radio1') The majority of tests are automated and run in production-like environments; stories are implemented and fully tested every iteration
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="5")
+        label.form-check-label(for='radio1') Successful builds trigger automatic deployment to production-like test environments; all tests are automated; tests run in parallel and changes are fully validated after every commit
+      br
+      input#saveandnext(type="button" value="Nästa >" disabled onclick="answer_saveandnext(7, 'integrate4.html')")
+      div#result
+block scripts 
+  script(src="/scripts/azurefunctions.js")

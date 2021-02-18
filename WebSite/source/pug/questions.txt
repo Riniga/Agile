@@ -1,0 +1,144 @@
+h2 Kontinuerligt utforska - Lösningsorienterad
+p#description Affärsidéer (behov) skall uttryckas i termer av det affärsvärde den förväntas leverera. Denna implementeras sedan som en minsta värdefull (viable) produkt (MVP) som levereras och utvärderas i en kontinuerlig leverans
+p#rate Betygsätt teamets förmåga att översätta affärsidéer till tydliga och mätbara hypotesuttalanden (lösningsförslag).
+1. Idéer är vaga eller odefinierade
+2. Idéer är definierade men innehåller inga hypotesuttalanden
+3. Några Idéer (behov) är uttryckta med mätbara hypotesuttalanden 
+4. De flesta idéerna är utryckte med mätbara hypotesuttalanden och inkluderar en MVP
+5. Alla idéerna är utryckte med mätbara hypotesuttalanden och inkluderar en MVP
+
+h2 Kontinuerligt utforska - Samarbete & utforskande
+p#description Collaborate and Research involves Product Managers working directly with end-users, stakeholders and subject matter experts to understand customers' needs and identify specific business outcomes and associated metrics to guide solution delivery.
+p#rate Betygsätt processområdets förmåga att samarbeta tillsammans med verksamheten och med IT experter för att definiera Minimum Marketable Features (MMF) som stödjer hypotesuttalandet.  
+1. Roller och ansvar för processområdet är odefinierade eller följs inte.
+2. processområdet skapar behov I omgångar med lite samarbete mellan verksamhet och IT.
+3. Processområdet sammarbetar med verksamheten och IT exporter men inte med båda när man definerar behoven
+4. Processområdet samarbetar regelbundet med verksamheten och IT experter men skapar inte Minimum Marketable Features..
+5. Processområdet samarbetar alltid med verksamheten och IT experter och har definerat Minimum Marketable Features
+
+h2 Kontinuerligt utforska - Arkitektur
+p#description Architecting for continuous delivery involves applying ""just enough"" intentional architecture to assure policy compliance without sacrificing product development flow, to ensure solutions are loosely coupled and to continuously pay down technical debt.
+p#rate Bedöm teamets förmåga att utforma effektiv kontinuerlig leverans  
+1. Det är svårt att genomföra förändringar, det finns komplexa beroenden mellan många komponenter och system (Ömtåligt) 
+2. Vissa system separerade men det mesta är komplext och sammankopplat
+3. Det mesta är separerat men det tillåter inte ”Release vid behov”
+4. Få sammankopplade system och leveranser är baserat på att leverera värde 
+5. Arkitekturen är byggd för ”Release vid behov” och funktionalitet.
+
+h2 Kontinuerligt utforska - Behovsinsamling
+p#description Synthesizing involves combining the outputs of Hypothesize, Collaborate & Research and Architect to produce well-formed, prioritized features. These features then become the primary vehicle of value delivery through the remainder of the Continuous Delivery Pipeline
+p#rate Bedöm teamets förmåga att kontinuerligt utforska och utveckla behov i backloggen 
+1. Det finns ingen backlog eller är inte delad
+2. Backlog finns men behov är inkompletta och inte prioriterade 
+3. Backlog innehåller fullt definerade behov, men är inte prioriterade enligt WSJF.
+4. Backlog innehåller fullt definerade behov, är prioriterade enligt WSJF och justerad efter resurstillgänglighet.
+5. Backlog ä ren uppsättning av Minimum Marketable Features skapde med BDD och prioriterade enligt WSJF.
+
+h2 Integrerar kontinuerlig - Develop
+p#description Developing in the Continuous Delivery Pipeline involves splitting features into stories, implementing stories in vertical slices using Test-Driven Development (TDD), and committing changes to version control as they are made.
+p#rate Bedöm leveransteamens förmåga att snabbt och stabilt definiera och genomföra aktiviteter
+1. The team backlog does not exist or is not used to manage daily work.
+2. Stories are either incomplete or too verbose; unit tests are generally not written; peer reviews are not conducted.
+3. Stories are complete; most changes have unit tests; peer reviews are usually conducted.
+4. Code is checked in daily; unit test coverage is 80%+; peer reviews are always conducted.
+5. Code is checked in multiple times per day; tests are written before code (TDD); pair work and other Built-in quality practices are the norm.
+
+h2 Integrerar kontinuerlig - Build
+p#description Build is triggered at the moment of check-in and involves compiling, unit testing (and other forms of component-level validation), successfully merging to trunk/main, committing to the repository and producing deploy-able artifacts. 
+p#rate Bedöm leveransteamets att få ut saker bygga och få ut saker för test
+1. Builds are run fewer than once per iteration and/or are completely manual.
+2. Builds are run once per iteration and are partially automated; dev branches are open for a month or more; builds break often.
+3. Automated builds run once a day; broken builds are corrected in 2-4 hours; manual unit tests are run against each build; dev branches are open for 2-4 weeks.
+4. Builds run automatically upon code commit; broken builds are corrected within 1 hour; automated unit tests are run against each build; dev branches are merged to trunk every iteration. 
+5. Builds run on every commit; builds include static code analysis and security testing; gated commits prevent defects from entering the version control; dev branches are merged to trunk on every commit."
+
+h2 Integrerar kontinuerlig - Test End-To-End
+p#description Testing involves validating feature-level functionality in production-like environments. This typically includes functional testing, integration testing, regression testing, performance testing and exploratory testing.
+p#rate Bedöm leveransteamets förmåga att kontinuerligt testa i produktionslika förhållande.
+1. Testing is performed manually in environments that do not mimic production; testing occurs in large batches during a scheduled "testing" phase
+2. Testing is mostly manual in non-production-like environments; stories are implemented and tested independently within a single PI
+3. Half the testing is automated and performed in production-like, or production-simulated, environments every PI
+4. The majority of tests are automated and run in production-like environments; stories are implemented and fully tested every iteration
+5. Successful builds trigger automatic deployment to production-like test environments; all tests are automated; tests run in parallel and changes are fully validated after every commit
+
+h2 Integrerar kontinuerlig - Stage
+p#description Staging involves deploying features to a full copy of the production environment, from where they can be demonstrated to stakeholders, user acceptance tested and hosted for training purposes prior to production launch. 
+p#rate Please rate your team's ability to stage features in full production-like (non-test) environments for final validation prior to production deployment.
+1. Bedöm leveransteamets förmåga attverifiera funnktioner i helt produktionlik miljö (stage)
+2. No staging environment exists or we use a test environment for staging.
+3. Features are deployed manually to a staging environment once every PI.
+4. Features are deployed to a staging environment once per month and demonstrated to Product Management.
+5. Features and infrastructure are auto-deployed to a staging environment every iteration and accepted by Product Management.
+Stories, changes and infrastructure are auto-deployed to a staging environment, validated, and immediately proceed to deployment.
+
+h2 Kontinuerlig leverans - Deploy
+p#description Deployment is the actual migration of features into the production environment. Because the Continuous Delivery Pipeline separates deployment from release, deployed features are not assumed to be live to end users. 
+p#rate Please rate your team's ability to continuously deploy features to production as well as the ability to control their visibility using feature toggles and/or other means.
+1. Features are deployed to production every 3+ months; deployments are manual and painful; "deployed" implies "released".
+2. Features are deployed to production at PI boundaries; deployments are mostly manual; "deployed" implies "released".
+3. Features are deployed to production every iteration; deployments are mostly automated; some features can be deployed without being released.
+4. Features are deployed to production every iteration and fully automated through the pipeline; dark releases are common.
+5. Features  are deployed continuously throughout each iteration; Dev teams initiate deployments directly via pipeline tools; release is completely decoupled from deployment; dark releases are the norm.
+
+h2 Kontinuerlig leverans - Verifikation
+p#description Deployments must be verified for completeness and integrity before releasing to end users. 
+p#rate Please rate your team's ability to accurately determine deployment success or failure and ability to roll back or fix forward as appropriate to correct deployment issues.
+1. Deployments are not verified in production before being released to end users.
+2. Deployments are verified with manual smoke tests and/or UAT; we address deployment issues within a stated grace/triage/warranty period; we often correct issues directly in production.
+3. Deployments are verified with manual tests prior to releasing to end users; rolling back is painful or impossible; we do not make changes directly in production.
+4. Deployments are verified using automated smoke tests, synthetic transactions and penetration tests prior to release; we can easily roll back or fix forward to recover from failed deployments.
+5. Automated production tests run on an ongoing basis and feed monitoring systems; failed deployments can be rolled back instantly or fixed forward through the entire pipeline.
+
+h2 Kontinuerlig leverans - Övervakning
+p#description Monitoring implies that full-stack telemetry is active for all features deployed through the Continuous Delivery Pipeline so that system performance, end-user behavior, incidents and business value can be determined quickly and accurately in production.
+p#rate Please rate your team's effectiveness at monitoring the full solution stack (front end, middle tier, back end, infrastructure, etc.) and ability to analyze feature value based on these events.
+1. No feature level production monitoring exists; only infrastructure monitoring is in place.
+2. Features only log faults and exceptions; analyzing events involves manually correlating logs from multiple systems.
+3. Features log faults, user activity and other events; data is analyzed manually to investigate incidents and measure business value of features.
+4. Full-stack monitoring is in place; events can be correlated throughout the architecture; data is presented through system-specific dashboards.
+5. Federated monitoring platform provides one-stop access to full-stack insights; data is used to gauge system performance and business value.
+
+h2 Kontinuerlig leverans - Respond
+p#descriptionThe ability to detect and recover from unforeseen production incidents is critical to the Continuous Delivery Pipeline. 
+p#rate Please rate your team's effectiveness at proactively detecting high severity production issues, identifying root causes using monitoring systems and quickly resolving issues by building, testing and deploying fixes through the pipeline (versus applying changes directly in production).
+1. Customers find issues before we do; resolving high priority issues is time consuming and reactive; customers have low confidence in our ability to recover from production issues.
+2. Operations owns production issues; development involvement requires significant escalation; teams blame each other in times of crisis.
+3. Development and Operations collectively own the incident resolution process; recovering from major incidents is reactive but a team effort.
+4. Our monitoring systems detect most issues before our customers do; Dev and Ops work proactively to recover from major incidents.
+5. Our monitoring systems alert us to dangerous conditions based on carefully-designed tolerance thresholds; Developers are responsible for supporting their own code and proactively issue fixes through the pipeline before users are affected.
+
+h2 Release vid behov - Release
+p#description Releasing involves making deployed features available to end users. 
+p#rate Please rate your team's ability to release features to users on demand using feature toggles, blue/green environments, canary releases, etc.
+1. Releases are tightly coupled to deployments and customers are extremely dissatisfied with the frequency of releases.
+2. Releases are tightly coupled to deployments but customers are somewhat dissatisfied with the frequency of releases.
+3. Release and deployment are coupled but both occur continuously or on demand.
+4. Release is decoupled from deployment; deployed features are released to the end user population based on business readiness.
+5. Deployed features can be released to individual segments of the user population; feature toggles are refactored when no longer used.
+
+h2 Release vid behov - Stabilize
+p#description The Continuous Delivery Pipeline requires the production environment to be continually stable, reliable, available, supportable and secure.
+Please rate your team's effectiveness at maintaining stable solutions that avoid unplanned down time and security breaches.
+1. We experience frequent unplanned outages and/or security breaches with long recovery times.
+2. We experience occasional unplanned outages but recover within our service level agreements.
+3. We have very few unplanned outages; availability, security, and disaster recovery measures are effective.
+4. We have no unplanned outages; We plan and rehearse failure and recovery.
+5. We maximize resiliency by deliberately injecting faults into our production environment and rehearsing recovery procedures.
+
+h2 Release vid behov - Measure
+p#description Measurement involves collecting factual information about the value of a deployed feature and evaluating it against the original hypothesis statement.
+p#rate Please rate your team's ability to collect objective information about the actual value realized by deployed features so that it can inform strategic financial decisions.
+1. We don’t define or measure the value of features.
+2. We’ve defined what ‘value’ is but don’t know how to measure it.
+3. We capture qualitative feedback from the business about the value of our features. 
+4. We capture qualitative and quantitative feedback from the business and our monitoring systems about the value of our features.
+5. We aggregate the quantitative and qualitative feedback to objectively validate the original hypothesis and inform pivot-or-persevere decisions.
+
+h2 Release vid behov - Learn
+p#description Learning entails making a judgment call to validate or invalidate the original hypothesis based on objective measures of business value, system performance and customer feedback.
+p#rate Please rate your team's ability to make strategic, ""pivot-or-persevere"" decisions based on empirical performance data and commitment to actively applying those insights to continuously improve the pipeline.
+1. Features are never evaluated post-release.
+2. Features are sometimes evaluated using subjective information and/or unilateral opinions.
+3. Hypotheses are evaluated using objective measures but actions are heavily influenced by corporate politics.
+4. Hypotheses are objectively evaluated; pivot or persevere decisions are made without mercy or guilt.
+5. Continuous learning and experimentation are ingrained in the DNA of the organization.

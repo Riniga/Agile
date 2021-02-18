@@ -1,20 +1,27 @@
 ﻿extends ../templates/startpage.pug
 block content
   main.inner(role='main')
-      h2.cover-heading Kontinuerligt utforska - Fråga 1
+      h2.cover-heading Kontinuerligt utforska - Lösningsorienterad
       div.row
-        p Vad ....
-      
-      form.form-check
-        input#flexRadioDefault1.form-check-input(type='radio' name='flexRadioDefault')
-        label.form-check-label(for='flexRadioDefault1')
-          | Sitter
+        p#description Affärsidéer (behov) skall uttryckas i termer av det affärsvärde den förväntas leverera. Denna implementeras sedan som en minsta värdefull (viable) produkt (MVP) som levereras och utvärderas i en kontinuerlig leverans
+        p#rate Betygsätt teamets förmåga att översätta affärsidéer till tydliga och mätbara hypotesuttalanden (lösningsförslag).
       .form-check
-        input#flexRadioDefault2.form-check-input(type='radio' name='flexRadioDefault' checked='')
-        label.form-check-label(for='flexRadioDefault2')
-          | Kryper
-        br
-        input#saveandnext(type="button" value="Nästa >" onclick="saveAndNext()")
-        div#result
+        input#radio1.form-check-input(type='radio' name='answer' value="1")
+        label.form-check-label(for='radio1') Idéer är vaga eller odefinierade
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="2")
+        label.form-check-label(for='radio1') Idéer är definierade men innehåller inga hypotesuttalanden
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="3")
+        label.form-check-label(for='radio1') Några Idéer (behov) är uttryckta med mätbara hypotesuttalanden 
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="4")
+        label.form-check-label(for='radio1') De flesta idéerna är utryckte med mätbara hypotesuttalanden och inkluderar en MVP
+      .form-check
+        input#radio1.form-check-input(type='radio' name='answer' value="5")
+        label.form-check-label(for='radio1') Alla idéerna är utryckte med mätbara hypotesuttalanden och inkluderar en MVP
+      br
+      input#saveandnext(type="button" value="Nästa >" disabled onclick="answer_saveandnext(1, 'explore2.html')")
+      div#result
 block scripts 
   script(src="/scripts/azurefunctions.js")
