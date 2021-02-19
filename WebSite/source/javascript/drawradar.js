@@ -75,13 +75,13 @@ function DrawBlackDots(record)
       else average_all[i] = (average_all[i]+current)/2;
     }
   }
-  for (var i=0;i<16;i++)
-  {
-    context.beginPath();
-    context.arc(Math.floor(Math.random() * 400)+200 , Math.floor(Math.random() * 400)+200, 2, 0, Math.PI * 2, true);
-    context.fillStyle = "#000";
-    context.fill();
-  }
+  // for (var i=0;i<16;i++)
+  // {
+  //   context.beginPath();
+  //   context.arc(Math.floor(Math.random() * 400)+200 , Math.floor(Math.random() * 400)+200, 2, 0, Math.PI * 2, true);
+  //   context.fillStyle = "#000";
+  //   context.fill();
+  // }
 }
 
 GetResults();
