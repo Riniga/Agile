@@ -10,9 +10,11 @@ block content
       hr
       img#radarimage(src="/images/HealtRadarBackground.png" width="1px")
       canvas#thecanvas(width='800px' height='800px' style)
+      div#chart.absolute
       hr  
       div#result
 block scripts 
+  script(src="/scripts/apexcharts.min.js")
   script(src="/scripts/drawradar.js")
       
 
