@@ -54,6 +54,7 @@ function answer_saveandsubmit(id)
 function SaveAndRedirect(userresult, page)
 {
   localStorage.setItem('result', JSON.stringify(userresult) );
+  document.getElementById("spinner").removeAttribute('hidden');
   fetch(saveUrl, { method: 'POST', body: JSON.stringify(userresult)})
     .then(response => response.json())
     .then(id => {
@@ -61,6 +62,7 @@ function SaveAndRedirect(userresult, page)
       
       document.getElementById("result").innerHTML = "Saved!";
       window.location=page;
+      document.getElementById("spinner").setAttribute('hidden', '');
       
     });
 }

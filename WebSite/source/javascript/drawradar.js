@@ -11,8 +11,6 @@ function GetResults()
 
 function DrawDots(record)
 {
-  
-
   var canvas = document.getElementById("thecanvas");
   var context = canvas.getContext("2d");
   var image = new Image();
