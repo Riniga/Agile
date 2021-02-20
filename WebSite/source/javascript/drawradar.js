@@ -3,14 +3,20 @@ var average_all = []
 var all_answeres= [];
 for (var i=0;i<16;i++) all_answeres.push([0,0,0,0,0]);
 
-function DrawResults()
+function DrawResults(area, role)
 {
     DrawBackground();
     fetch(pageUrl, { method: 'GET'})
     .then(response => response.json())
     .then(data => {
-      data.forEach(record => CalculateAverages(record));
-      console.log(all_answeres);
+      data.forEach(record =>
+        {
+          console.log(role);
+          console.log(record.role);
+          if ((area) && (record.area==area)) CalculateAverages(record);
+          else if ((role) && (record.role==role)) CalculateAverages(record)
+          else if ((!area) && (!role)) CalculateAverages(record)
+        } );
       AddAveragePerSector();
       DrawRedDots();
       DrawBlackDots();
@@ -21,10 +27,12 @@ function DrawResultsDummy()
 {
   DrawBackground();
   var data = [];
-  data.push({id:"", area:"HR", role:"team", answers:[ Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5)]});
+  for (var i=0;i<10;i++)
+    data.push({id:"", area:"HR", role:"team", answers:[ Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5)]});
   data.forEach(record => CalculateAverages(record));
   AddAveragePerSector();
   DrawRedDots();
+  DrawBlackDots();
 }
 
 function CalculateAverages(record)
@@ -58,11 +66,22 @@ function AddAveragePerSector()
 
 function DrawBackground()
 {
-  var canvas = document.getElementById("thecanvas");
-  var context = canvas.getContext("2d");
   var image = new Image();
+  image.onload = function () 
+  { 
+    var canvas = document.getElementById("thecanvas");
+    var context = canvas.getContext("2d");
+    context.drawImage(image, 0, 0,800,800);
+    context.lineWidth = "1";
+    context.strokeStyle = "#ccc"; 
+    context.beginPath();
+    for (var i=1;i<6;i++) 
+    {
+      context.arc(400 , 400, 57*i, 0, Math.PI * 2, true);
+      context.stroke();
+    }
+  };
   image.src = '/images/HealtRadarBackground.png';
-  context.drawImage(image, 0, 0, 800,800);
 }
 
 function DrawRedDots()
@@ -100,12 +119,10 @@ function DrawRedDots()
 
 function DrawBlackDots()
 {
-  //TODO: Minor adjustments needed
-  var scale = 57;
   var dx=400;
   var dy=400;
   var dAngle = 0.1*Math.PI;
-  var angle = 0.01-Math.PI/2;
+  var angle = 0.0-Math.PI/2;
 
   var canvas = document.getElementById("thecanvas");
   var context = canvas.getContext("2d");
@@ -117,19 +134,19 @@ function DrawBlackDots()
     {
       var scale = 57*(j+1);
       var count = all_answeres[i][j]
-      var dAngle2 = count*Math.PI/10;
+      var dAngle2 = 0.1*Math.PI/(count+1);
       for (var k=0;k<count;k++)
       {
-        var x1 = scale * Math.cos(angle+count*dAngle2);
-        var y1 = scale * Math.sin(angle+count*dAngle2);
+        var x1 = scale * Math.cos(angle+(k+1)*dAngle2);
+        var y1 = scale * Math.sin(angle+(k+1)*dAngle2);
         context.beginPath();
         context.arc(x1+dx , y1+dy, 2, 0, Math.PI * 2, true);
         context.fill();
       }
     }
     angle += dAngle;
-    if(i%4==1) angle += dAngle;
+    if(i%4==3) angle += dAngle;
   }
 }
 
-DrawResults();
+DrawResults("","");
