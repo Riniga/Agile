@@ -58,12 +58,14 @@ function SaveAndRedirect(userresult, page)
   fetch(saveUrl, { method: 'POST', body: JSON.stringify(userresult)})
     .then(response => response.json())
     .then(id => {
-      if (userresult.id === "") userresult.id = id;
-      
+      if (userresult.id === "")
+      {
+        userresult.id = id;
+        localStorage.setItem('result', JSON.stringify(userresult) );
+      } 
       document.getElementById("result").innerHTML = "Saved!";
-      window.location=page;
       document.getElementById("spinner").setAttribute('hidden', '');
-      
+      window.location=page;
     });
 }
 
