@@ -1,6 +1,8 @@
 var pageUrl = "http://localhost:7071/api/GetAllHealthRadarResults";
 var average_all = []
 var all_answeres= [];
+var scale = 54;
+
 for (var i=0;i<16;i++) all_answeres.push([0,0,0,0,0]);
 
 function DrawResults(area, role)
@@ -77,7 +79,7 @@ function DrawBackground()
     context.beginPath();
     for (var i=1;i<6;i++) 
     {
-      context.arc(400 , 400, 57*i, 0, Math.PI * 2, true);
+      context.arc(400 , 400, scale*i, 0, Math.PI * 2, true);
       context.stroke();
     }
   };
@@ -86,7 +88,6 @@ function DrawBackground()
 
 function DrawRedDots()
 {
-  var scale = 57;
   var dx=400;
   var dy=400;
   var dAngle = 0.1*Math.PI
@@ -132,13 +133,13 @@ function DrawBlackDots()
   {
     for (var j=0;j<5;j++) 
     {
-      var scale = 57*(j+1);
+      var magnitude = scale*(j+1);
       var count = all_answeres[i][j]
       var dAngle2 = 0.1*Math.PI/(count+1);
       for (var k=0;k<count;k++)
       {
-        var x1 = scale * Math.cos(angle+(k+1)*dAngle2);
-        var y1 = scale * Math.sin(angle+(k+1)*dAngle2);
+        var x1 = magnitude * Math.cos(angle+(k+1)*dAngle2);
+        var y1 = magnitude * Math.sin(angle+(k+1)*dAngle2);
         context.beginPath();
         context.arc(x1+dx , y1+dy, 2, 0, Math.PI * 2, true);
         context.fill();
