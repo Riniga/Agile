@@ -1,29 +1,36 @@
 ﻿extends ../templates/startpage.pug
 block content
-      h2 Kontinuerligt utforska
-      h3 Arkitektur
+  section#content
+    div
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Kontinuerligt utforska 
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Arkitektur
       div.row
-        p#description Att arkitekturen möjliggör för kontinuerlig leverans innebär att man använder "tillräckligt" arkitektur för att säkerställa att lösningarna är löst kopplade, detta för att kontinuerligt kunna reducera teknisk skuld.
-        hr
-        h5#rate Bedöm teamets förmåga att utforma effektiv kontinuerlig leverans  
-      hr
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Sitter -  Det är svårt att genomföra förändringar, det finns komplexa beroenden mellan många komponenter och system (Ömtåligt) 
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Kryper - Vissa system separerade men det mesta är komplext och sammankopplat
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Går - Det mesta är separerat men det tillåter inte ”Release vid behov”
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Springer - Få sammankopplade system och leveranser är baserat på att leverera värde 
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Flyger - Arkitekturen är byggd för ”Release vid behov” och funktionalitet.
-      hr
-      input#saveandnext(type="button" value="Nästa >"  onclick="answer_saveandnext(3, 'explore4.html')")
-      div#result
-block scripts 
+        div.col-md-6
+          p#description Att arkitekturen möjliggör för kontinuerlig leverans innebär att man använder "tillräckligt" arkitektur för att säkerställa att lösningarna är löst kopplade, detta för att kontinuerligt kunna reducera teknisk skuld.
+          hr
+          h5#rate Bedöm teamets förmåga att utforma effektiv kontinuerlig leverans  
+          hr
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="1")
+            label.form-check-label(for='radio1') <b>Sitter</b> -   Det är svårt att genomföra förändringar, det finns komplexa beroenden mellan många komponenter och system (Ömtåligt) 
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="2")
+            label.form-check-label(for='radio1') <b>Kryper</b> -  Vissa system separerade men det mesta är komplext och sammankopplat
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="3")
+            label.form-check-label(for='radio1') <b>Går</b> -  Det mesta är separerat men det tillåter inte ”Release vid behov”
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="4")
+            label.form-check-label(for='radio1') <b>Springer</b> -  Få sammankopplade system och leveranser är baserat på att leverera värde 
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="5")
+            label.form-check-label(for='radio1') <b>Flyger</b> -  Arkitekturen är byggd för ”Release vid behov” och funktionalitet.
+
+          input#saveandnext(type="button" value="Nästa >" onclick="answer_saveandnext(3, 'explore4.html')")
+          div#result
+        div.col-md-6
+            p BILD
+block scripts
   script(src="/scripts/azurefunctions.js")

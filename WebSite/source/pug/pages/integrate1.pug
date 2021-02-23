@@ -1,30 +1,37 @@
 ﻿extends ../templates/startpage.pug
 block content
-      h2 Integrerar kontinuerlig
-      h3 Develop
+  section#content
+    div
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Integrerar kontinuerlig 
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Develop
       div.row
-        p#description Att utveckla med kontinuitet innebär att dela upp övergirpande funktioner i behov, implementera behoven i i aktiviteter med testdriven utveckling (TDD) samt göra versionshanterade förändringar.
-        p#des(hidden) Developing in the Continuous Delivery Pipeline involves splitting features into stories, implementing stories in vertical slices using Test-Driven Development (TDD), and committing changes to version control as they are made.
-        hr
-        h5#rate Bedöm leveransteamens förmåga att snabbt och stabilt definiera och genomföra aktiviteter
-      hr
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Sitter -  The team backlog does not exist or is not used to manage daily work.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Kryper - Stories are either incomplete or too verbose; unit tests are generally not written; peer reviews are not conducted.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Går - Stories are complete; most changes have unit tests; peer reviews are usually conducted.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Springer - Code is checked in daily; unit test coverage is 80%+; peer reviews are always conducted.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Flyger - Code is checked in multiple times per day; tests are written before code (TDD); pair work and other Built-in quality practices are the norm.
-      hr
-      input#saveandnext(type="button" value="Nästa >"  onclick="answer_saveandnext(5, 'integrate2.html')")
-      div#result
-block scripts 
+        div.col-md-6
+          p#description Att utveckla med kontinuitet innebär att dela upp övergirpande funktioner i behov, implementera behoven i i aktiviteter med testdriven utveckling (TDD) samt göra versionshanterade förändringar.
+          p#des(hidden) Developing in the Continuous Delivery Pipeline involves splitting features into stories, implementing stories in vertical slices using Test-Driven Development (TDD), and committing changes to version control as they are made.
+          hr
+          h5#rate Bedöm leveransteamens förmåga att snabbt och stabilt definiera och genomföra aktiviteter
+          hr
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="1")
+            label.form-check-label(for='radio1') <b>Sitter</b> -   The team backlog does not exist or is not used to manage daily work.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="2")
+            label.form-check-label(for='radio1') <b>Kryper</b> -  Stories are either incomplete or too verbose; unit tests are generally not written; peer reviews are not conducted.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="3")
+            label.form-check-label(for='radio1') <b>Går</b> -  Stories are complete; most changes have unit tests; peer reviews are usually conducted.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="4")
+            label.form-check-label(for='radio1') <b>Springer</b> -  Code is checked in daily; unit test coverage is 80%+; peer reviews are always conducted.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="5")
+            label.form-check-label(for='radio1') <b>Flyger</b> -  Code is checked in multiple times per day; tests are written before code (TDD); pair work and other Built-in quality practices are the norm.
+
+          input#saveandnext(type="button" value="Nästa >" onclick="answer_saveandnext(5, 'integrate2.html')")
+          div#result
+        div.col-md-6
+            p BILD
+block scripts
   script(src="/scripts/azurefunctions.js")

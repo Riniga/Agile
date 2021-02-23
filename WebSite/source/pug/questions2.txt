@@ -1,353 +1,589 @@
-      h2 Kontinuerligt utforska - Lösningsorienterad
+extends ../templates/startpage.pug
+block content
+  section#content
+    div
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Kontinuerligt utforska 
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Lösningsorienterad
       div.row
-        p#description Affärsidéer (behov) skall uttryckas i termer av det affärsvärde den förväntas leverera. Denna implementeras sedan som en minsta värdefull (viable) produkt (MVP) som levereras och utvärderas i en kontinuerlig leverans
-        hr
-        h5#rate Betygsätt teamets förmåga att översätta affärsidéer till tydliga och mätbara hypotesuttalanden (lösningsförslag).
-      hr
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Sitter -  Idéer är vaga eller odefinierade
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Kryper - Idéer är definierade men innehåller inga hypotesuttalanden
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Går - Några Idéer (behov) är uttryckta med mätbara hypotesuttalanden 
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Springer - De flesta idéerna är utryckte med mätbara hypotesuttalanden och inkluderar en MVP
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Flyger - Alla idéerna är utryckte med mätbara hypotesuttalanden och inkluderar en MVP
+        div.col-md-6
+          p#description Affärsidéer (behov) skall uttryckas i termer av det affärsvärde den förväntas leverera. Denna implementeras sedan som en minsta värdefull (viable) produkt (MVP) som levereras och utvärderas i en kontinuerlig leverans
+          hr
+          h5#rate Betygsätt teamets förmåga att översätta affärsidéer till tydliga och mätbara hypotesuttalanden (lösningsförslag).
+          hr
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="1")
+            label.form-check-label(for='radio1') Sitter -   Idéer är vaga eller odefinierade
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="2")
+            label.form-check-label(for='radio1') Kryper -  Idéer är definierade men innehåller inga hypotesuttalanden
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="3")
+            label.form-check-label(for='radio1') Går -  Några Idéer (behov) är uttryckta med mätbara hypotesuttalanden 
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="4")
+            label.form-check-label(for='radio1') Springer -  De flesta idéerna är utryckte med mätbara hypotesuttalanden och inkluderar en MVP
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="5")
+            label.form-check-label(for='radio1') Flyger -  Alla idéerna är utryckte med mätbara hypotesuttalanden och inkluderar en MVP
+          input#saveandnext(type="button" value="Nästa >" onclick="answer_saveandnext(1, 'explore2.html')")
+          div#result
+        div.col-md-6
+            p BILD
+block scripts
+  script(src="/scripts/azurefunctions.js")
 
-      h2 Kontinuerligt utforska - Samarbete & utforskande
+extends ../templates/startpage.pug
+block content
+  section#content
+    div
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Kontinuerligt utforska 
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Samarbete & utforskande
       div.row
-        p#description Collaborate and Research involves Product Managers working directly with end-users, stakeholders and subject matter experts to understand customers' needs and identify specific business outcomes and associated metrics to guide solution delivery.
-        hr
-        h5#rate Betygsätt processområdets förmåga att samarbeta tillsammans med verksamheten och med IT experter för att definiera Minimum Marketable Features (MMF) som stödjer hypotesuttalandet.  
-      hr
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Sitter -  Roller och ansvar för processområdet är odefinierade eller följs inte.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Kryper - processområdet skapar behov I omgångar med lite samarbete mellan verksamhet och IT.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Går - Processområdet sammarbetar med verksamheten och IT exporter men inte med båda när man definerar behoven
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Springer - Processområdet samarbetar regelbundet med verksamheten och IT experter men skapar inte Minimum Marketable Features..
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Flyger - Processområdet samarbetar alltid med verksamheten och IT experter och har definerat Minimum Marketable Features
+        div.col-md-6
+          p#description Collaborate and Research involves Product Managers working directly with end-users, stakeholders and subject matter experts to understand customers' needs and identify specific business outcomes and associated metrics to guide solution delivery.
+          hr
+          h5#rate Betygsätt processområdets förmåga att samarbeta tillsammans med verksamheten och med IT experter för att definiera Minimum Marketable Features (MMF) som stödjer hypotesuttalandet.  
+          hr
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="1")
+            label.form-check-label(for='radio1') Sitter -   Roller och ansvar för processområdet är odefinierade eller följs inte.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="2")
+            label.form-check-label(for='radio1') Kryper -  processområdet skapar behov I omgångar med lite samarbete mellan verksamhet och IT.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="3")
+            label.form-check-label(for='radio1') Går -  Processområdet sammarbetar med verksamheten och IT exporter men inte med båda när man definerar behoven
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="4")
+            label.form-check-label(for='radio1') Springer -  Processområdet samarbetar regelbundet med verksamheten och IT experter men skapar inte Minimum Marketable Features..
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="5")
+            label.form-check-label(for='radio1') Flyger -  Processområdet samarbetar alltid med verksamheten och IT experter och har definerat Minimum Marketable Features
 
-      h2 Kontinuerligt utforska - Arkitektur
-      div.row
-        p#description Architecting for continuous delivery involves applying ""just enough"" intentional architecture to assure policy compliance without sacrificing product development flow, to ensure solutions are loosely coupled and to continuously pay down technical debt.
-        hr
-        h5#rate Bedöm teamets förmåga att utforma effektiv kontinuerlig leverans  
-      hr
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Sitter -  Det är svårt att genomföra förändringar, det finns komplexa beroenden mellan många komponenter och system (Ömtåligt) 
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Kryper - Vissa system separerade men det mesta är komplext och sammankopplat
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Går - Det mesta är separerat men det tillåter inte ”Release vid behov”
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Springer - Få sammankopplade system och leveranser är baserat på att leverera värde 
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Flyger - Arkitekturen är byggd för ”Release vid behov” och funktionalitet.
+          input#saveandnext(type="button" value="Nästa >" onclick="answer_saveandnext(1, 'explore2.html')")
+          div#result
+        div.col-md-6
+            p BILD
+block scripts
+  script(src="/scripts/azurefunctions.js")
 
-      h2 Kontinuerligt utforska - Behovsinsamling
+extends ../templates/startpage.pug
+block content
+  section#content
+    div
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Kontinuerligt utforska 
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Arkitektur
       div.row
-        p#description Synthesizing involves combining the outputs of Hypothesize, Collaborate & Research and Architect to produce well-formed, prioritized features. These features then become the primary vehicle of value delivery through the remainder of the Continuous Delivery Pipeline
-        hr
-        h5#rate Bedöm teamets förmåga att kontinuerligt utforska och utveckla behov i backloggen 
-      hr
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Sitter -  Det finns ingen backlog eller är inte delad
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Kryper - Backlog finns men behov är inkompletta och inte prioriterade 
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Går - Backlog innehåller fullt definerade behov, men är inte prioriterade enligt WSJF.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Springer - Backlog innehåller fullt definerade behov, är prioriterade enligt WSJF och justerad efter resurstillgänglighet.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Flyger - Backlog ä ren uppsättning av Minimum Marketable Features skapde med BDD och prioriterade enligt WSJF.
+        div.col-md-6
+          p#description Architecting for continuous delivery involves applying ""just enough"" intentional architecture to assure policy compliance without sacrificing product development flow, to ensure solutions are loosely coupled and to continuously pay down technical debt.
+          hr
+          h5#rate Bedöm teamets förmåga att utforma effektiv kontinuerlig leverans  
+          hr
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="1")
+            label.form-check-label(for='radio1') Sitter -   Det är svårt att genomföra förändringar, det finns komplexa beroenden mellan många komponenter och system (Ömtåligt) 
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="2")
+            label.form-check-label(for='radio1') Kryper -  Vissa system separerade men det mesta är komplext och sammankopplat
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="3")
+            label.form-check-label(for='radio1') Går -  Det mesta är separerat men det tillåter inte ”Release vid behov”
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="4")
+            label.form-check-label(for='radio1') Springer -  Få sammankopplade system och leveranser är baserat på att leverera värde 
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="5")
+            label.form-check-label(for='radio1') Flyger -  Arkitekturen är byggd för ”Release vid behov” och funktionalitet.
 
-      h2 Integrerar kontinuerlig - Develop
-      div.row
-        p#description Developing in the Continuous Delivery Pipeline involves splitting features into stories, implementing stories in vertical slices using Test-Driven Development (TDD), and committing changes to version control as they are made.
-        hr
-        h5#rate Bedöm leveransteamens förmåga att snabbt och stabilt definiera och genomföra aktiviteter
-      hr
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Sitter -  The team backlog does not exist or is not used to manage daily work.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Kryper - Stories are either incomplete or too verbose; unit tests are generally not written; peer reviews are not conducted.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Går - Stories are complete; most changes have unit tests; peer reviews are usually conducted.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Springer - Code is checked in daily; unit test coverage is 80%+; peer reviews are always conducted.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Flyger - Code is checked in multiple times per day; tests are written before code (TDD); pair work and other Built-in quality practices are the norm.
+          input#saveandnext(type="button" value="Nästa >" onclick="answer_saveandnext(1, 'explore2.html')")
+          div#result
+        div.col-md-6
+            p BILD
+block scripts
+  script(src="/scripts/azurefunctions.js")
 
-      h2 Integrerar kontinuerlig - Build
+extends ../templates/startpage.pug
+block content
+  section#content
+    div
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Kontinuerligt utforska 
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Behovsinsamling
       div.row
-        p#description Build is triggered at the moment of check-in and involves compiling, unit testing (and other forms of component-level validation), successfully merging to trunk/main, committing to the repository and producing deploy-able artifacts. 
-        hr
-        h5#rate Bedöm leveransteamets att få ut saker bygga och få ut saker för test
-      hr
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Sitter -  Builds are run fewer than once per iteration and/or are completely manual.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Kryper - Builds are run once per iteration and are partially automated; dev branches are open for a month or more; builds break often.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Går - Automated builds run once a day; broken builds are corrected in 2-4 hours; manual unit tests are run against each build; dev branches are open for 2-4 weeks.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Springer - Builds run automatically upon code commit; broken builds are corrected within 1 hour; automated unit tests are run against each build; dev branches are merged to trunk every iteration. 
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Flyger - Builds run on every commit; builds include static code analysis and security testing; gated commits prevent defects from entering the version control; dev branches are merged to trunk on every commit."
+        div.col-md-6
+          p#description Synthesizing involves combining the outputs of Hypothesize, Collaborate & Research and Architect to produce well-formed, prioritized features. These features then become the primary vehicle of value delivery through the remainder of the Continuous Delivery Pipeline
+          hr
+          h5#rate Bedöm teamets förmåga att kontinuerligt utforska och utveckla behov i backloggen 
+          hr
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="1")
+            label.form-check-label(for='radio1') Sitter -   Det finns ingen backlog eller är inte delad
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="2")
+            label.form-check-label(for='radio1') Kryper -  Backlog finns men behov är inkompletta och inte prioriterade 
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="3")
+            label.form-check-label(for='radio1') Går -  Backlog innehåller fullt definerade behov, men är inte prioriterade enligt WSJF.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="4")
+            label.form-check-label(for='radio1') Springer -  Backlog innehåller fullt definerade behov, är prioriterade enligt WSJF och justerad efter resurstillgänglighet.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="5")
+            label.form-check-label(for='radio1') Flyger -  Backlog ä ren uppsättning av Minimum Marketable Features skapde med BDD och prioriterade enligt WSJF.
 
-      h2 Integrerar kontinuerlig - Test End-To-End
-      div.row
-        p#description Testing involves validating feature-level functionality in production-like environments. This typically includes functional testing, integration testing, regression testing, performance testing and exploratory testing.
-        hr
-        h5#rate Bedöm leveransteamets förmåga att kontinuerligt testa i produktionslika förhållande.
-      hr
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Sitter -  Testing is performed manually in environments that do not mimic production; testing occurs in large batches during a scheduled "testing" phase
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Kryper - Testing is mostly manual in non-production-like environments; stories are implemented and tested independently within a single PI
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Går - Half the testing is automated and performed in production-like, or production-simulated, environments every PI
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Springer - The majority of tests are automated and run in production-like environments; stories are implemented and fully tested every iteration
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Flyger - Successful builds trigger automatic deployment to production-like test environments; all tests are automated; tests run in parallel and changes are fully validated after every commit
+          input#saveandnext(type="button" value="Nästa >" onclick="answer_saveandnext(1, 'explore2.html')")
+          div#result
+        div.col-md-6
+            p BILD
+block scripts
+  script(src="/scripts/azurefunctions.js")
 
-      h2 Integrerar kontinuerlig - Stage
+extends ../templates/startpage.pug
+block content
+  section#content
+    div
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Integrerar kontinuerlig 
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Develop
       div.row
-        p#description Staging involves deploying features to a full copy of the production environment, from where they can be demonstrated to stakeholders, user acceptance tested and hosted for training purposes prior to production launch. 
-        hr
-        h5#rate Please rate your team's ability to stage features in full production-like (non-test) environments for final validation prior to production deployment.
-      hr
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Sitter -  Bedöm leveransteamets förmåga attverifiera funnktioner i helt produktionlik miljö (stage)
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Kryper - No staging environment exists or we use a test environment for staging.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Går - Features are deployed manually to a staging environment once every PI.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Springer - Features are deployed to a staging environment once per month and demonstrated to Product Management.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Flyger - Features and infrastructure are auto-deployed to a staging environment every iteration and accepted by Product Management.
-      Stories, changes and infrastructure are auto-deployed to a staging environment, validated, and immediately proceed to deployment.
+        div.col-md-6
+          p#description Developing in the Continuous Delivery Pipeline involves splitting features into stories, implementing stories in vertical slices using Test-Driven Development (TDD), and committing changes to version control as they are made.
+          hr
+          h5#rate Bedöm leveransteamens förmåga att snabbt och stabilt definiera och genomföra aktiviteter
+          hr
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="1")
+            label.form-check-label(for='radio1') Sitter -   The team backlog does not exist or is not used to manage daily work.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="2")
+            label.form-check-label(for='radio1') Kryper -  Stories are either incomplete or too verbose; unit tests are generally not written; peer reviews are not conducted.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="3")
+            label.form-check-label(for='radio1') Går -  Stories are complete; most changes have unit tests; peer reviews are usually conducted.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="4")
+            label.form-check-label(for='radio1') Springer -  Code is checked in daily; unit test coverage is 80%+; peer reviews are always conducted.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="5")
+            label.form-check-label(for='radio1') Flyger -  Code is checked in multiple times per day; tests are written before code (TDD); pair work and other Built-in quality practices are the norm.
 
-      h2 Kontinuerlig leverans - Deploy
-      div.row
-        p#description Deployment is the actual migration of features into the production environment. Because the Continuous Delivery Pipeline separates deployment from release, deployed features are not assumed to be live to end users. 
-        hr
-        h5#rate Please rate your team's ability to continuously deploy features to production as well as the ability to control their visibility using feature toggles and/or other means.
-      hr
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Sitter -  Features are deployed to production every .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Går - months; deployments are manual and painful; "deployed" implies "released".
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Kryper - Features are deployed to production at PI boundaries; deployments are mostly manual; "deployed" implies "released".
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Går - Features are deployed to production every iteration; deployments are mostly automated; some features can be deployed without being released.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Springer - Features are deployed to production every iteration and fully automated through the pipeline; dark releases are common.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Flyger - Features  are deployed continuously throughout each iteration; Dev teams initiate deployments directly via pipeline tools; release is completely decoupled from deployment; dark releases are the norm.
+          input#saveandnext(type="button" value="Nästa >" onclick="answer_saveandnext(1, 'explore2.html')")
+          div#result
+        div.col-md-6
+            p BILD
+block scripts
+  script(src="/scripts/azurefunctions.js")
 
-      h2 Kontinuerlig leverans - Verifikation
+extends ../templates/startpage.pug
+block content
+  section#content
+    div
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Integrerar kontinuerlig 
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Build
       div.row
-        p#description Deployments must be verified for completeness and integrity before releasing to end users. 
-        hr
-        h5#rate Please rate your team's ability to accurately determine deployment success or failure and ability to roll back or fix forward as appropriate to correct deployment issues.
-      hr
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Sitter -  Deployments are not verified in production before being released to end users.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Kryper - Deployments are verified with manual smoke tests and/or UAT; we address deployment issues within a stated grace/triage/warranty period; we often correct issues directly in production.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Går - Deployments are verified with manual tests prior to releasing to end users; rolling back is painful or impossible; we do not make changes directly in production.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Springer - Deployments are verified using automated smoke tests, synthetic transactions and penetration tests prior to release; we can easily roll back or fix forward to recover from failed deployments.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Flyger - Automated production tests run on an ongoing basis and feed monitoring systems; failed deployments can be rolled back instantly or fixed forward through the entire pipeline.
+        div.col-md-6
+          p#description Build is triggered at the moment of check-in and involves compiling, unit testing (and other forms of component-level validation), successfully merging to trunk/main, committing to the repository and producing deploy-able artifacts. 
+          hr
+          h5#rate Bedöm leveransteamets att få ut saker bygga och få ut saker för test
+          hr
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="1")
+            label.form-check-label(for='radio1') Sitter -   Builds are run fewer than once per iteration and/or are completely manual.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="2")
+            label.form-check-label(for='radio1') Kryper -  Builds are run once per iteration and are partially automated; dev branches are open for a month or more; builds break often.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="3")
+            label.form-check-label(for='radio1') Går -  Automated builds run once a day; broken builds are corrected in 2-4 hours; manual unit tests are run against each build; dev branches are open for 2-4 weeks.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="4")
+            label.form-check-label(for='radio1') Springer -  Builds run automatically upon code commit; broken builds are corrected within 1 hour; automated unit tests are run against each build; dev branches are merged to trunk every iteration. 
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="5")
+            label.form-check-label(for='radio1') Flyger -  Builds run on every commit; builds include static code analysis and security testing; gated commits prevent defects from entering the version control; dev branches are merged to trunk on every commit."
 
-      h2 Kontinuerlig leverans - Övervakning
-      div.row
-        p#description Monitoring implies that full-stack telemetry is active for all features deployed through the Continuous Delivery Pipeline so that system performance, end-user behavior, incidents and business value can be determined quickly and accurately in production.
-        hr
-        h5#rate Please rate your team's effectiveness at monitoring the full solution stack (front end, middle tier, back end, infrastructure, etc.) and ability to analyze feature value based on these events.
-      hr
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Sitter -  No feature level production monitoring exists; only infrastructure monitoring is in place.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Kryper - Features only log faults and exceptions; analyzing events involves manually correlating logs from multiple systems.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Går - Features log faults, user activity and other events; data is analyzed manually to investigate incidents and measure business value of features.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Springer - Full-stack monitoring is in place; events can be correlated throughout the architecture; data is presented through system-specific dashboards.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Flyger - Federated monitoring platform provides one-stop access to full-stack insights; data is used to gauge system performance and business value.
+          input#saveandnext(type="button" value="Nästa >" onclick="answer_saveandnext(1, 'explore2.html')")
+          div#result
+        div.col-md-6
+            p BILD
+block scripts
+  script(src="/scripts/azurefunctions.js")
 
-      h2 Kontinuerlig leverans - Respond
+extends ../templates/startpage.pug
+block content
+  section#content
+    div
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Integrerar kontinuerlig 
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Test End-To-End
       div.row
-        p#descriptionThe ability to detect and recover from unforeseen production incidents is critical to the Continuous Delivery Pipeline. 
-        hr
-        h5#rate Please rate your team's effectiveness at proactively detecting high severity production issues, identifying root causes using monitoring systems and quickly resolving issues by building, testing and deploying fixes through the pipeline (versus applying changes directly in production).
-      hr
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Sitter -  Customers find issues before we do; resolving high priority issues is time consuming and reactive; customers have low confidence in our ability to recover from production issues.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Kryper - Operations owns production issues; development involvement requires significant escalation; teams blame each other in times of crisis.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Går - Development and Operations collectively own the incident resolution process; recovering from major incidents is reactive but a team effort.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Springer - Our monitoring systems detect most issues before our customers do; Dev and Ops work proactively to recover from major incidents.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Flyger - Our monitoring systems alert us to dangerous conditions based on carefully-designed tolerance thresholds; Developers are responsible for supporting their own code and proactively issue fixes through the pipeline before users are affected.
+        div.col-md-6
+          p#description Testing involves validating feature-level functionality in production-like environments. This typically includes functional testing, integration testing, regression testing, performance testing and exploratory testing.
+          hr
+          h5#rate Bedöm leveransteamets förmåga att kontinuerligt testa i produktionslika förhållande.
+          hr
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="1")
+            label.form-check-label(for='radio1') Sitter -   Testing is performed manually in environments that do not mimic production; testing occurs in large batches during a scheduled "testing" phase
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="2")
+            label.form-check-label(for='radio1') Kryper -  Testing is mostly manual in non-production-like environments; stories are implemented and tested independently within a single PI
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="3")
+            label.form-check-label(for='radio1') Går -  Half the testing is automated and performed in production-like, or production-simulated, environments every PI
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="4")
+            label.form-check-label(for='radio1') Springer -  The majority of tests are automated and run in production-like environments; stories are implemented and fully tested every iteration
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="5")
+            label.form-check-label(for='radio1') Flyger -  Successful builds trigger automatic deployment to production-like test environments; all tests are automated; tests run in parallel and changes are fully validated after every commit
 
-      h2 Release vid behov - Release
-      div.row
-        p#description Releasing involves making deployed features available to end users. 
-        hr
-        h5#rate Please rate your team's ability to release features to users on demand using feature toggles, blue/green environments, canary releases, etc.
-      hr
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Sitter -  Releases are tightly coupled to deployments and customers are extremely dissatisfied with the frequency of releases.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Kryper - Releases are tightly coupled to deployments but customers are somewhat dissatisfied with the frequency of releases.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Går - Release and deployment are coupled but both occur continuously or on demand.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Springer - Release is decoupled from deployment; deployed features are released to the end user population based on business readiness.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Flyger - Deployed features can be released to individual segments of the user population; feature toggles are refactored when no longer used.
+          input#saveandnext(type="button" value="Nästa >" onclick="answer_saveandnext(1, 'explore2.html')")
+          div#result
+        div.col-md-6
+            p BILD
+block scripts
+  script(src="/scripts/azurefunctions.js")
 
-      h2 Release vid behov - Stabilize
+extends ../templates/startpage.pug
+block content
+  section#content
+    div
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Integrerar kontinuerlig 
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Stage
       div.row
-        p#description The Continuous Delivery Pipeline requires the production environment to be continually stable, reliable, available, supportable and secure.
-      Please rate your team's effectiveness at maintaining stable solutions that avoid unplanned down time and security breaches.
-      hr
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Sitter -  We experience frequent unplanned outages and/or security breaches with long recovery times.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Kryper - We experience occasional unplanned outages but recover within our service level agreements.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Går - We have very few unplanned outages; availability, security, and disaster recovery measures are effective.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Springer - We have no unplanned outages; We plan and rehearse failure and recovery.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Flyger - We maximize resiliency by deliberately injecting faults into our production environment and rehearsing recovery procedures.
+        div.col-md-6
+          p#description Staging involves deploying features to a full copy of the production environment, from where they can be demonstrated to stakeholders, user acceptance tested and hosted for training purposes prior to production launch. 
+          hr
+          h5#rate Please rate your team's ability to stage features in full production-like (non-test) environments for final validation prior to production deployment.
+          hr
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="1")
+            label.form-check-label(for='radio1') Sitter -   Bedöm leveransteamets förmåga attverifiera funnktioner i helt produktionlik miljö (stage)
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="2")
+            label.form-check-label(for='radio1') Kryper -  No staging environment exists or we use a test environment for staging.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="3")
+            label.form-check-label(for='radio1') Går -  Features are deployed manually to a staging environment once every PI.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="4")
+            label.form-check-label(for='radio1') Springer -  Features are deployed to a staging environment once per month and demonstrated to Product Management.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="5")
+            label.form-check-label(for='radio1') Flyger -  Features and infrastructure are auto-deployed to a staging environment every iteration and accepted by Product Management. Stories, changes and infrastructure are auto-deployed to a staging environment, validated, and immediately proceed to deployment.
+          input#saveandnext(type="button" value="Nästa >" onclick="answer_saveandnext(1, 'explore2.html')")
+          div#result
+        div.col-md-6
+            p BILD
+block scripts
+  script(src="/scripts/azurefunctions.js")
 
-      h2 Release vid behov - Measure
+extends ../templates/startpage.pug
+block content
+  section#content
+    div
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Kontinuerlig leverans 
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Deploy
       div.row
-        p#description Measurement involves collecting factual information about the value of a deployed feature and evaluating it against the original hypothesis statement.
-        hr
-        h5#rate Please rate your team's ability to collect objective information about the actual value realized by deployed features so that it can inform strategic financial decisions.
-      hr
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Sitter -  We don’t define or measure the value of features.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Kryper - We’ve defined what ‘value’ is but don’t know how to measure it.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Går - We capture qualitative feedback from the business about the value of our features. 
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Springer - We capture qualitative and quantitative feedback from the business and our monitoring systems about the value of our features.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Flyger - We aggregate the quantitative and qualitative feedback to objectively validate the original hypothesis and inform pivot-or-persevere decisions.
+        div.col-md-6
+          p#description Deployment is the actual migration of features into the production environment. Because the Continuous Delivery Pipeline separates deployment from release, deployed features are not assumed to be live to end users. 
+          hr
+          h5#rate Please rate your team's ability to continuously deploy features to production as well as the ability to control their visibility using feature toggles and/or other means.
+          hr
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="1")
+            label.form-check-label(for='radio1') Sitter -   Features are deployed to production every .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="3")
+            label.form-check-label(for='radio1') Går -  months; deployments are manual and painful; "deployed" implies "released".
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="2")
+            label.form-check-label(for='radio1') Kryper -  Features are deployed to production at PI boundaries; deployments are mostly manual; "deployed" implies "released".
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="3")
+            label.form-check-label(for='radio1') Går -  Features are deployed to production every iteration; deployments are mostly automated; some features can be deployed without being released.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="4")
+            label.form-check-label(for='radio1') Springer -  Features are deployed to production every iteration and fully automated through the pipeline; dark releases are common.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="5")
+            label.form-check-label(for='radio1') Flyger -  Features  are deployed continuously throughout each iteration; Dev teams initiate deployments directly via pipeline tools; release is completely decoupled from deployment; dark releases are the norm.
 
-      h2 Release vid behov - Learn
+          input#saveandnext(type="button" value="Nästa >" onclick="answer_saveandnext(1, 'explore2.html')")
+          div#result
+        div.col-md-6
+            p BILD
+block scripts
+  script(src="/scripts/azurefunctions.js")
+
+extends ../templates/startpage.pug
+block content
+  section#content
+    div
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Kontinuerlig leverans 
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Verifikation
       div.row
-        p#description Learning entails making a judgment call to validate or invalidate the original hypothesis based on objective measures of business value, system performance and customer feedback.
-        hr
-        h5#rate Please rate your team's ability to make strategic, ""pivot-or-persevere"" decisions based on empirical performance data and commitment to actively applying those insights to continuously improve the pipeline.
-      hr
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Sitter -  Features are never evaluated post-release.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Kryper - Features are sometimes evaluated using subjective information and/or unilateral opinions.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Går - Hypotheses are evaluated using objective measures but actions are heavily influenced by corporate politics.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Springer - Hypotheses are objectively evaluated; pivot or persevere decisions are made without mercy or guilt.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Flyger - Continuous learning and experimentation are ingrained in the DNA of the organization.
+        div.col-md-6
+          p#description Deployments must be verified for completeness and integrity before releasing to end users. 
+          hr
+          h5#rate Please rate your team's ability to accurately determine deployment success or failure and ability to roll back or fix forward as appropriate to correct deployment issues.
+          hr
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="1")
+            label.form-check-label(for='radio1') Sitter -   Deployments are not verified in production before being released to end users.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="2")
+            label.form-check-label(for='radio1') Kryper -  Deployments are verified with manual smoke tests and/or UAT; we address deployment issues within a stated grace/triage/warranty period; we often correct issues directly in production.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="3")
+            label.form-check-label(for='radio1') Går -  Deployments are verified with manual tests prior to releasing to end users; rolling back is painful or impossible; we do not make changes directly in production.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="4")
+            label.form-check-label(for='radio1') Springer -  Deployments are verified using automated smoke tests, synthetic transactions and penetration tests prior to release; we can easily roll back or fix forward to recover from failed deployments.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="5")
+            label.form-check-label(for='radio1') Flyger -  Automated production tests run on an ongoing basis and feed monitoring systems; failed deployments can be rolled back instantly or fixed forward through the entire pipeline.
+
+          input#saveandnext(type="button" value="Nästa >" onclick="answer_saveandnext(1, 'explore2.html')")
+          div#result
+        div.col-md-6
+            p BILD
+block scripts
+  script(src="/scripts/azurefunctions.js")
+
+extends ../templates/startpage.pug
+block content
+  section#content
+    div
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Kontinuerlig leverans 
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Övervakning
+      div.row
+        div.col-md-6
+          p#description Monitoring implies that full-stack telemetry is active for all features deployed through the Continuous Delivery Pipeline so that system performance, end-user behavior, incidents and business value can be determined quickly and accurately in production.
+          hr
+          h5#rate Please rate your team's effectiveness at monitoring the full solution stack (front end, middle tier, back end, infrastructure, etc.) and ability to analyze feature value based on these events.
+          hr
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="1")
+            label.form-check-label(for='radio1') Sitter -   No feature level production monitoring exists; only infrastructure monitoring is in place.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="2")
+            label.form-check-label(for='radio1') Kryper -  Features only log faults and exceptions; analyzing events involves manually correlating logs from multiple systems.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="3")
+            label.form-check-label(for='radio1') Går -  Features log faults, user activity and other events; data is analyzed manually to investigate incidents and measure business value of features.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="4")
+            label.form-check-label(for='radio1') Springer -  Full-stack monitoring is in place; events can be correlated throughout the architecture; data is presented through system-specific dashboards.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="5")
+            label.form-check-label(for='radio1') Flyger -  Federated monitoring platform provides one-stop access to full-stack insights; data is used to gauge system performance and business value.
+
+          input#saveandnext(type="button" value="Nästa >" onclick="answer_saveandnext(1, 'explore2.html')")
+          div#result
+        div.col-md-6
+            p BILD
+block scripts
+  script(src="/scripts/azurefunctions.js")
+
+extends ../templates/startpage.pug
+block content
+  section#content
+    div
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Kontinuerlig leverans 
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Respond
+      div.row
+        div.col-md-6
+          p#descriptionThe ability to detect and recover from unforeseen production incidents is critical to the Continuous Delivery Pipeline. 
+          hr
+          h5#rate Please rate your team's effectiveness at proactively detecting high severity production issues, identifying root causes using monitoring systems and quickly resolving issues by building, testing and deploying fixes through the pipeline (versus applying changes directly in production).
+          hr
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="1")
+            label.form-check-label(for='radio1') Sitter -   Customers find issues before we do; resolving high priority issues is time consuming and reactive; customers have low confidence in our ability to recover from production issues.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="2")
+            label.form-check-label(for='radio1') Kryper -  Operations owns production issues; development involvement requires significant escalation; teams blame each other in times of crisis.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="3")
+            label.form-check-label(for='radio1') Går -  Development and Operations collectively own the incident resolution process; recovering from major incidents is reactive but a team effort.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="4")
+            label.form-check-label(for='radio1') Springer -  Our monitoring systems detect most issues before our customers do; Dev and Ops work proactively to recover from major incidents.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="5")
+            label.form-check-label(for='radio1') Flyger -  Our monitoring systems alert us to dangerous conditions based on carefully-designed tolerance thresholds; Developers are responsible for supporting their own code and proactively issue fixes through the pipeline before users are affected.
+
+          input#saveandnext(type="button" value="Nästa >" onclick="answer_saveandnext(1, 'explore2.html')")
+          div#result
+        div.col-md-6
+            p BILD
+block scripts
+  script(src="/scripts/azurefunctions.js")
+
+extends ../templates/startpage.pug
+block content
+  section#content
+    div
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Release vid behov 
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Release
+      div.row
+        div.col-md-6
+          p#description Releasing involves making deployed features available to end users. 
+          hr
+          h5#rate Please rate your team's ability to release features to users on demand using feature toggles, blue/green environments, canary releases, etc.
+          hr
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="1")
+            label.form-check-label(for='radio1') Sitter -   Releases are tightly coupled to deployments and customers are extremely dissatisfied with the frequency of releases.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="2")
+            label.form-check-label(for='radio1') Kryper -  Releases are tightly coupled to deployments but customers are somewhat dissatisfied with the frequency of releases.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="3")
+            label.form-check-label(for='radio1') Går -  Release and deployment are coupled but both occur continuously or on demand.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="4")
+            label.form-check-label(for='radio1') Springer -  Release is decoupled from deployment; deployed features are released to the end user population based on business readiness.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="5")
+            label.form-check-label(for='radio1') Flyger -  Deployed features can be released to individual segments of the user population; feature toggles are refactored when no longer used.
+
+          input#saveandnext(type="button" value="Nästa >" onclick="answer_saveandnext(1, 'explore2.html')")
+          div#result
+        div.col-md-6
+            p BILD
+block scripts
+  script(src="/scripts/azurefunctions.js")
+
+extends ../templates/startpage.pug
+block content
+  section#content
+    div
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Release vid behov 
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Stabilize
+      div.row
+        div.col-md-6
+          p#description The Continuous Delivery Pipeline requires the production environment to be continually stable, reliable, available, supportable and secure.
+        Please rate your team's effectiveness at maintaining stable solutions that avoid unplanned down time and security breaches.
+          hr
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="1")
+            label.form-check-label(for='radio1') Sitter -   We experience frequent unplanned outages and/or security breaches with long recovery times.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="2")
+            label.form-check-label(for='radio1') Kryper -  We experience occasional unplanned outages but recover within our service level agreements.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="3")
+            label.form-check-label(for='radio1') Går -  We have very few unplanned outages; availability, security, and disaster recovery measures are effective.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="4")
+            label.form-check-label(for='radio1') Springer -  We have no unplanned outages; We plan and rehearse failure and recovery.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="5")
+            label.form-check-label(for='radio1') Flyger -  We maximize resiliency by deliberately injecting faults into our production environment and rehearsing recovery procedures.
+
+          input#saveandnext(type="button" value="Nästa >" onclick="answer_saveandnext(1, 'explore2.html')")
+          div#result
+        div.col-md-6
+            p BILD
+block scripts
+  script(src="/scripts/azurefunctions.js")
+
+extends ../templates/startpage.pug
+block content
+  section#content
+    div
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Release vid behov 
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Measure
+      div.row
+        div.col-md-6
+          p#description Measurement involves collecting factual information about the value of a deployed feature and evaluating it against the original hypothesis statement.
+          hr
+          h5#rate Please rate your team's ability to collect objective information about the actual value realized by deployed features so that it can inform strategic financial decisions.
+          hr
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="1")
+            label.form-check-label(for='radio1') Sitter -   We don’t define or measure the value of features.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="2")
+            label.form-check-label(for='radio1') Kryper -  We’ve defined what ‘value’ is but don’t know how to measure it.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="3")
+            label.form-check-label(for='radio1') Går -  We capture qualitative feedback from the business about the value of our features. 
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="4")
+            label.form-check-label(for='radio1') Springer -  We capture qualitative and quantitative feedback from the business and our monitoring systems about the value of our features.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="5")
+            label.form-check-label(for='radio1') Flyger -  We aggregate the quantitative and qualitative feedback to objectively validate the original hypothesis and inform pivot-or-persevere decisions.
+
+          input#saveandnext(type="button" value="Nästa >" onclick="answer_saveandnext(1, 'explore2.html')")
+          div#result
+        div.col-md-6
+            p BILD
+block scripts
+  script(src="/scripts/azurefunctions.js")
+
+extends ../templates/startpage.pug
+block content
+  section#content
+    div
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Release vid behov 
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Learn
+      div.row
+        div.col-md-6
+          p#description Learning entails making a judgment call to validate or invalidate the original hypothesis based on objective measures of business value, system performance and customer feedback.
+          hr
+          h5#rate Please rate your team's ability to make strategic, ""pivot-or-persevere"" decisions based on empirical performance data and commitment to actively applying those insights to continuously improve the pipeline.
+          hr
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="1")
+            label.form-check-label(for='radio1') Sitter -   Features are never evaluated post-release.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="2")
+            label.form-check-label(for='radio1') Kryper -  Features are sometimes evaluated using subjective information and/or unilateral opinions.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="3")
+            label.form-check-label(for='radio1') Går -  Hypotheses are evaluated using objective measures but actions are heavily influenced by corporate politics.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="4")
+            label.form-check-label(for='radio1') Springer -  Hypotheses are objectively evaluated; pivot or persevere decisions are made without mercy or guilt.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="5")
+            label.form-check-label(for='radio1') Flyger -  Continuous learning and experimentation are ingrained in the DNA of the organization.
+          input#saveandnext(type="button" value="Nästa >" onclick="answer_saveandnext(1, 'explore2.html')")
+          div#result
+        div.col-md-6
+            p BILD
+block scripts
+  script(src="/scripts/azurefunctions.js")

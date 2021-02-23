@@ -1,29 +1,36 @@
 ﻿extends ../templates/startpage.pug
 block content
-      h2 Kontinuerlig leverans
-      h3 Verifikation
+  section#content
+    div
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Kontinuerlig leverans 
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Verifikation
       div.row
-        p#description Deployments must be verified for completeness and integrity before releasing to end users. 
-        hr
-        h5#rate Please rate your team's ability to accurately determine deployment success or failure and ability to roll back or fix forward as appropriate to correct deployment issues.
-      hr
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Sitter - Deployments are not verified in production before being released to end users.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Kryper - Deployments are verified with manual smoke tests and/or UAT; we address deployment issues within a stated grace/triage/warranty period; we often correct issues directly in production.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Går - Deployments are verified with manual tests prior to releasing to end users; rolling back is painful or impossible; we do not make changes directly in production.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Springer - Deployments are verified using automated smoke tests, synthetic transactions and penetration tests prior to release; we can easily roll back or fix forward to recover from failed deployments.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Flyger - Automated production tests run on an ongoing basis and feed monitoring systems; failed deployments can be rolled back instantly or fixed forward through the entire pipeline.
-      hr
-      input#saveandnext(type="button" value="Nästa >"   onclick="answer_saveandnext(10, 'delivery3.html')")
-      div#result
-block scripts 
+        div.col-md-6
+          p#description Deployments must be verified for completeness and integrity before releasing to end users. 
+          hr
+          h5#rate Please rate your team's ability to accurately determine deployment success or failure and ability to roll back or fix forward as appropriate to correct deployment issues.
+          hr
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="1")
+            label.form-check-label(for='radio1') <b>Sitter</b> -   Deployments are not verified in production before being released to end users.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="2")
+            label.form-check-label(for='radio1') <b>Kryper</b> -  Deployments are verified with manual smoke tests and/or UAT; we address deployment issues within a stated grace/triage/warranty period; we often correct issues directly in production.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="3")
+            label.form-check-label(for='radio1') <b>Går</b> -  Deployments are verified with manual tests prior to releasing to end users; rolling back is painful or impossible; we do not make changes directly in production.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="4")
+            label.form-check-label(for='radio1') <b>Springer</b> -  Deployments are verified using automated smoke tests, synthetic transactions and penetration tests prior to release; we can easily roll back or fix forward to recover from failed deployments.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="5")
+            label.form-check-label(for='radio1') <b>Flyger</b> -  Automated production tests run on an ongoing basis and feed monitoring systems; failed deployments can be rolled back instantly or fixed forward through the entire pipeline.
+
+          input#saveandnext(type="button" value="Nästa >" onclick="answer_saveandnext(10, 'delivery3.html')")
+          div#result
+        div.col-md-6
+            p BILD
+block scripts
   script(src="/scripts/azurefunctions.js")

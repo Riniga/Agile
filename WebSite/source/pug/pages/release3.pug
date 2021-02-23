@@ -1,28 +1,36 @@
 ﻿extends ../templates/startpage.pug
 block content
-      h2 Release vid behov - Measure
+  section#content
+    div
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Release vid behov 
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Measure
       div.row
-        p#description Measurement involves collecting factual information about the value of a deployed feature and evaluating it against the original hypothesis statement.
-        hr
-        h5#rate Please rate your team's ability to collect objective information about the actual value realized by deployed features so that it can inform strategic financial decisions.
-      hr
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Sitter -  We don’t define or measure the value of features.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Kryper - We’ve defined what ‘value’ is but don’t know how to measure it.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Går - We capture qualitative feedback from the business about the value of our features. 
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Springer - We capture qualitative and quantitative feedback from the business and our monitoring systems about the value of our features.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Flyger - We aggregate the quantitative and qualitative feedback to objectively validate the original hypothesis and inform pivot-or-persevere decisions.
-      hr
-      input#saveandnext(type="button" value="Nästa >"  onclick="answer_saveandnext(15, 'release4.html')")
-      div#result
-block scripts 
+        div.col-md-6
+          p#description Measurement involves collecting factual information about the value of a deployed feature and evaluating it against the original hypothesis statement.
+          hr
+          h5#rate Please rate your team's ability to collect objective information about the actual value realized by deployed features so that it can inform strategic financial decisions.
+          hr
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="1")
+            label.form-check-label(for='radio1') <b>Sitter</b> -   We don’t define or measure the value of features.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="2")
+            label.form-check-label(for='radio1') <b>Kryper</b> -  We’ve defined what ‘value’ is but don’t know how to measure it.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="3")
+            label.form-check-label(for='radio1') <b>Går</b> -  We capture qualitative feedback from the business about the value of our features. 
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="4")
+            label.form-check-label(for='radio1') <b>Springer</b> -  We capture qualitative and quantitative feedback from the business and our monitoring systems about the value of our features.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="5")
+            label.form-check-label(for='radio1') <b>Flyger</b> -  We aggregate the quantitative and qualitative feedback to objectively validate the original hypothesis and inform pivot-or-persevere decisions.
+
+          input#saveandnext(type="button" value="Nästa >" onclick="answer_saveandnext(15, 'release4.html')")
+          div#result
+        div.col-md-6
+            p BILD
+block scripts
   script(src="/scripts/azurefunctions.js")

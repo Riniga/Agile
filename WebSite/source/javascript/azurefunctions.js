@@ -1,4 +1,4 @@
-const saveUrl = "http://localhost:7071/api/SaveUserHealthRadarResult";
+
 
 function page1_saveandnext(nextpage)
 {
@@ -55,7 +55,7 @@ function SaveAndRedirect(userresult, page)
 {
   localStorage.setItem('result', JSON.stringify(userresult) );
   document.getElementById("spinner").removeAttribute('hidden');
-  fetch(saveUrl, { method: 'POST', body: JSON.stringify(userresult)})
+  fetch(SaveUserHealthRadarResultUrl, { method: 'POST', body: JSON.stringify(userresult)})
     .then(response => response.json())
     .then(id => {
       if (userresult.id === "")

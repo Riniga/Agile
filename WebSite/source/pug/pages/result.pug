@@ -1,19 +1,16 @@
 ﻿extends ../templates/startpage.pug
 block content
-      h2 Resultatet för SAFe Devops hälsoradar
+  section#content
+    div
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  SAFe Devops Hälsoradar
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Resultat 
       div.row
-        p#description nedan ser du ett spindeldiagram för samtliga personer
-        hr
-        ul 
-          li Varje svart prick är de indiviudella svaren 
-          li Röda prickar är snittet
-      hr
-      img#radarimage(src="/images/HealtRadarBackground.png" width="1px")
-      canvas#thecanvas(width='800px' height='800px' style)
-      div#chart.absolute
-      hr  
-      div#result
-block scripts 
+        div.col-md-8
+          canvas#thecanvas(width='800px' height='800px' style)
+          
+        div.col-md-4
+          div#result
+block scripts
   script(src="/scripts/drawradar.js")
-      
-

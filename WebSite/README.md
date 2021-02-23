@@ -19,5 +19,6 @@ A simple http-server to work with Azure Storage
 ##Kommandon:
 - Installation av paket: npm install
 - Ren installation av paket: npm clean-install
+- Updatea packet till: npm update
 - Run gulpfile: gulp
 - Run script to start: npm run start

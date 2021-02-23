@@ -37,6 +37,41 @@ gulp.task('images', function ()
 });
 
 
+
+gulp.task('package', function () 
+{
+    return gulp.src('./public/**')
+        .pipe(gulp.dest("./package"));
+});
+
+var del = require("del");
+var rename = require("gulp-rename");
+gulp.task('copysettings', function () 
+{
+    del("./package/scripts/settings.js");
+    return gulp.src('./public/scripts/settings_live.js')
+    .pipe(rename("settings.js"))
+    .pipe(gulp.dest("./package/scripts", {overwrite: false}));
+});
+
+
+var azure = require('gulp-azure-storage');
+gulp.task('copytoazure', function () 
+{
+    return gulp.src('./package/**')
+        .pipe(azure.upload({
+    	    account:    'devopshealthradar',
+    	    key:        'sDXKQBPu9Z9OQNXU5T2PYYXV+2wEhHkrrbIvPrDBBPb0rQFG9y75k8B+t2dHR8EExJtlyyA4h8PR4GpPldqkJA==',
+    	    container:  '$web'
+        }));
+});
+
+gulp.task('removepackage', function () {
+    return gulp.src('./package', { read: false, allowEmpty: true })
+        .pipe(clean());
+});
+
+
 gulp.task('watch', function () {
     gulp.watch('source/pug/**/*.pug', gulp.series('pug'));
     gulp.watch('source/sass/**/*.scss', gulp.series('sass'));
@@ -44,5 +79,10 @@ gulp.task('watch', function () {
 });
 
 gulp.task('default', gulp.series('clean','pug','sass','js','images', function (done) {
+    done();
+}));
+
+
+gulp.task('deploy', gulp.series('removepackage','clean','pug','sass','js','images' ,'package','copysettings','copytoazure','removepackage', function (done) {
     done();
 }));

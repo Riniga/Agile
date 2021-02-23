@@ -1,4 +1,4 @@
-var pageUrl = "http://localhost:7071/api/GetAllHealthRadarResults";
+
 var average_all = []
 var all_answeres= [];
 var scale = 54;
@@ -8,7 +8,7 @@ for (var i=0;i<16;i++) all_answeres.push([0,0,0,0,0]);
 function DrawResults(area, role)
 {
     DrawBackground();
-    fetch(pageUrl, { method: 'GET'})
+    fetch(GetAllHealthRadarResultsUrl, { method: 'GET'})
     .then(response => response.json())
     .then(data => {
       data.forEach(record =>

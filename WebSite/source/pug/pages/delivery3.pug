@@ -1,29 +1,36 @@
 ﻿extends ../templates/startpage.pug
 block content
-      h2 Kontinuerlig leverans
-      h3 Övervakning
+  section#content
+    div
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Kontinuerlig leverans 
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Övervakning
       div.row
-        p#description Monitoring implies that full-stack telemetry is active for all features deployed through the Continuous Delivery Pipeline so that system performance, end-user behavior, incidents and business value can be determined quickly and accurately in production.
-        hr
-        h5#rate Please rate your team's effectiveness at monitoring the full solution stack (front end, middle tier, back end, infrastructure, etc.) and ability to analyze feature value based on these events.
-      hr
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="1")
-        label.form-check-label(for='radio1') Sitter -  No feature level production monitoring exists; only infrastructure monitoring is in place.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="2")
-        label.form-check-label(for='radio1') Kryper - Features only log faults and exceptions; analyzing events involves manually correlating logs from multiple systems.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="3")
-        label.form-check-label(for='radio1') Går - Features log faults, user activity and other events; data is analyzed manually to investigate incidents and measure business value of features.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="4")
-        label.form-check-label(for='radio1') Springer - Full-stack monitoring is in place; events can be correlated throughout the architecture; data is presented through system-specific dashboards.
-      .form-check
-        input#radio1.form-check-input(type='radio' name='answer' value="5")
-        label.form-check-label(for='radio1') Flyger - Federated monitoring platform provides one-stop access to full-stack insights; data is used to gauge system performance and business value.
-      hr
-      input#saveandnext(type="button" value="Nästa >"  onclick="answer_saveandnext(11, 'delivery4.html')")
-      div#result
-block scripts 
+        div.col-md-6
+          p#description Monitoring implies that full-stack telemetry is active for all features deployed through the Continuous Delivery Pipeline so that system performance, end-user behavior, incidents and business value can be determined quickly and accurately in production.
+          hr
+          h5#rate Please rate your team's effectiveness at monitoring the full solution stack (front end, middle tier, back end, infrastructure, etc.) and ability to analyze feature value based on these events.
+          hr
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="1")
+            label.form-check-label(for='radio1') <b>Sitter</b> -   No feature level production monitoring exists; only infrastructure monitoring is in place.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="2")
+            label.form-check-label(for='radio1') <b>Kryper</b> -  Features only log faults and exceptions; analyzing events involves manually correlating logs from multiple systems.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="3")
+            label.form-check-label(for='radio1') <b>Går</b> -  Features log faults, user activity and other events; data is analyzed manually to investigate incidents and measure business value of features.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="4")
+            label.form-check-label(for='radio1') <b>Springer</b> -  Full-stack monitoring is in place; events can be correlated throughout the architecture; data is presented through system-specific dashboards.
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="5")
+            label.form-check-label(for='radio1') <b>Flyger</b> -  Federated monitoring platform provides one-stop access to full-stack insights; data is used to gauge system performance and business value.
+
+          input#saveandnext(type="button" value="Nästa >" onclick="answer_saveandnext(11, 'delivery4.html')")
+          div#result
+        div.col-md-6
+            p BILD
+block scripts
   script(src="/scripts/azurefunctions.js")
