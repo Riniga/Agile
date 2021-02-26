@@ -2,32 +2,32 @@
 block content
   section#content
     div
-    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Integrerar kontinuerlig 
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Integrera 
     article
       .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
-        h3 Test End-To-End
+        h3 Testning
       div.row
         div.col-md-6
-          p#description Testing involves validating feature-level functionality in production-like environments. This typically includes functional testing, integration testing, regression testing, performance testing and exploratory testing.
+          p#description Testning innebär att validera på funktionsnivå (flera behov) i produktionsliknande miljö. Inkluderar funktionstestning, integrationstestning, regressionstestning, prestandatestning och utforskande testning.
+          p#des(hidden) Testing involves validating feature-level functionality in production-like environments. This typically includes functional testing, integration testing, regression testing, performance testing and exploratory testing.
           hr
           h5#rate Bedöm leveransteamets förmåga att kontinuerligt testa i produktionslika förhållande.
           hr
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="1")
-            label.form-check-label(for='radio1') <b>Sitter</b> -   Testing is performed manually in environments that do not mimic production; testing occurs in large batches during a scheduled "testing" phase
+            label.form-check-label(for='radio1') <b>Sitter</b> - Test sker manuellt i miljö som inte återspeglar produktion; test sker i större omgångar i schmalagd testfas.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="2")
-            label.form-check-label(for='radio1') <b>Kryper</b> -  Testing is mostly manual in non-production-like environments; stories are implemented and tested independently within a single PI
+            label.form-check-label(for='radio1') <b>Kryper</b> - Test sker mest manuellt i miljö som inte återspeglar produktion; behov implmenteras och testas oberoende inom en leveransperiod
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="3")
-            label.form-check-label(for='radio1') <b>Går</b> -  Half the testing is automated and performed in production-like, or production-simulated, environments every PI
+            label.form-check-label(for='radio1') <b>Går</b> - Hälften av tester är automatiserade i produktionsliknande miljö inom varje leveransperiod
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="4")
-            label.form-check-label(for='radio1') <b>Springer</b> -  The majority of tests are automated and run in production-like environments; stories are implemented and fully tested every iteration
+            label.form-check-label(for='radio1') <b>Springer</b> - De flesta tester är automatiserade i en prouktionsliknande miljö; behov implmeteras och testas full i varje sprint.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="5")
-            label.form-check-label(for='radio1') <b>Flyger</b> -  Successful builds trigger automatic deployment to production-like test environments; all tests are automated; tests run in parallel and changes are fully validated after every commit
-
+            label.form-check-label(for='radio1') <b>Flyger</b> - Byggen kör automatiska tester i produktionslik miljö; Alla tester är automatiserade; Tester görs parallelt och valideras vid varje incheckning.
           input#saveandnext.btn.btn-primary(type="button" value="Nästa >" onclick="answer_saveandnext(7, 'integrate4.html')")
           div#result
         div.col-md-6
