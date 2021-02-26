@@ -2,34 +2,34 @@
 block content
   section#content
     div
-    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Kontinuerligt utforska 
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Behovsinsamling 
     article
       .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
-        h3 Behovsinsamling
+        h3 Funktioner
       div.row
         div.col-md-6
-          p#description Syntetisering innebär att man kombinerar resultaten från lösningsförslag, sammarbeten, undersökningar och arkitektur för att skapa  välformade, prioriterade funktioner. Dessa funktioner blir sedan det primära behållaren för värdeleverans genom resten av den kontinuerliga leveransen
+          p#description Syntetisering innebär att man sätter samman resultaten från lösningsförslag, sammarbeten och arkitektur för att skapa välformade, prioriterade funktioner. Man aggregerar flera behov till övergripande marknadsföringsbara funktioner som blir behållare för den kontinuerliga värdeleveransen.
           p#des(hidden) Synthesizing involves combining the outputs of Hypothesize, Collaborate & Research and Architect to produce well-formed, prioritized features. These features then become the primary vehicle of value delivery through the remainder of the Continuous Delivery Pipeline
           hr
           h5#rate Bedöm teamets förmåga att kontinuerligt utforska och utveckla behov i backloggen 
           hr
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="1")
-            label.form-check-label(for='radio1') <b>Sitter</b> -   Det finns ingen backlog eller är inte delad
+            label.form-check-label(for='radio1') <b>Sitter</b> - Det finns ingen tydlig backlog eller den är inte delad mellan alla.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="2")
-            label.form-check-label(for='radio1') <b>Kryper</b> -  Backlog finns men behov är inkompletta och inte prioriterade 
+            label.form-check-label(for='radio1') <b>Kryper</b> - Backlog finns men behov är inkompletta och inte prioriterade
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="3")
-            label.form-check-label(for='radio1') <b>Går</b> -  Backlog innehåller fullt definerade behov, men är inte prioriterade enligt WSJF.
+            label.form-check-label(for='radio1') <b>Går</b> - Backlog innehåller fullt definerade behov, men är inte prioriterade (enligt WSJF, Avväkt snabbast arbete först)
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="4")
-            label.form-check-label(for='radio1') <b>Springer</b> -  Backlog innehåller fullt definerade behov, är prioriterade enligt WSJF och justerad efter resurstillgänglighet.
+            label.form-check-label(for='radio1') <b>Springer</b> - Backlog innehåller fullt definerade behov, är prioriterade enligt WSJF och justerad efter resurstillgänglighet.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="5")
-            label.form-check-label(for='radio1') <b>Flyger</b> -  Backlog ä ren uppsättning av Minimum Marketable Features skapde med BDD och prioriterade enligt WSJF.
+            label.form-check-label(for='radio1') <b>Flyger</b> - Backlog ä ren uppsättning av markandsföringsbara funktioner skapade med BDD och prioriterade enligt WSJF.
 
-          input#saveandnext(type="button" value="Nästa >" onclick="answer_saveandnext(4, 'integrate1.html')")
+          input#saveandnext.btn.btn-primary(type="button" value="Nästa >" onclick="answer_saveandnext(4, 'integrate1.html')")
           div#result
         div.col-md-6
             p BILD

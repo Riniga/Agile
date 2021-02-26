@@ -2,32 +2,32 @@
 block content
   section#content
     div
-    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Kontinuerligt utforska 
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Behovsinsamling 
     article
       .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
-        h3 Lösningsorienterad
+        h3 Lösningar
       div.row
         div.col-md-6
-          p#description Affärsidéer (behov) skall uttryckas i termer av det affärsvärde den förväntas leverera. Denna implementeras sedan som en minsta värdefull (viable) produkt (MVP) som levereras och utvärderas i en kontinuerlig leverans
+          p#description Affärsidéer (behov) skall uttryckas i termer av det affärsvärde den förväntas leverera. Detta skapas och levereras sedan som en minsta värdefull (värdefulla) produkt (MVP) i en kontinuerlig leverans.
           hr
           h5#rate Betygsätt teamets förmåga att översätta affärsidéer till tydliga och mätbara hypotesuttalanden (lösningsförslag).
           hr
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="1")
-            label.form-check-label(for='radio1') <b>Sitter</b> -   Idéer är vaga eller odefinierade
+            label.form-check-label(for='radio1') <b>Sitter</b> -   Behov är vaga eller odefinierade
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="2")
-            label.form-check-label(for='radio1') <b>Kryper</b> -  Idéer är definierade men innehåller inga hypotesuttalanden
+            label.form-check-label(for='radio1') <b>Kryper</b> -  Behov är definierade men innehåller inga lösningsförslag
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="3")
-            label.form-check-label(for='radio1') <b>Går</b> -  Några Idéer (behov) är uttryckta med mätbara hypotesuttalanden 
+            label.form-check-label(for='radio1') <b>Går</b> -  Några behoven är uttryckta med mätbara lösningsförslag 
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="4")
-            label.form-check-label(for='radio1') <b>Springer</b> -  De flesta idéerna är utryckte med mätbara hypotesuttalanden och inkluderar en MVP
+            label.form-check-label(for='radio1') <b>Springer</b> -  De flesta behoven är utryckte med mätbara lösningsförslag och levereras med en MVP
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="5")
-            label.form-check-label(for='radio1') <b>Flyger</b> -  Alla idéerna är utryckte med mätbara hypotesuttalanden och inkluderar en MVP
-          input#saveandnext(type="button" value="Nästa >" onclick="answer_saveandnext(1, 'explore2.html')")
+            label.form-check-label(for='radio1') <b>Flyger</b> -  Alla behoven är utryckte med mätbara lösningsförslag och  levereras med en MVP
+          input#saveandnext.btn.btn-primary(type="button" value="Nästa >" onclick="answer_saveandnext(1, 'explore2.html')")
           div#result
         div.col-md-6
             p BILD

@@ -64,26 +64,20 @@ body {
   transform: rotate(90deg);
 }
 
+#saveandnext
+{
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
 
-// /* Examples */
-// .scrollspy-example {
-//   position: relative;
-//   height: 200px;
-//   margin-top: .5rem;
-//   overflow: auto;
-// }
-
-// [id="modal"] .bd-example .btn,
-// [id="buttons"] .bd-example .btn,
-// [id="tooltips"] .bd-example .btn,
-// [id="popovers"] .bd-example .btn,
-// [id="dropdowns"] .bd-example .btn-group,
-// [id="dropdowns"] .bd-example .dropdown,
-// [id="dropdowns"] .bd-example .dropup,
-// [id="dropdowns"] .bd-example .dropend,
-// [id="dropdowns"] .bd-example .dropstart {
-//   margin: 0 1rem 1rem 0;
-// }
+#spinner
+{
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+}
 
 /* Layout */
 @media (min-width: 1200px) {

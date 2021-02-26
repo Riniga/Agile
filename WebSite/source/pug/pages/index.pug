@@ -8,26 +8,26 @@ block content
         h3 Om dig
       div.row
         div.col-md-6
-          p#description Här följer nu strax 16 stycken frågor som du skall besvara så gott du kan. En metod är att gemensamt ha ett möte för att diskuttera varje fråga och sedan svara individuellt. 
+          p#description Nu följer strax 16 stycken frågor som du skall besvara så gott du kan. En metod är att gemensamt ha ett möte för att diskuttera varje fråga och sedan svara individuellt. 
           hr
-          h5#rate Ange din verksamhet och vilken roll främst du har
+          h5#rate Ange din verksamhet och vilken roll (som du främst du)
           hr
           label.col-sm-2.col-form-label(for='role') Verksamhet
           .col-sm-10
-            select#area.form-select.form-select-sm(aria-label='Roller')
+            select#area.form-select
               option(value='HR') HR
               option(value='Maskinuthyrning') Maskinuthyrning
               option(value='Marknad och sälj') Marknad och sälj
           label.col-sm-2.col-form-label(for='role') Roll
           .col-sm-10
-            select#role.form-select.form-select-sm(aria-label='Roller')
-              option(value='teammedlem') levererande team
-              option(value='scrumledare') scrumledare
+            select#role.form-select
+              option(value='teammedlem') Tillhör levererande team
+              option(value='scrumledare') Scrumledare
               option(value='produktägare') Produktägare
               option(value='Processområdesledare') Processområdesledare 
               option(value='ITSM') ITSM 
               option(value='Arkitekt') Arkitekt
-            input#saveandnext(type="button" value="Nästa >" onclick="page1_saveandnext('explore1.html')")
+            input#saveandnext.btn.btn-primary(type="button" value="Nästa >" onclick="page1_saveandnext('explore1.html')")
           div#result
         div.col-md-6
           img(src="/images/HealthRadarExample.png" width="100%")
