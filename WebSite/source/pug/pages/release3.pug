@@ -2,33 +2,32 @@
 block content
   section#content
     div
-    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Release vid behov 
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3 Release
     article
       .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
-        h3 Measure
+        h3 Mätning
       div.row
         div.col-md-6
-          p#description Mätning innebär att man samlar in faktainformation om värdet på en distribuerad funktion och utvärderar den mot den ursprungliga hypotesen.
+          p#description Mätning innebär att man samlar in fakta om värdet av en leverad funktion samt utvärderar den mot det ursprungliga lösningsförslaget.
           p#des(hidden) Measurement involves collecting factual information about the value of a deployed feature and evaluating it against the original hypothesis statement.
           hr
-          h5#rate Please rate your team's ability to collect objective information about the actual value realized by deployed features so that it can inform strategic financial decisions.
+          h5#rate Bedöm teamets förmåga att samla in objektiv fakta om det faktiska värdet som realiserats av leverade funktioner så att kan användas för strategiska ekonomiska beslut.
           hr
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="1")
-            label.form-check-label(for='radio1') <b>Sitter</b> -   We don’t define or measure the value of features.
+            label.form-check-label(for='radio1') <b>Sitter</b> - Vi bedömmer inte värdet för funktioner.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="2")
-            label.form-check-label(for='radio1') <b>Kryper</b> -  We’ve defined what ‘value’ is but don’t know how to measure it.
+            label.form-check-label(for='radio1') <b>Kryper</b> - Vi bedömmer ett värde men vi vet inte hur vi skall använda det.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="3")
-            label.form-check-label(for='radio1') <b>Går</b> -  We capture qualitative feedback from the business about the value of our features. 
+            label.form-check-label(for='radio1') <b>Går</b> - vi samlar in kvalitativ återkoppling av värdet från verksamheten
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="4")
-            label.form-check-label(for='radio1') <b>Springer</b> -  We capture qualitative and quantitative feedback from the business and our monitoring systems about the value of our features.
+            label.form-check-label(for='radio1') <b>Springer</b> - vi samlar in både kvalitativ och kvantitativ återkoppling av värdet från verksamheten och från monitorerande system kring värdet av funktionerna.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="5")
-            label.form-check-label(for='radio1') <b>Flyger</b> -  We aggregate the quantitative and qualitative feedback to objectively validate the original hypothesis and inform pivot-or-persevere decisions.
-
+            label.form-check-label(for='radio1') <b>Flyger</b> - Vi aggregerar kvalitativ och kvantiativ återkoppling för att objektivt verifiera värdet mot lösningar för att användas som beslutsunderlag för att förbättra eller byta ut (pivot-or-persevere).
           input#saveandnext.btn.btn-primary(type="button" value="Nästa >" onclick="answer_saveandnext(15, 'release4.html')")
           div#result
         div.col-md-6

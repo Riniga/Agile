@@ -2,33 +2,32 @@
 block content
   section#content
     div
-    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Release vid behov 
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Release 
     article
       .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
         h3 Release
       div.row
         div.col-md-6
-          p#description Släpp innebär att distribuerade funktioner blir tillgängliga för slutanvändare.
+          p#description Release innebär att levererade funktioner blir tillgängliga för slutanvändare.
           p#des(hidden) Releasing involves making deployed features available to end users.
           hr
-          h5#rate Please rate your team's ability to release features to users on demand using feature toggles, blue/green environments, canary releases, etc.
+          h5#rate Bedöm teamets förmåga att slå på funktioner för slutanavändare vid behov (blue/green environments, canary releases, etc.)
           hr
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="1")
-            label.form-check-label(for='radio1') <b>Sitter</b> -   Releases are tightly coupled to deployments and customers are extremely dissatisfied with the frequency of releases.
+            label.form-check-label(for='radio1') <b>Sitter</b> - Releaser är synonymt med leverans och verksamheten är extremt missnöjda med frekevensen av nya funktioner
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="2")
-            label.form-check-label(for='radio1') <b>Kryper</b> -  Releases are tightly coupled to deployments but customers are somewhat dissatisfied with the frequency of releases.
+            label.form-check-label(for='radio1') <b>Kryper</b> - Releaser är synonymt med leverans och verksmhet är något missnöjd med frekvensen av nya funktioner
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="3")
-            label.form-check-label(for='radio1') <b>Går</b> -  Release and deployment are coupled but both occur continuously or on demand.
+            label.form-check-label(for='radio1') <b>Går</b> - Release och leverans är synonymt men men sker samtidigt vid behov.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="4")
-            label.form-check-label(for='radio1') <b>Springer</b> -  Release is decoupled from deployment; deployed features are released to the end user population based on business readiness.
+            label.form-check-label(for='radio1') <b>Springer</b> - Release är avkopplat från leveransen. Funktioner slås på nör verksamheten är redo.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="5")
-            label.form-check-label(for='radio1') <b>Flyger</b> -  Deployed features can be released to individual segments of the user population; feature toggles are refactored when no longer used.
-
+            label.form-check-label(for='radio1') <b>Flyger</b> - Release är avkopplat från leveransen. Funktioner slås på för individuella segment av verksamheten. Möjlighet att slå på / av tas bort när behov inte finns längre.
           input#saveandnext.btn.btn-primary(type="button" value="Nästa >" onclick="answer_saveandnext(13, 'release2.html')")
           div#result
         div.col-md-6

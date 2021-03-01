@@ -2,32 +2,32 @@
 block content
   section#content
     div
-    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Release vid behov 
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Release 
     article
       .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
-        h3 Stabilize
+        h3 Stabilisering
       div.row
         div.col-md-6
-          p#description Den kontinuerliga leveransrörledningen kräver att produktionsmiljön är kontinuerligt stabil, pålitlig, tillgänglig, stödbar och säker.
+          p#description En kontinuerlig leverans kräver att produktionsmiljön är stabil, pålitlig, tillgänglig, supportbar och säker.
           p#des(hidden) The Continuous Delivery Pipeline requires the production environment to be continually stable, reliable, available, supportable and secure.
           hr
-          h5#rate Please rate your team's effectiveness at maintaining stable solutions that avoid unplanned down time and security breaches.
+          h5#rate Bedöm teamets förmåga att bibehålla stabila lösningar som undviker oplanerad nedtid och säkerhetsbrister.
           hr
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="1")
-            label.form-check-label(for='radio1') <b>Sitter</b> -   We experience frequent unplanned outages and/or security breaches with long recovery times.
+            label.form-check-label(for='radio1') <b>Sitter</b> - Vi har ofta oplanerad nedtid och/eller säkerhetsbrister med långa återställningstider.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="2")
-            label.form-check-label(for='radio1') <b>Kryper</b> -  We experience occasional unplanned outages but recover within our service level agreements.
+            label.form-check-label(for='radio1') <b>Kryper</b> - Vi har några oplanerade nedtider men håller SLA.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="3")
-            label.form-check-label(for='radio1') <b>Går</b> -  We have very few unplanned outages; availability, security, and disaster recovery measures are effective.
+            label.form-check-label(for='radio1') <b>Går</b> -  Vi har få oplanerade nedtider. Tillgänglighet, säkerhet och "disaster recovery" fungerar bra och effektivt.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="4")
-            label.form-check-label(for='radio1') <b>Springer</b> -  We have no unplanned outages; We plan and rehearse failure and recovery.
+            label.form-check-label(for='radio1') <b>Springer</b> - Vi har inga oplanerade nedtider. Vi planerar och övar återställning m.m.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="5")
-            label.form-check-label(for='radio1') <b>Flyger</b> -  We maximize resiliency by deliberately injecting faults into our production environment and rehearsing recovery procedures.
+            label.form-check-label(for='radio1') <b>Flyger</b> - Vi maximerar stabilitet genom att medvetet injicera fel i produktion och öva återställning.
 
           input#saveandnext.btn.btn-primary(type="button" value="Nästa >" onclick="answer_saveandnext(14, 'release3.html')")
           div#result
