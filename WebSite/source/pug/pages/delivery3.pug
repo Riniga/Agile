@@ -2,32 +2,32 @@
 block content
   section#content
     div
-    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Kontinuerlig leverans 
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Leverans 
     article
       .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
-        h3 Övervakning
+        h3 Monitorering
       div.row
         div.col-md-6
-          p#description Monitoring implies that full-stack telemetry is active for all features deployed through the Continuous Delivery Pipeline so that system performance, end-user behavior, incidents and business value can be determined quickly and accurately in production.
+          p#description Monitorering innebär att alla funktioner som läggs ut övervakas så att prestanda och användarbeteende, insidenter med mera snabbt kan utvärderat i produktion
+          p#des(hidden) Monitoring implies that full-stack telemetry is active for all features deployed through the Continuous Delivery Pipeline so that system performance, end-user behavior, incidents and business value can be determined quickly and accurately in production.
           hr
-          h5#rate Please rate your team's effectiveness at monitoring the full solution stack (front end, middle tier, back end, infrastructure, etc.) and ability to analyze feature value based on these events.
+          h5#rate Bedöm teamets förmåga att monitorera samtliga delar i produktion (front-endm backed, infrastruktur m.m.) samt förmågan att bedöma värdet baserat på dessa mätvärden.
           hr
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="1")
-            label.form-check-label(for='radio1') <b>Sitter</b> -   No feature level production monitoring exists; only infrastructure monitoring is in place.
+            label.form-check-label(for='radio1') <b>Sitter</b> - Funktioner monitoreras inte; enbart infrastrukturen monitoreras.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="2")
-            label.form-check-label(for='radio1') <b>Kryper</b> -  Features only log faults and exceptions; analyzing events involves manually correlating logs from multiple systems.
+            label.form-check-label(for='radio1') <b>Kryper</b> - Funktioner loggar fel och undangat(exceptions); Analys innebär manuell kontroll mellan olika system.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="3")
-            label.form-check-label(for='radio1') <b>Går</b> -  Features log faults, user activity and other events; data is analyzed manually to investigate incidents and measure business value of features.
+            label.form-check-label(for='radio1') <b>Går</b> - Funktioner loggar fel samt system och. Data analyseras manuellt för att utreda insidenter och ge visst affärsvärde.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="4")
-            label.form-check-label(for='radio1') <b>Springer</b> -  Full-stack monitoring is in place; events can be correlated throughout the architecture; data is presented through system-specific dashboards.
+            label.form-check-label(for='radio1') <b>Springer</b> - Funktioner monitorerar och loggar allt, monitorering koordineras av arkitekturen och presenteras i systemspecifika dashboards.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="5")
-            label.form-check-label(for='radio1') <b>Flyger</b> -  Federated monitoring platform provides one-stop access to full-stack insights; data is used to gauge system performance and business value.
-
+            label.form-check-label(for='radio1') <b>Flyger</b> - Aggregerad monitorering för system ger ett system för fullständig insikt. Data används för att optimera prestanda och affärsvärde.
           input#saveandnext.btn.btn-primary(type="button" value="Nästa >" onclick="answer_saveandnext(11, 'delivery4.html')")
           div#result
         div.col-md-6

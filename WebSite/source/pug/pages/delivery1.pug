@@ -8,26 +8,26 @@ block content
         h3 Deploy
       div.row
         div.col-md-6
-          p#description Deployment is the actual migration of features into the production environment. Because the Continuous Delivery Pipeline separates deployment from release, deployed features are not assumed to be live to end users. 
+          p#description Deploy innfattar den faktiska överföringen av funktioner till produktionsmiljön. Den kontinuerliga leveransen separerar release och deploy (leverans), levererade funktioner är ite alltid live för användarna.
+          p#des(hidden) Deployment is the actual migration of features into the production environment. Because the Continuous Delivery Pipeline separates deployment from release, deployed features are not assumed to be live to end users. 
           hr
-          h5#rate Please rate your team's ability to continuously deploy features to production as well as the ability to control their visibility using feature toggles and/or other means.
+          h5#rate Bedöm teamets förmåga att kontinuelrigt leverera och kontrollera tillgängligheten av funktioner i produktionsmiljön (feature toggle)
           hr
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="1")
-            label.form-check-label(for='radio1') <b>Sitter</b> -   Features are deployed to production every .form-check
+            label.form-check-label(for='radio1') <b>Sitter</b> - Funktioner levereras vmer sällan än var tredje månad.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="2")
-            label.form-check-label(for='radio1') <b>Kryper</b> -  Features are deployed to production at PI boundaries; deployments are mostly manual; "deployed" implies "released".
+            label.form-check-label(for='radio1') <b>Kryper</b> - Funktioner levereras under varje leveransperiod; Deploy är mestadels manuell. Det finns ingen skillnad på leverarad eller releasad.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="3")
-            label.form-check-label(for='radio1') <b>Går</b> -  Features are deployed to production every iteration; deployments are mostly automated; some features can be deployed without being released.
+            label.form-check-label(for='radio1') <b>Går</b> - Funktioner leveraras varje sprint, leveranser är mestadels automatiserade, vissa funktioner kan läggas ut utan att klasssas som releasade.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="4")
-            label.form-check-label(for='radio1') <b>Springer</b> -  Features are deployed to production every iteration and fully automated through the pipeline; dark releases are common.
+            label.form-check-label(for='radio1') <b>Springer</b> - Funktioner leveraras varje sprint, fullt automatiserade.  Features are deployed to production every iteration and fully automated through the pipeline; Leveranser märks oftast inte (dark release)
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="5")
-            label.form-check-label(for='radio1') <b>Flyger</b> -  Features  are deployed continuously throughout each iteration; Dev teams initiate deployments directly via pipeline tools; release is completely decoupled from deployment; dark releases are the norm.
-
+            label.form-check-label(for='radio1') <b>Flyger</b> - Funktioner läggs ut kontinuerligt under sprinten. Utvecklarteam initerar själva leveranser till produktion. Release är helt separerat från. Leveranser märks aldrig.
           input#saveandnext.btn.btn-primary(type="button" value="Nästa >" onclick="answer_saveandnext(9, 'delivery2.html')")
           div#result
         div.col-md-6

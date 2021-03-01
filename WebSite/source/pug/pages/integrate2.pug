@@ -5,7 +5,7 @@ block content
     h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Integrera 
     article
       .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
-        h3 Build
+        h3 Byggen
       div.row
         div.col-md-6
           p#description Bygge sker vid incheckning och innefattar kompilering, enhetstestning, merge till trunk/main samt konstruktion av deploybart paket.
@@ -24,7 +24,7 @@ block content
             label.form-check-label(for='radio1') <b>Går</b> - Byggen körs automatiskt varje dag. Byggen som inte fungerat fixas omgående; manuella enhetsteser körs mot varje bygge; branch för utveckling är öppen i 2-4 veckor.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="4")
-            label.form-check-label(for='radio1') <b>Springer</b> - Byggen körs automatiskt vid varej incheckning; brutna byggen fixas direkt; automatiserade enhetstester körs vid varje bygge; branch för utveckling stängs efter varje sprint. 
+            label.form-check-label(for='radio1') <b>Springer</b> - Byggen körs automatiskt vid varje incheckning; brutna byggen fixas direkt; automatiserade enhetstester körs vid varje bygge; branch för utveckling stängs efter varje sprint. 
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="5")
             label.form-check-label(for='radio1') <b>Flyger</b> - Byggen körs vid varje incheckning; byggen inkluderar kod och säkerhetsanalys; gated checkins används för att inte få in kod som bryter byggen; branch för utveckling stängs efter varje incheckning.

@@ -2,32 +2,32 @@
 block content
   section#content
     div
-    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Kontinuerlig leverans 
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  Leverans 
     article
       .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
         h3 Respond
       div.row
         div.col-md-6
-          p#descriptionThe ability to detect and recover from unforeseen production incidents is critical to the Continuous Delivery Pipeline. 
+          p#descriptionThe Förmågan att upptäcka och återställa från oförutsedda produktionsincidenter är avgörande för denen bra kontinuerlig leverans
+          p#des(hidden) Ability to detect and recover from unforeseen production incidents is critical to the Continuous Delivery Pipeline. 
           hr
-          h5#rate Please rate your team's effectiveness at proactively detecting high severity production issues, identifying root causes using monitoring systems and quickly resolving issues by building, testing and deploying fixes through the pipeline (versus applying changes directly in production).
+          h5#rate Bedöm teamets förmåga att proaktivt identifera insidenter i produktion, hitta orsaker och använda monitorera systems and snabbt lösa insidenter genom att fixa saker genom den kontinuerliga leveransen (jämfört med att åtgärde saker direkti produktino, hotfix)
           hr
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="1")
-            label.form-check-label(for='radio1') <b>Sitter</b> -   Customers find issues before we do; resolving high priority issues is time consuming and reactive; customers have low confidence in our ability to recover from production issues.
+            label.form-check-label(for='radio1') <b>Sitter</b> -  Verksamheten hittar incidenter innan IT. Att lösa prioriterade incidenter tar tid. Verksamheten har lågt förtroende ITs förmåga att hantera incidenter.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="2")
-            label.form-check-label(for='radio1') <b>Kryper</b> -  Operations owns production issues; development involvement requires significant escalation; teams blame each other in times of crisis.
+            label.form-check-label(for='radio1') <b>Kryper</b> - Verksamheten hanterar produktionsproblem; IT krävser att incidenter eskaleras. Team skyller på varanda.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="3")
-            label.form-check-label(for='radio1') <b>Går</b> -  Development and Operations collectively own the incident resolution process; recovering from major incidents is reactive but a team effort.
+            label.form-check-label(for='radio1') <b>Går</b> -  Verksamhet och IT  hanterar incidenter tillsammans; Återställning från större incidenter är reakitvt men är team baserat.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="4")
-            label.form-check-label(for='radio1') <b>Springer</b> -  Our monitoring systems detect most issues before our customers do; Dev and Ops work proactively to recover from major incidents.
+            label.form-check-label(for='radio1') <b>Springer</b> - Monitorering upptäcker de fleste incidenterna innan verksamheten gör det. IT och verksamhet arbetar proaktivt för att lösa större incidenter.
           .form-check
             input#radio1.form-check-input(type='radio' name='answer' value="5")
-            label.form-check-label(for='radio1') <b>Flyger</b> -  Our monitoring systems alert us to dangerous conditions based on carefully-designed tolerance thresholds; Developers are responsible for supporting their own code and proactively issue fixes through the pipeline before users are affected.
-
+            label.form-check-label(for='radio1') <b>Flyger</b> - Monitorering upptäcker och larmar vid allvarligare tillständ. IT/Utvecklare ansvarar för kod och system och arbetar proaktivt för att lösa incidenter innan användare användare påverkas.
           input#saveandnext.btn.btn-primary(type="button" value="Nästa >" onclick="answer_saveandnext(12, 'release1.html')")
           div#result
         div.col-md-6
