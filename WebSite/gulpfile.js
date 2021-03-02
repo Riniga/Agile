@@ -32,6 +32,8 @@ gulp.task('js', function ()
 
 gulp.task('images', function () 
 {
+    gulp.src('./source/images/favicon.ico').pipe(gulp.dest('./public'));
+
     return gulp.src('./source/images/*.*')
         .pipe(gulp.dest('./public/images'));
 });

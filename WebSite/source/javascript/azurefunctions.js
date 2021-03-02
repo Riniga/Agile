@@ -56,7 +56,7 @@ function SaveAndRedirect(userresult, page)
   localStorage.setItem('result', JSON.stringify(userresult) );
   document.getElementById("spinner").removeAttribute('hidden');
   fetch(SaveUserHealthRadarResultUrl, { method: 'POST', body: JSON.stringify(userresult)})
-    .then(response => response.json())
+    .then(function(response){return response.json();} )
     .then(id => {
       if (userresult.id === "")
       {
