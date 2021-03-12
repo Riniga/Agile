@@ -1,5 +1,3 @@
-
-
 function page1_saveandnext(nextpage)
 {
   var areaselect = document.getElementById("area");
@@ -79,4 +77,3 @@ for(i in radioboxes)
 {
   if (radioboxes[i].value )  radioboxes[i].addEventListener('click',enableNext);
 } 
-
