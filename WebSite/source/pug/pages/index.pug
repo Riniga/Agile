@@ -2,7 +2,7 @@
 block content
   section#content
     div 
-    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3 SAFe Devops hälsoradar
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3 Skanska Agil transformationspuls
     article
       .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
         h3 Om dig
@@ -12,7 +12,7 @@ block content
           hr
           h5#rate Ange din verksamhet och vilken roll (som du främst du)
           hr
-          label.col-sm-2.col-form-label(for='role') Verksamhet
+          label.col-sm-2.col-form-label(for='area') Verksamhet
           .col-sm-10
             select#area.form-select
               option(value='HR') HR
@@ -27,7 +27,7 @@ block content
               option(value='Processområdesledare') Processområdesledare 
               option(value='ITSM') ITSM 
               option(value='Arkitekt') Arkitekt
-            input#saveandnext.btn.btn-primary(type="button" value="Nästa >" onclick="page1_saveandnext('explore1.html')")
+            input#saveandnext.btn.btn-primary(type="button" value="Nästa >" onclick="page1_saveandnext('question.html?question=0')")
           div#result
         div.col-md-6
           img(src="/images/HealthRadarExample.png" width="100%")

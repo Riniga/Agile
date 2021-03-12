@@ -1,28 +1,55 @@
-
 var average_all = []
 var all_answeres= [];
 var scale = 54;
 
 for (var i=0;i<16;i++) all_answeres.push([0,0,0,0,0]);
 
-function DrawResults(area, role)
+
+function DrawResults()
 {
+  average_all = []
+  all_answeres= [];
+  for (var i=0;i<16;i++) all_answeres.push([0,0,0,0,0]);
+  
+  var areaFilter = document.getElementById("area");
+  var roleFilter = document.getElementById("role");
+  var area= areaFilter.options[areaFilter.selectedIndex].value;
+  var role = roleFilter.options[roleFilter.selectedIndex].value
+
+  DrawResultsFiltered(area, role);
+  console.log(average_all);
+  printAllAnsweres();
+}
+
+function printAllAnsweres()
+{
+  for (var i=0;i<16;i++) all_answeres.push([0,0,0,0,0]);
+  console.log(all_answeres);
+}
+function DrawResultsFiltered(area, role)
+{
+    ClearCanvas();
     DrawBackground();
     fetch(GetAllHealthRadarResultsUrl, { method: 'GET'})
     .then(response => response.json())
     .then(data => {
       data.forEach(record =>
         {
-          console.log(role);
-          console.log(record.role);
-          if ((area) && (record.area==area)) CalculateAverages(record);
-          else if ((role) && (record.role==role)) CalculateAverages(record)
-          else if ((!area) && (!role)) CalculateAverages(record)
+          if ((area) && (record.area==area)) AddToAllAnsweres(record);
+          else if ((role) && (record.role==role)) AddToAllAnsweres(record)
+          else if ((!area) && (!role)) AddToAllAnsweres(record)
         } );
+      CalculateAverages();
       AddAveragePerSector();
       DrawRedDots();
       DrawBlackDots();
     });
+}
+function ClearCanvas()
+{
+  var canvas = document.getElementById("thecanvas");
+  var context = canvas.getContext("2d");
+  context.clearRect(0,0,800, 800)
 }
 
 function DrawResultsDummy()
@@ -31,26 +58,36 @@ function DrawResultsDummy()
   var data = [];
   for (var i=0;i<10;i++)
     data.push({id:"", area:"HR", role:"team", answers:[ Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5),Math.ceil(Math.random() * 5)]});
-  data.forEach(record => CalculateAverages(record));
+  data.forEach(record => AddToAllAnsweres(record));
+  CalculateAverages();
   AddAveragePerSector();
   DrawRedDots();
   DrawBlackDots();
 }
 
-function CalculateAverages(record)
+function AddToAllAnsweres(record)
 {
   for (var i=0;i<16;i++)
   {
     all_answeres[i][record.answers[i]-1]+=1;
-    var current = record.answers[i];
-    if (current!=0)
-    {
-      if (!average_all[i] || average_all[i]==0) average_all[i] = current;
-      else average_all[i] = (average_all[i]+current)/2;
-    }
   }
 }
 
+function CalculateAverages()
+{
+  for (var i=0;i<16;i++)
+  {
+    count = 0;
+    sum =0;
+    for (var j=0;j<5;j++)
+    {
+      count+=all_answeres[i][j];
+      sum += all_answeres[i][j]*(j+1);
+    }
+    
+    average_all[i] = sum/count;
+  }
+}
 function AddAveragePerSector()
 {
   var average_area = []
@@ -150,4 +187,12 @@ function DrawBlackDots()
   }
 }
 
-DrawResults("","");
+var areaFilter = document.getElementById("area")
+areaFilter.addEventListener('change',DrawResults);
+
+var roleFilter = document.getElementById("role")
+roleFilter.addEventListener('change',DrawResults);
+
+DrawResults();
+
+
