@@ -45,8 +45,15 @@ namespace AzureFunction
             }
             else
             {
-                log.LogInformation("Update record: " + result.Id);
-                await CosmosHelper.UpdateResultInCosmosDb(result);
+                try
+                {
+                    log.LogInformation("Update record: " + result.Id);
+                    await CosmosHelper.UpdateResultInCosmosDb(result);
+                }catch(Exception e)
+                {
+                    log.LogInformation("Create new record");
+                    await CosmosHelper.CreateResultInCosmosDb(result);
+                }
             }
 
             return new OkObjectResult(result.Id);

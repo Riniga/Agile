@@ -62,17 +62,24 @@ gulp.task('copysettings', function ()
     .pipe(gulp.dest("./package/scripts", {overwrite: false}));
 });
 
+var password = process.env.FTP_PASSWORD; // System->Environmment Variables
+var gutil = require( 'gulp-util' );
+var ftp = require( 'vinyl-ftp' );
+gulp.task( 'copytoftp', function () {
+ 
+    var conn = ftp.create( {
+        host:     'nt48.unoeuro.com',
+        user:     'mjukvaror.com',
+        password: password,
+        parallel: 10,
+        log:      gutil.log
+    } );
 
-var azure = require('gulp-azure-storage');
-gulp.task('copytoazure', function () 
-{
-    return gulp.src('./package/**')
-        .pipe(azure.upload({
-    	    account:    'transformationspuls',
-    	    key:        'o50ZlNHEk/aIHoNffOCpuZVafy3VKZ0IA4AcMSeAtWVBFh4+shJbm417Q4OqQ0MespXEkC98HiaY/4f7cGBG3A==',
-    	    container:  '$web'
-        }));
-});
+    return gulp.src( './package/**', { buffer: false } )
+        .pipe( conn.newer('/skanskastransformationspuls'))
+        .pipe( conn.dest('/skanskastransformationspuls'));
+ 
+} );
 
 gulp.task('removepackage', function () {
     return gulp.src('./package', { read: false, allowEmpty: true })
@@ -92,6 +99,6 @@ gulp.task('default', gulp.series('clean','pug','sass','js','images', 'data', fun
 }));
 
 
-gulp.task('deploy', gulp.series('removepackage','clean','pug','sass','js','images', 'data','package','copysettings','copytoazure','removepackage', function (done) {
+gulp.task('deploy', gulp.series('removepackage','clean','pug','sass','js','images', 'data','package','copysettings','copytoftp','removepackage', function (done) {
     done();
 }));

@@ -12,11 +12,11 @@ function DrawResults()
   for (var i=0;i<16;i++) all_answeres.push([0,0,0,0,0]);
   
   var areaFilter = document.getElementById("area");
-  var roleFilter = document.getElementById("role");
+  //var roleFilter = document.getElementById("role");
   var area= areaFilter.options[areaFilter.selectedIndex].value;
-  var role = roleFilter.options[roleFilter.selectedIndex].value
+  //var role = roleFilter.options[roleFilter.selectedIndex].value
 
-  DrawResultsFiltered(area, role);
+  DrawResultsFiltered(area, '');
   console.log(average_all);
   printAllAnsweres();
 }
@@ -190,8 +190,8 @@ function DrawBlackDots()
 var areaFilter = document.getElementById("area")
 areaFilter.addEventListener('change',DrawResults);
 
-var roleFilter = document.getElementById("role")
-roleFilter.addEventListener('change',DrawResults);
+// var roleFilter = document.getElementById("role")
+// roleFilter.addEventListener('change',DrawResults);
 
 DrawResults();
 

@@ -31,7 +31,7 @@ namespace AzureFunction.Business
 
         internal static async Task CreateResultInCosmosDb(HealthRadarResult result)
         {
-            result.Id = Guid.NewGuid();
+            if (result.Id==Guid.Empty) result.Id = Guid.NewGuid();
             var container = await GetContainer();
             await container.CreateItemAsync<HealthRadarResult>(result, new PartitionKey(result.Id.ToString()));
         }
