@@ -12,16 +12,31 @@ function getParameterByName(name, url = window.location.href) {
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
-function DrawMenu()
+function UpdateContent()
 {
   // TODO: Generate meny
+  
+  var userresult = JSON.parse(localStorage.getItem('result')); 
+  var footer = document.getElementById("sessioninfo");
+
+  if (userresult)
+  {
+    footer.innerHTML = "ID:" + userresult.id + ", " + userresult.area + ", " + userresult.role;
+  }
+  else
+  {
+    footer.innerHTML = "No user";
+  }
+  
+  
+
 }
 
 const initalize = async () => {
   questionId= parseInt( getParameterByName('question'));
   const response = await fetch("/data/questions.json");
   questionData = await response.json();
-  DrawMenu();
+  UpdateContent();
   if (questionId||questionId===0)  Load();
 
 }

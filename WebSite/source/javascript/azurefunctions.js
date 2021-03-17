@@ -32,23 +32,6 @@ function answer_saveandnext(id, nextpage)
   }
 }
 
-function answer_saveandsubmit(id)
-{
-  var userresult = JSON.parse(localStorage.getItem('result')); 
-  var answer = document.querySelector('input[name="answer"]:checked');
-  if (answer)
-  {
-    userresult.answers[id-1] = answer.value;
-    console.log(answer.value);
-    console.log(userresult);
-    SaveAndRedirect(userresult, "result.html")
-  }
-  else
-  {
-    document.getElementById("result").innerHTML = "Du måste ange ett alternativ för att gå vidare!";
-  }
-}
-
 function SaveAndRedirect(userresult, page)
 {
   localStorage.setItem('result', JSON.stringify(userresult) );
