@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Threading.Tasks;
 using Microsoft.Azure.Cosmos;
 using AzureFunction.Models;
@@ -8,10 +9,6 @@ namespace AzureFunction.Business
 {
     class CosmosHelper
     {
-        private static string EndpointUrl = "https://nissesgagnercosmosdb.documents.azure.com:443/";
-        private static string PrimaryKey = "Av8F3gUR3WAL4SXyOxjqdxo9IDHQ25pkcVmUA4ZHFS0ZsqtNhJFiYfzXZkNmwHdVvNI73KFtIawlP7PmjS5E8g==";
-        private static string databaseId = "NissesGagnerDatabase";
-        private static string containerId = "DevopsHealthRadar";
         private static string partitionKeyPath = "/id";
         private static CosmosClient _cosmosClient;
 
@@ -49,7 +46,11 @@ namespace AzureFunction.Business
         }
         private static async Task<Container> GetContainer()
         {
-            _cosmosClient = new CosmosClient(EndpointUrl, PrimaryKey);
+            string endpointUrl = Environment.GetEnvironmentVariable("EndpointUrl");  //ConfigurationManager.AppSettings["EndpointUrl"];
+            string primaryKey = Environment.GetEnvironmentVariable("PrimaryKey");  //ConfigurationManager.AppSettings["PrimaryKey"];
+            string databaseId = Environment.GetEnvironmentVariable("DatabaseId");  //ConfigurationManager.AppSettings["DatabaseId"];
+            string containerId = Environment.GetEnvironmentVariable("ContainerId");  //ConfigurationManager.AppSettings["ContainerId"];
+            _cosmosClient = new CosmosClient(endpointUrl, primaryKey);
             Database database = await _cosmosClient.CreateDatabaseIfNotExistsAsync(databaseId);
             Container container = await database.CreateContainerIfNotExistsAsync(containerId, partitionKeyPath);
             return container;
