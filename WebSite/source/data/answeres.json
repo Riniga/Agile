@@ -1,0 +1,35 @@
+{
+    "data": [
+            {
+                "id":"f7a14ba2-3421-4749-95f2-4dd5f017220d",
+                "role":"arkitekt",
+                "area":"Marknad och sälj",
+                "answers": [5,1,2,4,2,3,2,3,2,1,2,3,4,5,4,3],
+                "posted":"2021-05-25T15:19:07.0824881+02:00"
+            },
+            {
+                "id":"f7a14ba2-3421-4749-95f2-4dd5f017220a",
+                "role":"LanTest101",
+                "area":"x1",
+                "answers":"yLanTest101",
+                "posted":"M"
+            },
+             
+            {
+                "id":"f7a14ba2-3421-4749-95f2-4dd5f017220b",
+                "role":"LanTest102",
+                "area":"x2",
+                "answers":"yLanTest102",
+                "posted":"M"
+
+            },
+             
+            {
+                "id":"f7a14ba2-3421-4749-95f2-4dd5f017220c",
+                "role":"Test1111",
+                "area":"x3",
+                "answers":"yTest1111",
+                "posted":"M"
+            }
+        ]
+  }

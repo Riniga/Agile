@@ -45,8 +45,8 @@
 					"image":"/images/explore4.png",
 					"sit":"Det finns ingen tydlig backlog eller den är inte delad mellan alla.",
 					"crawl":"Backlog finns men behov är inkompletta och inte prioriterade.",
-					"walk":"Backlog innehåller fullt definierade behov, men är inte prioriterade (enligt WSJF, Avvägt snabbast arbete först).",
-					"run":"Backlog innehåller fullt definierade behov, är prioriterade enligt WSJF och justerade efter resurstillgänglighet.",
+					"walk":"Backlog innehåller fullt definierade behov, men är inte aggregerade till marknadsföringsbara funktioner.",
+					"run":"Backlog innehåller fullt definierade behov, är aggregerade till funktioner men är inte  prioriterade (enligt WSJF, Avvägt snabbast arbete först).",
 					"fly":"Backlog är en uppsättning av markandsföringsbara funktioner skapade med BDD och prioriterade enligt WSJF."
 				}
 			]

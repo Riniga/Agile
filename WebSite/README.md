@@ -1,10 +1,4 @@
 #NodeJS Static Web Application
-Using gulp to create a static website in public using  
-- pug
-- sass
-- typescript  
-
-A simple http-server to work with Azure Storage
 
 ## Preparation
 - Install node https://nodejs.org/en/download/
@@ -19,6 +13,7 @@ A simple http-server to work with Azure Storage
 ##Kommandon:
 - Installation av paket: npm install
 - Ren installation av paket: npm clean-install
-- Updatea packet till: npm update
+- Updatera packet till: npm update
 - Run gulpfile: gulp
-- Run script to start: npm run start
+- Watch´and rebuild: gulp watch
+- Run script to start: npm start
