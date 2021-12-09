@@ -21,9 +21,10 @@ namespace AzureDevops
         {
             logger = log;
             configuration = config;
+            Settings.CacheEnabled = configuration.GetValue<string>("CacheEnabled").ToLower() == "true";
         }
 
-        public void Run()
+    public void Run()
         {
             ConnectToAzure(new Uri(configuration.GetValue<string>("CollectionUri")));
             var iterations = FeatchIterations();

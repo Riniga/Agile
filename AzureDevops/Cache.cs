@@ -4,10 +4,11 @@ using Newtonsoft.Json.Linq;
 
 namespace AzureDevops
 {
-    internal class Cache<T> where T : class
+    public class Cache<T> where T : class
     {
         internal static T Get(string key)
         {
+            if (!Settings.CacheEnabled) return null;
             var path = @"cache/" + key + ".json";
 
             if (!File.Exists(path)) return null;
