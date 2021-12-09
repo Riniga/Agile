@@ -24,29 +24,42 @@ namespace AzureDevops
 
         internal Area Get(string areaPath)
         {
-            if (!Contains(areaPath)) areas.Add(new Area(areaPath));
-            return areas.Where(area => area.AreaPath==areaPath).FirstOrDefault();
+            var mainAreaPath = GetMainAreaPath(areaPath);
+            if (!Contains(mainAreaPath)) areas.Add(new Area(mainAreaPath));
+            return areas.Where(area => area.AreaPath== mainAreaPath).FirstOrDefault();
         }
 
-        public void Print()
+        public void Print(Iteration iteration)
         {
             foreach (var area in areas)
             {
-                foreach (var item in area.Backlog)
+                var backlogItems = area.GetBucketAt(iteration.Start, BucketType.Backlog);
+                var commitedItems = area.GetBucketAt(iteration.End, BucketType.Commited);
+                var doneWorkItems = area.GetBucketAt(iteration.End, BucketType.Done).Except(area.GetBucketAt(iteration.Start, BucketType.Done)).ToList();
+                var extraWorkItems = new List<RteWorkItem>();
+
+
+                int extra = 0;
+                foreach (var item in commitedItems)
                 {
-                    Console.WriteLine("{0}|{1}|{2}|{3}", area.GetMainAreaPath() , item.Key.IterationPath.Replace("Skanska Sverige IT\\", ""),"Backlog", item.Value.Count );
+                    string type = (string)item.WorkItem.Fields["Microsoft.VSTS.CMMI.RequirementType"];
+                    if (type == "Planerat (extra)") extraWorkItems.Add(item);
                 }
-                foreach (var item in area.Commited)
+                foreach (var item in doneWorkItems)
                 {
-                    Console.WriteLine("{0}|{1}|{2}|{3}" , area.GetMainAreaPath(), item.Key.IterationPath.Replace("Skanska Sverige IT\\", ""), "Commited", item.Value.Count);
+                    string type = (string)item.WorkItem.Fields["Microsoft.VSTS.CMMI.RequirementType"];
+                    if (type == "Planerat (extra)") extraWorkItems.Add(item);
                 }
-                foreach (var item in area.Done)
-                {
-                    Console.WriteLine("{0}|{1}|{2}|{3}" , area.GetMainAreaPath(), item.Key.IterationPath.Replace("Skanska Sverige IT\\", ""), "Done", item.Value.Count);
-                }
+
+                Console.WriteLine("{0}|{1}|{2}|{3}|{4}|{5}", area.AreaPath, iteration.IterationPath.Replace("Skanska Sverige IT\\", ""), backlogItems.Count, commitedItems.Count,extraWorkItems.Count, doneWorkItems.Count);
             }
         }
 
-        
+        public static string GetMainAreaPath(string areaPath)
+        {
+            var pathParts = areaPath.Split('\\');
+            if (pathParts.Length == 1) return pathParts[0];
+            return pathParts[1];
+        }
     }
 }

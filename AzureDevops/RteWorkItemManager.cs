@@ -1,186 +1,68 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 
 namespace AzureDevops
 {
-    public class RteWorkItemManager //TODO: Make singeleton
+    public class RteWorkItemManager
     {
         private static DataTable table;
         private static Areas areas;
 
-
         public static void CreateStatistics(List<Iteration> iterations, List<RteWorkItem> requirements)
         {
             areas = new Areas();
+            
+            var count = 0;
+            foreach (var requirement in requirements)
+            {
+                count++;
+                AddWorkItemToAreaBucket(requirement, requirement.States[0].Key);
+                for (int i = 1; i < requirement.States.Count; i++)
+                {
+                    MoveWorkBetweenBuckets(requirement, i);
+                }
+            }
+            
+        }
+
+        public static void Print(List<Iteration> iterations)
+        {
             foreach (var iteration in iterations)
             {
-                {
-                    foreach (var requirement in requirements)
-                    {
-                        //RteWorkItemManager.AddWorkItemToTable(requirement, iteration);
-                        AddWorkItemToAreaBucket(requirement, iteration);
-                    }
-                }
+                areas.Print(iteration);
             }
-            areas.Print();
         }
 
-        internal static void AddWorkItemToAreaBucket(RteWorkItem workItem, Iteration iteration)
+        private static void AddWorkItemToAreaBucket(RteWorkItem workItem, DateTime created)
         {
             var area = areas.Get(workItem.AreaPath);
-
-            var startState = GetState(workItem, iteration.Start);
-            var endState = GetState(workItem, iteration.End);
-
-            if (startState == "Proposed" || startState == "Ready") area.AddItemToBucket(workItem, iteration, Bucket.Backlog);
-            if (startState == "Active" ) area.AddItemToBucket(workItem, iteration, Bucket.Commited); ;
-
-
-
-            if (iteration.Contains(workItem.IterationPath))
-            { 
-                if (startState == "Resolved" || startState == "Closed")
-                { 
-                    area.AddItemToBucket(workItem, iteration, Bucket.Done);
-                }
-
-                if (endState == "Resolved" || endState == "Closed")
-                {
-                    area.AddItemToBucket(workItem, iteration, Bucket.Done);
-                }
-            }
-
+            area.AddItemToBucket(workItem, created.Date, BucketType.Backlog);
         }
 
-        
-        internal static void AddWorkItemToTable(RteWorkItem workItem, Iteration iteration)
+        internal static void MoveWorkBetweenBuckets(RteWorkItem workItem, int id)
         {
-            if (table == null) table = CreateTable();
-            var state1 = GetState(workItem, iteration.Start);
-            var state2 = GetState(workItem, iteration.End);
-            
-            var iterationPath = workItem.IterationPath;
+            if (id == 0) return;
 
-            if (iterationPath == iteration.IterationPath) //TODO Använd iterationPath från history (start?)
+            var area = areas.Get(workItem.AreaPath);
+            var fromState = workItem.States[id - 1].Value;
+            var toState = workItem.States[id].Value;
+
+            var fromBucket = BucketType.Backlog;
+            if (fromState == "New" || fromState == "Proposed" || fromState == "Ready") fromBucket = BucketType.Backlog;
+            else if (fromState == "Active") fromBucket = BucketType.Commited;
+            else fromBucket = BucketType.Done;
+
+            var toBucket = BucketType.Backlog;
+            if (toState == "New" || toState == "Proposed" || toState == "Ready") toBucket = BucketType.Backlog;
+            else if (toState == "Active") toBucket = BucketType.Commited;
+            else toBucket = BucketType.Done;
+
+            if (fromBucket != toBucket)
             {
-                AddOrInsertRequirementIntoTable(workItem, state1, state2, iteration);
-            }
-        }
-
-        private static void AddOrInsertRequirementIntoTable(RteWorkItem workItem, string state1, string state2, Iteration iteration)
-        {
-            var area = GetMaintenanceArea(workItem);
-            if (state1 == string.Empty) return; //TODO: Tänk.... kan state1 inte vara tom men state2?
-                                                // Note: State2 (Closed) räknas bara om kravet fanns med i from.... lägger man till behov så räknas dom inte in!
-
-            object[] keys = new object[] { area, iteration.IterationPath, iteration.Start, iteration.End };
-            var row = table.Rows.Find(keys);
-
-            if (row == null)
-            {
-                row = table.NewRow();
-                row["area"] = area;
-                row["iteration"] = iteration.IterationPath;
-                row["from"] = iteration.Start;
-                row["to"] = iteration.End;
-                row["backlog"] = (state1 == "Proposed" || state1 == "Ready") ? 1 : 0;
-                row["åtagna"] = (state1 == "Active" || state1 == "Resolved") ? 1 : 0;
-                row["slutförda"] = (state2 == "Closed") ? 1 : 0;
-
-                table.Rows.Add(row);
-            }
-            else
-            {
-                if (state1 == "Proposed" || state1 == "Ready") row["backlog"] = (int)row["backlog"] + 1;
-                else if (state1 == "Active" || state1 == "Resolved") row["åtagna"] = (int)row["åtagna"] + 1;
-                if (state2 == "Closed") row["slutförda"] = (int)row["slutförda"] + 1;
-            }
-        }
-
-
-        public static void PrintRteWorkItemTable()
-        {
-            Console.WriteLine("area|iteration|from|to|backlog|åtagna|slutförda");
-            foreach (DataRow row in table.Rows)
-            {
-                Console.WriteLine("{0}|{1}|{2}|{3}|{4}|{5}|{6}", row["area"], ((string)row["iteration"]).Replace("Skanska Sverige IT\\","") , ((DateTime)row["from"]).ToShortDateString(), ((DateTime)row["to"]).ToShortDateString(), row["backlog"], row["åtagna"], row["slutförda"]);
-            }
-        }
-
-
-        private static string GetMaintenanceArea(RteWorkItem requirement)
-        {
-            var parts = requirement.AreaPath.Split("\\");
-            return (parts.Length == 2) ? parts[1] : parts[0];
-        }
-        private static DataTable CreateTable()
-        {
-            DataTable table = new DataTable();
-            DataColumn column = new DataColumn
-            {
-                DataType = System.Type.GetType("System.String"),
-                ColumnName = "area",
-            };
-            table.Columns.Add(column);
-
-            column = new DataColumn
-            {
-                DataType = System.Type.GetType("System.String"),
-                ColumnName = "iteration",
-            };
-            table.Columns.Add(column);
-
-            column = new DataColumn
-            {
-                DataType = System.Type.GetType("System.DateTime"),
-                ColumnName = "from",
-            };
-            table.Columns.Add(column);
-            column = new DataColumn
-            {
-                DataType = System.Type.GetType("System.DateTime"),
-                ColumnName = "to",
-            };
-            table.Columns.Add(column);
-
-            column = new DataColumn
-            {
-                DataType = System.Type.GetType("System.Int32"),
-                ColumnName = "backlog",
-            };
-            table.Columns.Add(column);
-            column = new DataColumn
-            {
-                DataType = System.Type.GetType("System.Int32"),
-                ColumnName = "åtagna",
-            };
-            table.Columns.Add(column);
-            column = new DataColumn
-            {
-                DataType = System.Type.GetType("System.Int32"),
-                ColumnName = "slutförda",
-            };
-            table.Columns.Add(column);
-
-            DataColumn[] primaryKeyColumns = new DataColumn[4];
-            primaryKeyColumns[0] = table.Columns["area"];
-            primaryKeyColumns[1] = table.Columns["iteration"];
-            primaryKeyColumns[2] = table.Columns["from"];
-            primaryKeyColumns[3] = table.Columns["to"];
-            table.PrimaryKey = primaryKeyColumns;
-
-            return table;
-        }
-        private static string GetState(RteWorkItem requirement, DateTime date)
-        {
-            if (date < requirement.States[0].Key) return string.Empty;
-            for (int i = 1; i < requirement.States.Count; i++)
-            {
-                if (date < requirement.States[i].Key) return requirement.States[i - 1].Value;
-            }
-            return requirement.States.LastOrDefault().Value;
+                area.RemoveItemFromBucket(workItem, workItem.States[id].Key.Date, fromBucket);
+                area.AddItemToBucket(workItem, workItem.States[id].Key.Date, toBucket);
+            }   
         }
     }
 }

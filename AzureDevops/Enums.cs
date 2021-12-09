@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AzureDevops
 {
-    public enum Bucket
+    public enum BucketType
     { 
         Backlog,
         Commited,

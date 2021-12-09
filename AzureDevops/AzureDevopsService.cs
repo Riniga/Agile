@@ -22,30 +22,16 @@ namespace AzureDevops
             logger = log;
             configuration = config;
         }
-        
 
         public void Run()
         {
             ConnectToAzure(new Uri(configuration.GetValue<string>("CollectionUri")));
             var iterations = FeatchIterations();
             var requirements = RteWorkItems(configuration.GetValue<string>("Query"));
-            
             RteWorkItemManager.CreateStatistics(iterations, requirements);
-            //RteWorkItemManager.PrintRteWorkItemTable();
-
-            //PrintRequirements(requirements);
+            RteWorkItemManager.Print(iterations);
         }
 
-        
-
-        private void PrintRequirements(List<RteWorkItem> requirements)
-        {
-            foreach (var requirement in requirements)
-            {
-                foreach(var state in requirement.States)
-                    Console.WriteLine("{0}|{1}|{2}|{3}|{4}|{5}", requirement.WorkItem.Id, requirement.WorkItem.Fields["System.Title"], requirement.AreaPath.Replace("Skanska Sverige IT\\", ""), requirement.IterationPath.Replace("Skanska Sverige IT\\",""), state.Value, state.Key.ToShortDateString());
-            }
-        }
         private void ConnectToAzure(Uri collectionUri)
         {
             
@@ -57,17 +43,17 @@ namespace AzureDevops
 
         private List<Iteration> FeatchIterations()
         {
-            var iterations = Cache<List<Iteration>>.Get(key: "iterations");
-            if (iterations != null) return iterations;
-
-            iterations = new List<Iteration>();
-            iterations.Add(new Iteration(@"Skanska Sverige IT\Leveransperiod 2021-1", DateTime.Parse("2021-01-18"), DateTime.Parse("2021-04-04")));
-            iterations.Add(new Iteration(@"Skanska Sverige IT\Leveransperiod 2021-2", DateTime.Parse("2021-04-05"), DateTime.Parse("2021-04-20")));
-            iterations.Add(new Iteration(@"Skanska Sverige IT\Leveransperiod 2021-3", DateTime.Parse("2021-06-21"), DateTime.Parse("2021-10-03")));
-            iterations.Add(new Iteration(@"Skanska Sverige IT\Leveransperiod 2021-4", DateTime.Parse("2021-10-04"), DateTime.Parse("2022-01-23")));
-
-            Cache<List<Iteration>>.Add("iterations", iterations);
-            return iterations;
+            var result = new List<Iteration>();
+            var interationsSection = configuration.GetSection("Iterations");
+            var iterations = interationsSection.GetChildren();
+            foreach (IConfigurationSection iteration in iterations)
+            {
+                result.Add(new Iteration(
+                    iteration.GetSection("IterationPath").Get<string>(),
+                    DateTime.Parse(iteration.GetSection("Start").Get<string>()),
+                    DateTime.Parse(iteration.GetSection("End").Get<string>())));
+            }
+            return result;
         }
 
         private List<RteWorkItem> RteWorkItems(string query)

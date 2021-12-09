@@ -6,44 +6,30 @@ namespace AzureDevops
     public class Area
     {
         public string AreaPath;
-        
-        public Dictionary<Iteration, List<RteWorkItem>> Backlog;
-        public Dictionary<Iteration, List<RteWorkItem>> Commited;
-        public Dictionary<Iteration, List<RteWorkItem>> Done;
-
-
+        public Dictionary<BucketType,Bucket> buckets;
         public Area(string areaPath)
         {
             AreaPath = areaPath;
-            Backlog = new Dictionary<Iteration, List<RteWorkItem>>();
-            Commited = new Dictionary<Iteration, List<RteWorkItem>>();
-            Done = new Dictionary<Iteration, List<RteWorkItem>>();
+            buckets = new Dictionary<BucketType, Bucket>
+            {
+                [BucketType.Backlog] = new Bucket(),
+                [BucketType.Commited] = new Bucket(),
+                [BucketType.Done] = new Bucket()
+            };
         }
 
-        public void AddItemToBucket(RteWorkItem item, Iteration iteration, Bucket bucket)
+        public void AddItemToBucket(RteWorkItem workItem, DateTime date, BucketType bucket)
         {
-            if (bucket == Bucket.Backlog)
-            {
-                if (!Backlog.ContainsKey(iteration)) Backlog.Add(iteration, new List<RteWorkItem>());
-                Backlog[iteration].Add(item);
-            }
-            if (bucket == Bucket.Commited)
-            {
-                if (!Commited.ContainsKey(iteration)) Commited.Add(iteration, new List<RteWorkItem>());
-                Commited[iteration].Add(item);
-            }
-            if (bucket == Bucket.Done)
-            {
-                if (!Done.ContainsKey(iteration)) Done.Add(iteration, new List<RteWorkItem>());
-                Done[iteration].Add(item);
-            }
+            buckets[bucket].Add(workItem, date);
+        }
+        public void RemoveItemFromBucket(RteWorkItem workItem, DateTime date, BucketType bucket)
+        {
+            buckets[bucket].Remove(workItem, date);
         }
 
-        internal string GetMainAreaPath()
+        public List<RteWorkItem> GetBucketAt(DateTime date, BucketType bucket)
         {
-            var pathParts = AreaPath.Split('\\');
-            if (pathParts.Length == 1) return pathParts[0];
-            return pathParts[1];
+            return buckets[bucket].GetBucketAt(date);
         }
     }
 }

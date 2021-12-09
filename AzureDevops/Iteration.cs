@@ -9,6 +9,7 @@ namespace AzureDevops
         public DateTime Start;
         public DateTime End;
 
+        public Iteration() { }
         public Iteration(string iterationPath, DateTime start, DateTime end)
         {
             IterationPath = iterationPath;
