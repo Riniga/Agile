@@ -1,0 +1,36 @@
+﻿extends ../templates/startpage.pug
+block content
+  section#content
+    div 
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3 Skanska Agil transformationspuls
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Om dig
+      div.row
+        div.col-md-6
+          p#description Nu följer strax 16 stycken frågor som du skall besvara så gott du kan. En metod är att gemensamt ha ett möte för att diskuttera varje fråga och sedan svara individuellt. 
+          hr
+          h5#rate Ange din verksamhet och vilken roll (som du främst du)
+          hr
+          label.col-sm-2.col-form-label(for='area') Verksamhet
+          .col-sm-10
+            select#area.form-select
+              option(value='HR') HR
+              option(value='Maskinuthyrning') Maskinuthyrning
+              option(value='Marknad och sälj') Marknad och sälj
+          label.col-sm-2.col-form-label(for='role') Roll
+          .col-sm-10
+            select#role.form-select
+              option(value='teammedlem') Tillhör levererande team
+              option(value='prioriteringsansvarig') Prioriteringsansvarig
+              option(value='behovsansvarig') Behovsansvarig
+              option(value='behovsspecialist') Behovsspecialist
+              option(value='leveransansvarig') Leveransansvarig
+              option(value='leveransledare') Leveransledare 
+              option(value='arkitekt') Arkitekt
+            input#saveandnext.btn.btn-primary(type="button" value="Nästa >" onclick="page1_saveandnext('question.html?question=0')")
+          div#result
+        div.col-md-6
+          img(src="/images/HealthRadarExample.png" width="100%")
+block scripts 
+  script(src="/scripts/azurefunctions.js")

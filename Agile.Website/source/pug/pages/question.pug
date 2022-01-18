@@ -1,0 +1,40 @@
+﻿extends ../templates/startpage.pug
+block content
+  section#content
+    div
+    h2#area.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3#name
+      div.row
+        div.col-md-6
+          p#description
+          hr
+          h5#question
+          hr
+          .form-check
+            input#radio1.form-check-input(type='radio' name='answer' value="1")
+            label.form-check-label(for='radio1') <b>Sitter</b> - 
+              span#sit
+          .form-check
+            input#radio2.form-check-input(type='radio' name='answer' value="2")
+            label.form-check-label(for='radio2') <b>Kryper</b> - 
+              span#crawl
+          .form-check
+            input#radio3.form-check-input(type='radio' name='answer' value="3")
+            label.form-check-label(for='radio3') <b>Går</b> - 
+              span#walk
+          .form-check
+            input#radio4.form-check-input(type='radio' name='answer' value="4")
+            label.form-check-label(for='radio4') <b>Springer</b> - 
+              span#run
+          .form-check
+            input#radio5.form-check-input(type='radio' name='answer' value="5")
+            label.form-check-label(for='radio5') <b>Flyger</b> - 
+              span#fly
+          input#saveandnext.btn.btn-primary(type="button" value="Nästa >" onclick="answer_saveandnext()")
+          div#result
+        div.col-md-6
+            img#image(width="100%")
+block scripts
+  script(src="/scripts/question.js")

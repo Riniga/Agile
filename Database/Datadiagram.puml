@@ -1,0 +1,84 @@
+@startuml
+
+class Employees
+{
+    Email: nvarchar,
+    Firstname: nvarchar,
+    Lastname: nvarchar,
+    Notes: text,
+    InTeams: bool,
+    InDevops: bool
+}
+class Teams
+{
+    Name: nvarchar
+}
+class TeamTypes
+{
+    Name: nvarchar
+}
+class Courses
+{
+    Name: nvarchar
+}
+class Roles
+{
+    Name: nvarchar
+}
+class RoleTypes
+{
+    Name: nvarchar
+}
+class SubTeams
+{
+    Name: nvarchar
+}
+class DeliveryPlannings
+{
+    Name: nvarchar
+    PlanningDate: date,
+    StartDate: date,
+    EndDate: date
+}
+class CourseInvitations
+{
+    Date: date
+}
+class CourseParticipations
+{
+    Date: date
+}
+class DeliveryPlanningParticipationScales
+{
+    Name: nvarchar
+}
+
+
+
+RoleInTeam -right-> Teams
+RoleInTeam -left-> Employees
+RoleInTeam -down-> Roles 
+
+Roles -down-> RoleTypes
+Teams -right-> TeamTypes
+
+TeamPrimaryContacts -down-> Employees
+TeamPrimaryContacts -> Teams
+
+SubTeams -down-> Employees
+SubTeams -> Teams
+
+DeliveryPlanningParticipations -up-> Employees
+DeliveryPlanningParticipations --> DeliveryPlannings
+DeliveryPlanningParticipations -down-> DeliveryPlanningParticipationScales
+
+
+CourseParticipations -right->Employees
+CourseParticipations -up->Courses
+CourseInvitations -right-> Employees
+CourseInvitations --> Courses
+
+
+
+
+@enduml

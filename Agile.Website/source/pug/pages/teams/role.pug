@@ -1,0 +1,24 @@
+﻿extends ../../templates/teams.pug
+block content
+  section#content
+    div
+    h2#area.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3#name Roll
+      div.row
+        div Följande personer har rollen 
+          span#roleName [Scrummaster]
+        div.col-md-6.bg-light
+          table#personstable_1.display.table-light.compact.cell-border
+            thead
+                tr
+                    th Name
+                    th Email
+                    th Link
+            tbody
+          div#result
+        div.col-md-6
+            img#image(width="100%")
+block scripts
+    script(src="/scripts/teams/roles.js")  

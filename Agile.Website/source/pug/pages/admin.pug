@@ -1,0 +1,24 @@
+﻿extends ../templates/startpage.pug
+block content
+  section#content
+    div
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  SAFe Devops Hälsoradar
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Admin 
+      div.row
+        div.col-md-12(style='background-color: #fff; color: black')
+          table#table_id.dataTable.display.stripe
+            thead
+              tr
+                th Id
+                th Role
+                th Area
+                th Answers
+                th Posted
+            tbody
+block scripts
+  script(src="https://code.jquery.com/jquery-2.2.4.min.js")
+  script(src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js")
+  script(src="/scripts/admin.js")
+  

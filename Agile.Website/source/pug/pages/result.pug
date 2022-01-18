@@ -1,0 +1,26 @@
+﻿extends ../templates/startpage.pug
+block content
+  section#content
+    div
+    h2.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3  SAFe Devops Hälsoradar
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3 Resultat 
+      div.row
+        div.col-md-8
+          canvas#thecanvas(width='800px' height='800px' style)
+          div#result
+        div.col-md-4
+          p#description Resultatt i diagrammet visar i rött ett genomsnitt av svaren. Svart är de svar från varje individ
+          hr
+          h5#rate Filtrera diagrammet utifrån verksamhet och roll
+          hr
+          label.col-sm-2.col-form-label(for='role') Verksamhet
+          .col-sm-10
+            select#area.form-select
+              option(value='') Alla
+              option(value='HR') HR
+              option(value='Maskinuthyrning') Maskinuthyrning
+              option(value='Marknad och sälj') Marknad och sälj
+block scripts
+  script(src="/scripts/drawradar.js")

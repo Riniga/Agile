@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Rickard Nisses-Gagnér, Skanska Sverige IT">
+  <title>Skanska Agil transformationspuls</title>
+  <link rel="canonical" href="https://devopshealthradar.z16.web.core.windows.net/">
+  <link rel="stylesheet" href="/stylesheets/ui.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+</head>
+<body class="bg-dark d-flex-flex-column h-100">
+  <header class="bd-header bg-light py-3 d-flex align-items-stretch border-bottom border-dark">
+    <div class="container-fluid d-flex align-items-center">
+      <h1 class="d-flex align-items-center fs-4 text-dark mb-0"><a href="/"><img class="me-3" src="https://www.skanska.se/4991f5/globalassets/common-items/skanska-orig-logo-rgb-534.png" height="50px" alt="Skanska"></a>Agil transformationspuls</h1><a href="/result.html" class="ms-auto link-dark">Resultat</a>
+    </div>
+  </header>
+  <aside class="bg-dark bd-aside sticky-xl-top text-muted align-self-start mb-3 mb-xl-5 px-2">
+    <h2 class="text-white h6 pt-4 pb-3 mb-4 border-bottom">Frågor</h2>
+    <nav class="small" id="toc">
+      <ul class="list-unstyled">
+        <li class="my-2">
+          <button class="btn btn-dark d-inline-flex align-items-center collapsed" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#explore-collapse" aria-controls="explore-collapse">1. Behovsinsamling</button>
+          <ul class="list-unstyled ps-3 collapse" id="explore-collapse">
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=0">1. Lösningar</a></li>
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=1">2. Samarbete</a></li>
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=2">3. Arkitektur</a></li>
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=3">4. Funktioner</a></li>
+          </ul>
+        </li>
+        <li class="my-2">
+          <button class="btn btn-dark d-inline-flex align-items-center collapsed" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#integrate-collapse" aria-controls="integrate-collapse">2. Integrera</button>
+          <ul class="list-unstyled ps-3 collapse" id="integrate-collapse">
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=4">1. Utveckling</a></li>
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=5">2. Byggen</a></li>
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=6">3. Testning</a></li>
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=7">4. Acceptans  </a></li>
+          </ul>
+        </li>
+        <li class="my-2">
+          <button class="btn btn-dark d-inline-flex align-items-center collapsed" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#delivery-collapse" aria-controls="delivery-collapse">3. Leverans</button>
+          <ul class="list-unstyled ps-3 collapse" id="delivery-collapse">
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=8">1. Deploy</a></li>
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=9">2. Verifikation</a></li>
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=10">3. Monitorering</a></li>
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=11">4. Åtgärda </a></li>
+          </ul>
+        </li>
+        <li class="my-2">
+          <button class="btn btn-dark d-inline-flex align-items-center collapsed" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#release-collapse" aria-controls="release-collapse">4. Release</button>
+          <ul class="list-unstyled ps-3 collapse" id="release-collapse">
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=12">1. Release</a></li>
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=13">2. Stabilisering</a></li>
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=14">3. Mätning</a></li>
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=15">4. Lärande</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  <div class="bd-cheatsheet container-fluid bg-dark">
+    <section id="content">
+      <div></div>
+      <h2 class="sticky-xl-top fw-bold pt-3 pt-xl-5 pb-2 pb-xl-3"> SAFe Devops Hälsoradar</h2>
+      <article>
+        <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+          <h3>Resultat </h3>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <canvas id="thecanvas" width="800px" height="800px" style="true"></canvas>
+            <div id="result"></div>
+          </div>
+          <div class="col-md-4">
+            <p id="description">Resultatt i diagrammet visar i rött ett genomsnitt av svaren. Svart är de svar från varje individ</p>
+            <hr>
+            <h5 id="rate">Filtrera diagrammet utifrån verksamhet och roll</h5>
+            <hr>
+            <label class="col-sm-2 col-form-label" for="role">Verksamhet</label>
+            <div class="col-sm-10">
+              <select class="form-select" id="area">
+                <option value="">Alla</option>
+                <option value="HR">HR</option>
+                <option value="Maskinuthyrning">Maskinuthyrning</option>
+                <option value="Marknad och sälj">Marknad och sälj</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+    <div class="spinner-border text-primary" id="spinner" role="status" hidden></div>
+  </div>
+  <div class="row container-fluid bg-dark"><span class="text-muted" id="sessioninfo">Sessioninfo</span></div>
+  <script src="/scripts/checkie.js"> </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+  <script src="/scripts/settings.js"></script>
+  <script src="/scripts/ui.js"></script>
+  <script src="/scripts/common.js"></script>
+</body>
+<script src="/scripts/drawradar.js"></script>

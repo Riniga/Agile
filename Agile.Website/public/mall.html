@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Rickard Nisses-Gagnér, Skanska Sverige IT">
+  <title>Skanska Agil transformationspuls</title>
+  <link rel="canonical" href="https://devopshealthradar.z16.web.core.windows.net/">
+  <link rel="stylesheet" href="/stylesheets/ui.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+</head>
+<body class="bg-dark d-flex-flex-column h-100">
+  <header class="bd-header bg-light py-3 d-flex align-items-stretch border-bottom border-dark">
+    <div class="container-fluid d-flex align-items-center">
+      <h1 class="d-flex align-items-center fs-4 text-dark mb-0"><a href="/"><img class="me-3" src="https://www.skanska.se/4991f5/globalassets/common-items/skanska-orig-logo-rgb-534.png" height="50px" alt="Skanska"></a>Agil transformationspuls</h1><a href="/result.html" class="ms-auto link-dark">Resultat</a>
+    </div>
+  </header>
+  <aside class="bg-dark bd-aside sticky-xl-top text-muted align-self-start mb-3 mb-xl-5 px-2">
+    <h2 class="text-white h6 pt-4 pb-3 mb-4 border-bottom">Frågor</h2>
+    <nav class="small" id="toc">
+      <ul class="list-unstyled">
+        <li class="my-2">
+          <button class="btn btn-dark d-inline-flex align-items-center collapsed" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#explore-collapse" aria-controls="explore-collapse">1. Behovsinsamling</button>
+          <ul class="list-unstyled ps-3 collapse" id="explore-collapse">
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=0">1. Lösningar</a></li>
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=1">2. Samarbete</a></li>
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=2">3. Arkitektur</a></li>
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=3">4. Funktioner</a></li>
+          </ul>
+        </li>
+        <li class="my-2">
+          <button class="btn btn-dark d-inline-flex align-items-center collapsed" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#integrate-collapse" aria-controls="integrate-collapse">2. Integrera</button>
+          <ul class="list-unstyled ps-3 collapse" id="integrate-collapse">
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=4">1. Utveckling</a></li>
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=5">2. Byggen</a></li>
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=6">3. Testning</a></li>
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=7">4. Acceptans  </a></li>
+          </ul>
+        </li>
+        <li class="my-2">
+          <button class="btn btn-dark d-inline-flex align-items-center collapsed" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#delivery-collapse" aria-controls="delivery-collapse">3. Leverans</button>
+          <ul class="list-unstyled ps-3 collapse" id="delivery-collapse">
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=8">1. Deploy</a></li>
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=9">2. Verifikation</a></li>
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=10">3. Monitorering</a></li>
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=11">4. Åtgärda </a></li>
+          </ul>
+        </li>
+        <li class="my-2">
+          <button class="btn btn-dark d-inline-flex align-items-center collapsed" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#release-collapse" aria-controls="release-collapse">4. Release</button>
+          <ul class="list-unstyled ps-3 collapse" id="release-collapse">
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=12">1. Release</a></li>
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=13">2. Stabilisering</a></li>
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=14">3. Mätning</a></li>
+            <li><a class="d-inline-flex align-items-center rounded" href="question.html?question=15">4. Lärande</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  <div class="bd-cheatsheet container-fluid bg-dark">
+    <section id="content">
+      <h2 class="sticky-xl-top fw-bold pt-3 pt-xl-5 pb-2 pb-xl-3">Contents</h2>
+      <article class="my-3" id="typography">
+        <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+          <h3>Typography</h3><a class="d-flex align-items-center" href="../content/typography/">Documentation</a>
+        </div>
+        <div>
+          <div class="bd-example">
+            <p class="display-1">Display 1</p>
+            <p class="display-2">Display 2</p>
+            <p class="display-3">Display 3</p>
+            <p class="display-4">Display 4</p>
+            <p class="display-5">Display 5</p>
+            <p class="display-6">Display 6</p>
+          </div>
+          <div class="bd-example">
+            <p class="h1">Heading 1</p>
+            <p class="h2">Heading 2</p>
+            <p class="h3">Heading 3</p>
+            <p class="h4">Heading 4</p>
+            <p class="h5">Heading 5</p>
+            <p class="h6">Heading 6</p>
+          </div>
+          <div class="bd-example">
+            <p class="lead">This is a lead paragraph. It stands out from regular paragraphs.</p>
+          </div>
+          <div class="bd-example">
+            <p>You can use the mark tag to 
+              <mark>highlight</mark> text.
+            </p>
+            <p>
+              <del>This line of text is meant to be treated as deleted text.</del>
+            </p>
+            <p>
+              <s>This line of text is meant to be treated as no longer accurate.</s>
+            </p>
+            <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+            <p>
+              <u>This line of text will render as underlined.</u>
+            </p>
+            <p><small>This line of text is meant to be treated as fine print.</small></p>
+            <p><strong>This line rendered as bold text.</strong></p>
+            <p><em>This line rendered as italicized text.</em></p>
+          </div>
+          <div class="bd-example">
+            <blockquote class="blockquote">
+              <p>A well-known quote, contained in a blockquote element.</p>
+              <footer class="blockquote-footer">Someone famous in 
+                <cite title="Source Title">Source Title</cite>
+              </footer>
+            </blockquote>
+          </div>
+          <div class="bd-example">
+            <ul class="list-unstyled">
+              <li>This is a list.</li>
+              <li>It appears completely unstyled.</li>
+              <li>Structurally, it&apos;s still a list.</li>
+              <li>However, this style only applies to immediate child elements.</li>
+              <li>Nested lists:
+                <ul>
+                  <li>are unaffected by this style</li>
+                  <li>will still show a bullet</li>
+                  <li>and have appropriate left margin</li>
+                </ul>
+              </li>
+              <li>This may still come in handy in some situations.</li>
+            </ul>
+          </div>
+          <div class="bd-example">
+            <ul class="list-inline">
+              <li class="list-inline-item">This is a list item.</li>
+              <li class="list-inline-item">And another one.</li>
+              <li class="list-inline-item">But they&apos;re displayed inline.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      <article class="my-3" id="images">
+        <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+          <h3>Images</h3><a class="d-flex align-items-center" href="../content/images/">Documentation</a>
+        </div>
+        <div>
+          <div class="bd-example">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg img-fluid" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Responsive image" preserveaspectratio="xMidYMid slice" focusable="false">
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#868e96"></rect>
+              <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Responsive image</text>
+            </svg>
+          </div>
+          <div class="bd-example">
+            <svg class="bd-placeholder-img img-thumbnail" width="200" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A generic square placeholder image with a white border around it, making it resemble a photograph taken with an old instant camera: 200x200" preserveaspectratio="xMidYMid slice" focusable="false">
+              <title>A generic square placeholder image with a white border around it, making it resemble a photograph taken with an old instant camera</title>
+              <rect width="100%" height="100%" fill="#868e96"></rect>
+              <text x="50%" y="50%" fill="#dee2e6" dy=".3em">200x200</text>
+            </svg>
+          </div>
+        </div>
+      </article>
+      <article class="my-3" id="tables">
+        <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+          <h3>Tables</h3><a class="d-flex align-items-center" href="../content/tables/">Documentation</a>
+        </div>
+        <div>
+          <div class="bd-example">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td colspan="2">Larry the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="bd-example">
+            <table class="table table-dark table-borderless">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td colspan="2">Larry the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="bd-example">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Class</th>
+                  <th scope="col">Heading</th>
+                  <th scope="col">Heading</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Default</th>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                </tr>
+                <tr class="table-primary">
+                  <th scope="row">Primary</th>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                </tr>
+                <tr class="table-secondary">
+                  <th scope="row">Secondary</th>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                </tr>
+                <tr class="table-success">
+                  <th scope="row">Success</th>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                </tr>
+                <tr class="table-danger">
+                  <th scope="row">Danger</th>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                </tr>
+                <tr class="table-warning">
+                  <th scope="row">Warning</th>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                </tr>
+                <tr class="table-info">
+                  <th scope="row">Info</th>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                </tr>
+                <tr class="table-light">
+                  <th scope="row">Light</th>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                </tr>
+                <tr class="table-dark">
+                  <th scope="row">Dark</th>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="bd-example">
+            <table class="table table-sm table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td colspan="2">Larry the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+      <article class="my-3" id="figures">
+        <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+          <h3>Figures</h3><a class="d-flex align-items-center" href="../content/figures/">Documentation</a>
+        </div>
+        <div>
+          <div class="bd-example">
+            <figure class="figure">
+              <svg class="bd-placeholder-img figure-img img-fluid rounded" width="400" height="300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 400x300" preserveaspectratio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#868e96"></rect>
+                <text x="50%" y="50%" fill="#dee2e6" dy=".3em">400x300</text>
+              </svg>
+              <figcaption class="figure-caption">A caption for the above image.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+    </section>
+    <section id="forms">
+      <h2 class="sticky-xl-top fw-bold pt-3 pt-xl-5 pb-2 pb-xl-3">Forms</h2>
+      <article class="my-3" id="overview">
+        <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+          <h3>Overview</h3><a class="d-flex align-items-center" href="../forms/overview/">Documentation</a>
+        </div>
+        <div>
+          <div class="bd-example">
+            <form>
+              <div class="mb-3">
+                <label class="form-label" for="exampleInputEmail1">Email address</label>
+                <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp">
+                <div class="form-text" id="emailHelp">We&apos;ll never share your email with anyone else.</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="exampleInputPassword1">Password</label>
+                <input class="form-control" id="exampleInputPassword1" type="password">
+              </div>
+              <div class="mb-3 form-check">
+                <input class="form-check-input" id="exampleCheck1" type="checkbox">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div>
+              <fieldset class="mb-3">
+                <legend>Radios buttons</legend>
+                <div class="form-check">
+                  <input class="form-check-input" id="exampleRadio1" type="radio" name="radios">
+                  <label class="form-check-label" for="exampleRadio1">Default radio</label>
+                </div>
+                <div class="mb-3 form-check">
+                  <input class="form-check-input" id="exampleRadio2" type="radio" name="radios">
+                  <label class="form-check-label" for="exampleRadio2">Another radio</label>
+                </div>
+              </fieldset>
+              <div class="mb-3">
+                <label class="form-label" for="customFile">Upload</label>
+                <input class="form-control" id="customFile" type="file">
+              </div>
+              <div class="mb-3 form-check form-switch">
+                <input class="form-check-input" id="flexSwitchCheckChecked" type="checkbox" checked="">
+                <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="customRange3">Example range</label>
+                <input class="form-range" id="customRange3" type="range" min="0" max="5" step="0.5">
+              </div>
+              <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </article>
+      <article class="my-3" id="disabled-forms">
+        <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+          <h3>Disabled forms</h3><a class="d-flex align-items-center" href="../forms/overview/#disabled-forms">Documentation</a>
+        </div>
+        <div>
+          <div class="bd-example">
+            <form>
+              <fieldset disabled="" aria-label="Disabled fieldset example">
+                <div class="mb-3">
+                  <label class="form-label" for="disabledTextInput">Disabled input</label>
+                  <input class="form-control" id="disabledTextInput" type="text" placeholder="Disabled input">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="disabledSelect">Disabled select menu</label>
+                  <select class="form-select" id="disabledSelect">
+                    <option>Disabled select</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <div class="form-check">
+                    <input class="form-check-input" id="disabledFieldsetCheck" type="checkbox" disabled="">
+                    <label class="form-check-label" for="disabledFieldsetCheck">Can&apos;t check this</label>
+                  </div>
+                </div>
+                <fieldset class="mb-3">
+                  <legend>Disabled radios buttons</legend>
+                  <div class="form-check">
+                    <input class="form-check-input" id="disabledRadio1" type="radio" name="radios" disabled="">
+                    <label class="form-check-label" for="disabledRadio1">Disabled radio</label>
+                  </div>
+                  <div class="mb-3 form-check">
+                    <input class="form-check-input" id="disabledRadio2" type="radio" name="radios" disabled="">
+                    <label class="form-check-label" for="disabledRadio2">Another radio</label>
+                  </div>
+                </fieldset>
+                <div class="mb-3">
+                  <label class="form-label" for="disabledCustomFile">Upload</label>
+                  <input class="form-control" id="disabledCustomFile" type="file" disabled="">
+                </div>
+                <div class="mb-3 form-check form-switch">
+                  <input class="form-check-input" id="disabledSwitchCheckChecked" type="checkbox" checked="" disabled="">
+                  <label class="form-check-label" for="disabledSwitchCheckChecked">Disabled checked switch checkbox input</label>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="disabledRange">Disabled range</label>
+                  <input class="form-range" id="disabledRange" type="range" min="0" max="5" step="0.5">
+                </div>
+                <button class="btn btn-primary" type="submit">Submit</button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </article>
+      <article class="my-3" id="sizing">
+        <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+          <h3>Sizing</h3><a class="d-flex align-items-center" href="../forms/form-control/#sizing">Documentation</a>
+        </div>
+        <div>
+          <div class="bd-example">
+            <div class="mb-3">
+              <input class="form-control form-control-lg" type="text" placeholder=".form-control-lg" aria-label=".form-control-lg example">
+            </div>
+            <div class="mb-3">
+              <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                <option selected="">Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <input class="form-control form-control-lg" type="file" aria-label="Large file input example">
+            </div>
+          </div>
+          <div class="bd-example">
+            <div class="mb-3">
+              <input class="form-control form-control-sm" type="text" placeholder=".form-control-sm" aria-label=".form-control-sm example">
+            </div>
+            <div class="mb-3">
+              <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <option selected="">Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <input class="form-control form-control-sm" type="file" aria-label="Small file input example">
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="my-3" id="input-group">
+        <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+          <h3>Input group</h3><a class="d-flex align-items-center" href="../forms/input-group/">Documentation</a>
+        </div>
+        <div>
+          <div class="bd-example">
+            <div class="input-group mb-3"><span class="input-group-text" id="basic-addon1">@</span>
+              <input class="form-control" type="text" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+              <input class="form-control" type="text" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2"><span class="input-group-text" id="basic-addon2">@example.com</span>
+            </div>
+            <label class="form-label" for="basic-url">Your vanity URL</label>
+            <div class="input-group mb-3"><span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+              <input class="form-control" id="basic-url" type="text" aria-describedby="basic-addon3">
+            </div>
+            <div class="input-group mb-3"><span class="input-group-text">$</span>
+              <input class="form-control" type="text" aria-label="Amount (to the nearest dollar)"><span class="input-group-text">.00</span>
+            </div>
+            <div class="input-group"><span class="input-group-text">With textarea</span>
+              <textarea class="form-control" aria-label="With textarea"></textarea>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="my-3" id="floating-labels">
+        <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+          <h3>Floating labels</h3><a class="d-flex align-items-center" href="../forms/floating-labels/">Documentation</a>
+        </div>
+        <div>
+          <div class="bd-example">
+            <form>
+              <div class="form-floating mb-3">
+                <input class="form-control" id="floatingInput" type="email" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+              </div>
+              <div class="form-floating">
+                <input class="form-control" id="floatingPassword" type="password" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+              </div>
+            </form>
+          </div>
+        </div>
+      </article>
+      <article class="my-3" id="validation">
+        <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+          <h3>Validation</h3><a class="d-flex align-items-center" href="../forms/validation/">Documentation</a>
+        </div>
+        <div>
+          <div class="bd-example">
+            <form class="row g-3">
+              <div class="col-md-4">
+                <label class="form-label" for="validationServer01">First name</label>
+                <input class="form-control is-valid" id="validationServer01" type="text" value="Mark" required="">
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label" for="validationServer02">Last name</label>
+                <input class="form-control is-valid" id="validationServer02" type="text" value="Otto" required="">
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label" for="validationServerUsername">Username</label>
+                <div class="input-group has-validation"><span class="input-group-text" id="inputGroupPrepend3">@</span>
+                  <input class="form-control is-invalid" id="validationServerUsername" type="text" aria-describedby="inputGroupPrepend3" required="">
+                  <div class="invalid-feedback">Please choose a username.</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="validationServer03">City</label>
+                <input class="form-control is-invalid" id="validationServer03" type="text" required="">
+                <div class="invalid-feedback">Please provide a valid city.</div>
+              </div>
+              <div class="col-md-3">
+                <label class="form-label" for="validationServer04">State</label>
+                <select class="form-select is-invalid" id="validationServer04" required="">
+                  <option selected="" disabled="" value="">Choose...</option>
+                  <option>...</option>
+                </select>
+                <div class="invalid-feedback">Please select a valid state.</div>
+              </div>
+              <div class="col-md-3">
+                <label class="form-label" for="validationServer05">Zip</label>
+                <input class="form-control is-invalid" id="validationServer05" type="text" required="">
+                <div class="invalid-feedback">Please provide a valid zip.</div>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input is-invalid" id="invalidCheck3" type="checkbox" value="" required="">
+                  <label class="form-check-label" for="invalidCheck3">Agree to terms and conditions</label>
+                  <div class="invalid-feedback">You must agree before submitting.</div>
+                </div>
+              </div>
+              <div class="col-12">
+                <button class="btn btn-primary" type="submit">Submit form</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </article>
+    </section>
+    <section id="components"></section>
+    <div class="spinner-border text-primary" id="spinner" role="status" hidden></div>
+  </div>
+  <div class="row container-fluid bg-dark"><span class="text-muted" id="sessioninfo">Sessioninfo</span></div>
+  <script src="/scripts/checkie.js"> </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+  <script src="/scripts/settings.js"></script>
+  <script src="/scripts/ui.js"></script>
+  <script src="/scripts/common.js"></script>
+</body>
