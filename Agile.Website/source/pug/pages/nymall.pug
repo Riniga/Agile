@@ -1,0 +1,107 @@
+﻿extends ../templates/startpage.pug
+block content
+    .mainbody
+      div
+        // Heading
+        .mb-4.mt-4.mx-sm.grid.grids.mxs.gaps.gaprows
+          h1.col-span-full(class='md:col-span-4 mb-[15px] lg:text-bh-2xl lg:leading-[45px] xl:text-bh-3xl')
+            | Huvudrubrik
+          p.col-span-full.mb-10.text-bh-md.mt-2(class='md:col-start-5 md:col-span-8 lg:col-span-4 @*border-b border-bh-gray*@ @*lg:border-r lg:border-bh-gray*@ @*lg:border-b-0*@ leading-[normal]')
+            | The Skanska Brand Device is a dynamic extension of the Skanska Logotype. It is a symbol that confidently adapts to various contexts and formats and adds a humble, yet confident presence as a brand sender. With it&acute;s clear and bold shapes, it tells a story of building, stability, foundation, micro, and macro perspectives and the importance of attention to detail. Our Brand Device is a set of fixed shapes, not to be altered, but adaptable in size to fit different formats, both for still and motion.
+          // </div>
+          // download stuff
+          .mb-4.col-span-8(class='md:col-start-5 lg:col-start-9 lg:col-end-13')
+            .linkordownloadblocktypemodel.SimpleMode
+              .grid.mt-2.justify-between(style='margin-bottom:30px')
+                .text-bh-base.col-start-1 Brand Device full package
+                .text-bh-base.col-start-1.text-gray-400
+                  | 74MB Includes digital and print assets
+                a.col-start-2.row-start-1.row-span-2.text-center.inline-flex.items-center.rounded-full.bg-bh-green(href='/siteassets/brand-device/brand-device-full-package.zip' target='_blank' download='' class='h-[46px] w-[46px]')
+                  svg.mx-auto.h-5(class='w-[18px]' viewbox='0 0 18 20' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
+                    path#Combined-Shape(d='M16.64,17.9998 L16.64,19.9998 L0.64,19.9998 L0.64,17.9998 L16.64,17.9998 Z M9.658,-1.38555833e-13 L9.658,12.795 L16,7.247 L17.316,8.753 L8.658,16.329 L-4.19042578e-12,8.753 L1.317,7.247 L7.658,12.795 L7.658,-1.38555833e-13 L9.658,-1.38555833e-13 Z')
+              .grid.justify-between(style='margin-bottom:5px')
+                .text-bh-base.col-span-1 Brand Device digital package
+                a.col-start-2.row-start-1.row-span-2.text-center.inline-flex.items-center(href='/siteassets/brand-device/brand-device-digital-package.zip' download='' target='_blank' class='w-[46px]')
+                  svg.mx-auto.h-5(class='w-[18px]' viewbox='0 0 18 20' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
+                    path#Combined-Shape(d='M16.64,17.9998 L16.64,19.9998 L0.64,19.9998 L0.64,17.9998 L16.64,17.9998 Z M9.658,-1.38555833e-13 L9.658,12.795 L16,7.247 L17.316,8.753 L8.658,16.329 L-4.19042578e-12,8.753 L1.317,7.247 L7.658,12.795 L7.658,-1.38555833e-13 L9.658,-1.38555833e-13 Z')
+              .grid.justify-between(style='margin-bottom:5px')
+                .text-bh-base.col-span-1 Brand Device print package
+                a.col-start-2.row-start-1.row-span-2.text-center.inline-flex.items-center(href='/siteassets/brand-device/brand-device-print-package.zip' download='' target='_blank' class='w-[46px]')
+                  svg.mx-auto.h-5(class='w-[18px]' viewbox='0 0 18 20' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
+                    path#Combined-Shape(d='M16.64,17.9998 L16.64,19.9998 L0.64,19.9998 L0.64,17.9998 L16.64,17.9998 Z M9.658,-1.38555833e-13 L9.658,12.795 L16,7.247 L17.316,8.753 L8.658,16.329 L-4.19042578e-12,8.753 L1.317,7.247 L7.658,12.795 L7.658,-1.38555833e-13 L9.658,-1.38555833e-13 Z')
+
+        .multipleimagesblocktypemodel
+          .mxs.mys.grid.grids.gaps.gaprows(style='margin-top:25px;margin-bottom:50px;')
+            h2.col-span-full(class='md:col-span-4') Brand Device Construction
+            .text-bh-md.col-span-full(class='md:col-start-5 lg:col-start-5 leading-[normal] md:col-span-8 lg:col-span-4')
+              p
+                | The 14 &rdquo;cut out&rdquo; shapes are divided into landscape, portrait and square, to optimize usage and application.
+            .text-bh-md.col-span-full.md-col-span-8(class='leading-[normal] md:col-start-5 lg:col-start-9 lg:col-span-4')
+            .col-span-full.grid.grid-cols-12.gaps.gaprows(class='md:col-start-5')
+              .col-span-full.flex.items-baseline.flex-col(class='lg:col-span-12')
+                div
+                img.w-full.object-center(src='/images/placeholder.svg' alt='Brand device landscape')
+                div(style='padding-top:15px')
+                  p Landscape
+        .multipleimagesblocktypemodel
+          .grid.grids.gaps.gaprows.bg-bh-gray-100(style='margin-top:25px;margin-bottom:25px;padding-left:50px;padding-right:50px;padding-top:50px;padding-bottom:50px;')
+            h2.col-span-full(class='md:col-span-4') Default Usage
+            .text-bh-md.col-span-full(class='md:col-start-5 lg:col-start-5 leading-[normal] md:col-span-8 lg:col-span-4')
+              p
+                | The default shapes should always be SK or S. If there are several shapes applied in relation to each other, or if the Skanska logotype is present, the complementary shapes can be used as well.
+            .text-bh-md.col-span-full.md-col-span-8(class='leading-[normal] md:col-start-5 lg:col-start-9 lg:col-span-4')
+            .col-span-full.grid.grid-cols-12.gaps.gaprows
+              .col-span-full.flex.items-baseline.flex-col(class='lg:col-span-3 md:col-span-6')
+                div(style='padding-bottom:25px')
+                  p Default landscape shape
+                img.w-full.object-center.border.border-bh-blue(src='/images/placeholder.svg' alt='BD Landscape')
+                div
+              .col-span-full.flex.items-baseline.flex-col(class='lg:col-span-3 md:col-span-6')
+                div(style='padding-bottom:25px')
+                  p Default portrait shape
+                img.w-full.object-center.border.border-bh-blue(src='/images/placeholder.svg' alt='BD Portrait')
+                div
+              .col-span-full.flex.items-baseline.flex-col(class='lg:col-span-3 md:col-span-6')
+                div(style='padding-bottom:25px')
+                  p Default square shape
+                img.w-full.object-center.border.border-bh-blue(src='/images/placeholder.svg' alt='BD Square')
+                div
+              .col-span-full.flex.items-baseline.flex-col(class='lg:col-span-3 md:col-span-6')
+                div(style='padding-bottom:25px')
+                  p Default square shape (alt)
+                img.w-full.object-center.border.border-bh-blue(src='/images/placeholder.svg' alt='BD Square alt')
+                div
+        .dividerblocktypemodel
+          hr.border-t.border-bh-gray.mxs(style='margin-top:25px;margin-bottom:25px;')
+        .multipleimagesblocktypemodel
+          .mxs.mys.grid.grids.gaps.gaprows(style='margin-top:25px;margin-bottom:50px;')
+            h2.col-span-full(class='md:col-span-4') Brand Device Motion
+            .text-bh-md.col-span-full(class='md:col-start-5 lg:col-start-5 leading-[normal] md:col-span-8 lg:col-span-4')
+              p
+                | The motion versions of the brand device are an important part of the visual identity, especially in digital touchpoints. Please contact the brand help desk (
+                a.text-bh-blue.underline(href='mailto:brandhelp@skanska.se') brandhelp@skanska.se
+                | ) if you need motion examples.
+            .text-bh-md.col-span-full.md-col-span-8(class='leading-[normal] md:col-start-5 lg:col-start-9 lg:col-span-4')
+
+    .grid.grid-cols-12.pys.pxs.bg-primary-blue.text-white
+      // First Row
+      .col-span-6.flex.items-center.justify-start
+        img.rotate-180.max-w-min(class='3xl:w-[27px] 3xl:h-[25px] w-[17px] h-[16px]' style='margin-right:10px' src='/images/Arrow_Big_Icon_Blue.svg' alt='')
+        a(href='/link/f144f7b9c14c409dabc7e9af887f35bf.aspx' title='Color')
+          h2 Previous
+      .col-span-6.flex.items-center.justify-end
+        a(href='/link/e8374672653a436097a14d64fa01b070.aspx' title='Grid & Layout')
+          h2 Next
+        img.my-auto.max-w-min(class='3xl:w-[27px] 3xl:h-[25px] w-[17px] h-[16px]' style='margin-left:10px' src='/images/Arrow_Big_Icon_Blue.svg' alt='')
+      // Second Row
+      // Third Row
+      .col-span-6.flex.items-center.justify-start
+        img.rotate-180.max-w-min(class='3xl:w-[27px] 3xl:h-[25px] w-[17px] h-[16px]' style='margin-right:10px' src='/images/Arrow_Big_Icon.svg' alt='')
+        a(href='/link/f144f7b9c14c409dabc7e9af887f35bf.aspx' title='Color')
+          h2.align-middle Color
+      .col-span-6.flex.items-center.justify-end.items-center
+        a(href='/link/e8374672653a436097a14d64fa01b070.aspx' title='Grid & Layout')
+          h2.align-middle Grid &amp; Layout
+        img.my-auto.max-w-min(class='3xl:w-[27px] 3xl:h-[25px] w-[17px] h-[16px]' style='margin-left:10px' src='/images/Arrow_Big_Icon.svg' alt='')
+
+block scripts 

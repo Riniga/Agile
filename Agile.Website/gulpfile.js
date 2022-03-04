@@ -38,6 +38,10 @@ gulp.task('images', function ()
         .pipe(gulp.dest('./public/images'));
 });
 
+gulp.task('fonts', function () {
+    return gulp.src('./source/fonts/**/*.*')
+        .pipe(gulp.dest('./public/fonts'));
+});
 
 gulp.task('data', function () 
 {
@@ -94,7 +98,7 @@ gulp.task('watch', function () {
     gulp.watch('source/data/**/*.json', gulp.series('data'));
 });
 
-gulp.task('default', gulp.series('clean','pug','sass','js','images', 'data', function (done) {
+gulp.task('default', gulp.series('clean','pug','sass','js','images','fonts', 'data', function (done) {
     done();
 }));
 

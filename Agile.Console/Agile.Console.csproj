@@ -9,10 +9,4 @@
     <ProjectReference Include="..\Agile.Library\Agile.Library.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="teams.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>

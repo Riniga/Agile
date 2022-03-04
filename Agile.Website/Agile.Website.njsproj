@@ -36,6 +36,11 @@
     <Content Include="source\data\answeres.json" />
     <Content Include="source\data\questions.json" />
     <Content Include="source\data\questions_en-us.json" />
+    <Content Include="source\fonts\shapeSans\WOFF2\ShapeSans-Display.woff2" />
+    <Content Include="source\fonts\shapeSans\WOFF\ShapeSans-Medium.woff" />
+    <Content Include="source\fonts\shapeSans\WOFF2\ShapeSans-Medium.woff2" />
+    <Content Include="source\fonts\shapeSans\WOFF\ShapeSans-Regular.woff" />
+    <Content Include="source\fonts\shapeSans\WOFF2\ShapeSans-Regular.woff2" />
     <Content Include="source\images\explore1.png" />
     <Content Include="source\images\explore2.png" />
     <Content Include="source\images\explore3.png" />
@@ -55,19 +60,28 @@
     <Content Include="source\javascript\common.js" />
     <Content Include="source\javascript\drawradar.js" />
     <Content Include="source\javascript\question.js" />
+    <Content Include="source\javascript\quicknavigator.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="source\javascript\settings.js" />
     <Content Include="source\javascript\settings_live.js" />
+    <Content Include="source\javascript\skanska.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="source\javascript\teams\roles.js" />
     <Content Include="source\javascript\teams\teams.js" />
     <Content Include="source\javascript\teams\employees.js">
       <SubType>Code</SubType>
     </Content>
     <Content Include="source\javascript\ui.js" />
+    <Content Include="source\pug\blocks\footer.pug" />
     <Content Include="source\pug\blocks\aside2.pug" />
     <Content Include="source\pug\blocks\aside.pug" />
+    <Content Include="source\pug\blocks\header_new.pug" />
     <Content Include="source\pug\blocks\header.pug" />
     <Content Include="source\pug\blocks\modals.pug" />
     <Content Include="source\pug\pages\admin.pug" />
+    <Content Include="source\pug\pages\nymall.pug" />
     <Content Include="source\pug\pages\index.pug" />
     <Content Include="source\pug\pages\mall.pug" />
     <Content Include="source\pug\pages\teams\employee.pug" />
@@ -78,13 +92,24 @@
     <Content Include="source\pug\pages\teams\employees.pug" />
     <Content Include="source\pug\pages\question.pug" />
     <Content Include="source\pug\pages\result.pug" />
-    <Content Include="source\pug\templates\teams.pug" />
     <Content Include="source\pug\templates\startpage.pug" />
+    <Content Include="source\pug\templates\teams.pug" />
+    <Content Include="source\pug\templates\startpage_old.pug" />
+    <Content Include="source\sass\quicknavigator.scss">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="source\sass\skanska.scss">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="source\sass\ui.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="source\" />
     <Folder Include="source\data\" />
+    <Folder Include="source\fonts\" />
+    <Folder Include="source\fonts\shapeSans\" />
+    <Folder Include="source\fonts\shapeSans\WOFF2\" />
+    <Folder Include="source\fonts\shapeSans\WOFF\" />
     <Folder Include="source\images\" />
     <Folder Include="source\javascript\" />
     <Folder Include="source\javascript\teams\" />
