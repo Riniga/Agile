@@ -12,6 +12,7 @@ namespace Agile.Library.Teams
         public string Lastname { get; set; }
         public string Notes { get; set; }
         public bool InDevops { get; set; }
-        public bool InTeaams{ get; set; }
+        public bool InTeams { get; set; }
+        public List<RoleInTeam> RoleInTeam { get; set; }
     }
 }

@@ -13,8 +13,7 @@ gulp.task('pug', function () {
         .pipe(gulp.dest('./public'));
 });
 
-var sass = require('gulp-sass');
-sass.compiler = require('node-sass');
+const sass = require('gulp-sass')(require('sass'));
 const cleanCSS = require('gulp-clean-css');
 gulp.task('sass', function () {
     return gulp.src('./source/sass/**/*.scss')
@@ -98,11 +97,11 @@ gulp.task('watch', function () {
     gulp.watch('source/data/**/*.json', gulp.series('data'));
 });
 
-gulp.task('default', gulp.series('clean','pug','sass','js','images','fonts', 'data', function (done) {
+gulp.task('default', gulp.series('clean', 'pug', 'sass', 'js', 'images', 'fonts', 'data', function (done) {
     done();
 }));
 
 
-gulp.task('deploy', gulp.series('removepackage','clean','pug','sass','js','images', 'data','package','copysettings','copytoftp','removepackage', function (done) {
+gulp.task('deploy', gulp.series('removepackage', 'clean', 'pug', 'sass', 'js', 'images', 'data', 'package', 'copysettings', 'copytoftp', 'removepackage', function (done) {
     done();
 }));

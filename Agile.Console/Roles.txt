@@ -1,0 +1,15 @@
+﻿Ägare(PO)
+Ägare(BSO)
+Ägare(ITSO)
+Förvaltningsledning(PL)
+Förvaltningsledning(ITSM)
+Förvaltningsledning(ITSO)
+Koncernarkitekt
+Lösningsarkitekt
+Produktägare
+Scrum Master
+Scrum Master(ITSM)
+Scrum Master(SR)
+STE
+Team
+Team(SR)

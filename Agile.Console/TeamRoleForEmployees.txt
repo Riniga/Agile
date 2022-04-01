@@ -1,0 +1,155 @@
+﻿mikael.ahlqvist@skanska.se|Business Platforms|Förvaltningsledning(ITSM)
+cecilia.backa@skanska.se|Business Platforms|Scrum Master(SR)
+peter.blomberg@skanska.se|Business Platforms|Team
+maria.campo@skanska.se|Business Platforms|Lösningsarkitekt
+sunny.chugh@skanska.se|Business Platforms|Lösningsarkitekt
+Robert.Green@skanska.se|Business Platforms|Lösningsarkitekt
+alice.loberg@skanska.se|Business Platforms|Lösningsarkitekt
+brinda.maiti@skanska.se|Business Platforms|Scrum Master(SR)
+sia.otterstrom@skanska.se|Business Platforms|Scrum Master(SR)
+louise.palmgren@skanska.se|Business Platforms|Ägare(PO)
+patricia.paredes@skanska.se|Business Platforms|Team
+anton.vukoje@skanska.se|Business Platforms|Koncernarkitekt
+emanuel.berggren@skanska.se|Core Infrastruktur|Scrum Master(SR)
+Benny.Brodin@skanska.se|Core Infrastruktur|Team
+carl.grennes@skanska.no|Core Infrastruktur|Lösningsarkitekt
+rickard.gunnarsson@skanska.se|Core Infrastruktur|Scrum Master(SR)
+patrick.hedren@skanska.se|Core Infrastruktur|Lösningsarkitekt
+patrick.hedren@skanska.se|Core Infrastruktur|Scrum Master(SR)
+tommy.lahtela@skanska.se|Core Infrastruktur|Scrum Master(SR)
+michael.lind@skanska.se|Core Infrastruktur|Förvaltningsledning(ITSM)
+eric.nilsson@skanska.se|Core Infrastruktur|Scrum Master(SR)
+louise.palmgren@skanska.se|Core Infrastruktur|Ägare(BSO)
+johan.stengard@skanska.se|Core Infrastruktur|Lösningsarkitekt
+martin.soderberg@skanska.se|Core Infrastruktur|Scrum Master(SR)
+henrik.sorensen@skanska.no|Core Infrastruktur|Scrum Master(SR)
+martin.horestrand@skanska.se|Digihub|Scrum Master(ITSM)
+andreas.p.karlsson@skanska.se|Digihub|Koncernarkitekt
+Jan.Bendes@skanska.se|Digital arbetsplats|Lösningsarkitekt
+mikael.bjorklund@skanska.se|Digital arbetsplats|Förvaltningsledning(ITSO)
+stefan.brohlin@skanska.se|Digital arbetsplats|Förvaltningsledning(PL)
+karam.chammas@skanska.se|Digital arbetsplats|Scrum Master(ITSM)
+mats.dunmar@skanska.se|Digital arbetsplats|Ägare(PO)
+Henrik.Hassler@skanska.se|Digital arbetsplats|Ägare(PO)
+daniel.jensen@skanska.se|Digital arbetsplats|Team
+reza.ketabchi@skanska.se|Digital arbetsplats|Koncernarkitekt
+Josef.Kallstrom@skanska.se|Digital arbetsplats|Ägare(PO)
+karin.leander@skanska.se|Digital arbetsplats|Team
+erik.lehto@skanska.se|Digital arbetsplats|Team
+Kristofer.Lundblad@Skanska.se|Digital arbetsplats|Team
+Frans.Lundgren@skanska.se|Digital arbetsplats|Team
+joel.millbert@skanska.se|Digital arbetsplats|Team
+anatoly.mironov@skanska.se|Digital arbetsplats|Lösningsarkitekt
+petra.mard@skanska.se|Digital arbetsplats|Scrum Master(ITSM)
+gustav.nyman@skanska.se|Digital arbetsplats|Team
+Jonas.Persson@Skanska.se|Digital arbetsplats|Team
+emil.signal@skanska.se|Digital arbetsplats|Team
+patrik.p.stenback@skanska.se|Digital arbetsplats|Team(SR)
+mattias.Wendel@skanska.se|Digital arbetsplats|Scrum Master(ITSM)
+linn.areno@skanska.se|Entreprenad|Förvaltningsledning(PL)
+tomas.eklof@skanska.se|Entreprenad|Scrum Master(SR)
+Anders.Ferm@skanska.se|Entreprenad|Förvaltningsledning(ITSM)
+Per-Eric.Grans@Skanska.se|Entreprenad|Ägare(PO)
+christer.lindstrom@skanska.se|Entreprenad|Scrum Master(SR)
+henrik.magnusson@skanska.se|Entreprenad|Förvaltningsledning(ITSM)
+sandi.nordin@skanska.se|Entreprenad|Team
+Johan.Schjelderup@Skanska.se|Entreprenad|Produktägare
+henrik.svensson@skanska.se|Entreprenad|Team
+christian.werner@skanska.se|Entreprenad|Ägare(PO)
+Annika.Ohlund@Skanska.se|Entreprenad|Koncernarkitekt
+Anders.O.Johansson@Skanska.se|Finans|Ägare(PO)
+robin.lagerstrom@skanska.se|Finans|Lösningsarkitekt
+linus.ljungberg@skanska.se|Finans|Lösningsarkitekt
+katarina.rosenqvist@skanska.se|Finans|Förvaltningsledning(ITSM)
+katarina.rosenqvist@skanska.se|Finans|Förvaltningsledning(ITSO)
+christel.skoog@skanska.se|Finans|Förvaltningsledning(PL)
+ludwig.stromstedt@skanska.se|Finans|Lösningsarkitekt
+christian.c.eriksson@skanska.se|Global Platforms|Scrum Master(SR)
+carl-johan.fryxell@skanska.se|Global Platforms|Förvaltningsledning(ITSO)
+jorgen.s.gustavsson@skanska.se|Global Platforms|Scrum Master(ITSM)
+oscar.hallstrom@skanska.se|Global Platforms|Team
+reza.ketabchi@skanska.se|Global Platforms|Koncernarkitekt
+matthias.malmros@skanska.se|Global Platforms|Lösningsarkitekt
+jonas.nywall@skanska.se|Global Platforms|Lösningsarkitekt
+petter.odin.hestvik@skanska.se|Global Platforms|Scrum Master(SR)
+louise.palmgren@skanska.se|Global Platforms|Ägare(PO)
+marcus.Weurlander@skanska.se|Global Platforms|Scrum Master(SR)
+susanne.holmberg@skanska.se|Global Services|Team
+henric.johansson@skanska.se|Global Services|Scrum Master(SR)
+morgan.jonsson@skanska.se|Global Services|Team
+jeff.kantus@skanska.se|Global Services|Förvaltningsledning(ITSM)
+reza.ketabchi@skanska.se|Global Services|Koncernarkitekt
+annika.lennstam@skanska.se|Global Services|Produktägare
+niclas.lindholm@skanska.se|Global Services|Team
+hanna.lorentzon@skanska.se|Global Services|Scrum Master(SR)
+thomas.tn.nilsson@skanska.se|Global Services|Team
+Goran.Pajnic@skanska.se|Global Services|Förvaltningsledning(ITSM)
+taco.rensink@skanska.se|Global Services|Ägare(PO)
+ann-margret.ring@skanska.se|Global Services|Scrum Master(SR)
+sandra.rocklind@skanska.se|Global Services|Team
+hakan.smeds@skanska.se|Global Services|Förvaltningsledning(ITSM)
+izabela.surmacz@skanska.se|Global Services|Ägare(PO)
+glenn.thunblad@skanska.se|Global Services|Team
+Inger.Andersson@Skanska.se|HR|Team
+Malin.Andersson@Skanska.se|HR|Ägare(PO)
+johan.bellander@skanska.se|HR|Team
+Johan.Bjorksater@Skanska.se|HR|Scrum Master(SR)
+fredrik.fjellstrom@skanska.se|HR|Team
+marcos.ivulic@skanska.se|HR|Team
+malin.jonsson@skanska.se|HR|Produktägare
+johanna.j.nilsson@skanska.se|HR|Produktägare
+jonna.rastedt@skanska.se|HR|Scrum Master(SR)
+hanna.stigmer@skanska.se|HR|Produktägare
+helene.sundh@skanska.se|HR|Scrum Master(SR)
+staffan.soderberg@skanska.se|HR|Koncernarkitekt
+tina.taipale@skanska.se|HR|Team
+helene.Wenster@skanska.se|HR|Team
+pernilla.widlund@skanska.se|HR|Förvaltningsledning(ITSM)
+saara.bengtsson@skanska.se|ITLT|Team
+per.bostrom@skanska.se|ITLT|Team
+ann.ericsson@skanska.se|ITLT|Team
+jacob.henricson@skanska.se|ITLT|Team
+magnus.lindqvist@skanska.se|ITLT|Team
+louise.palmgren@skanska.se|ITLT|Team
+ulrika.sjostrom.johnsson@skanska.se|ITLT|Team
+Mikael.Stohm@Skanska.se|ITLT|STE
+henrik.axelsson@skanska.se|LACE|Team
+peter.bronnvall@skanska.se|LACE|Team
+elin.gange@skanska.se|LACE|Team
+osborn.harmestad@skanska.se|LACE|Team
+ing-marie.nilsson@skanska.se|LACE|Team
+rickard.nisses-gagner@skanska.se|LACE|Team
+mats.renner@skanska.se|LACE|Team
+conny.roll@Skanska.se|LACE|Team
+fredrik.rusch@skanska.se|LACE|Team
+staffan.soderberg@skanska.se|LACE|Team
+karin.k.wallmark@skanska.se|LACE|Team
+Annika.Ohlund@Skanska.se|LACE|Team
+Per.Fagerberg@Skanska.se|Maskinuthyrning|Team
+malin.hormanseder@skanska.se|Maskinuthyrning|Ägare(ITSO)
+Ronnie.Johansson@Skanska.se|Maskinuthyrning|Team
+Eva-Christine.Jonsson@Skanska.se|Maskinuthyrning|Team
+johanna.schledermann@skanska.se|Maskinuthyrning|Koncernarkitekt
+daniel.sillen@skanska.se|Maskinuthyrning|Ägare(PO)
+Eva.Walther@Skanska.se|Maskinuthyrning|Förvaltningsledning(PL)
+margareta.welin@skanska.se|Maskinuthyrning|Team
+mikael.bjorklund@skanska.se|Nordic Workplace|Förvaltningsledning(ITSM)
+stefan.brohlin@skanska.se|Nordic Workplace|Team
+matias.hovi@skanska.fi|Nordic Workplace|Team
+reza.ketabchi@skanska.se|Nordic Workplace|Koncernarkitekt
+felix.bengtsson@skanska.se|Service Desk|Team
+goran.liljeberg@skanska.se|Service Desk|Team
+Frans.Lundgren@skanska.se|Service Desk|Scrum Master(SR)
+cristian.malmros@skanska.se|Service Desk|Team
+erik.vanderstad@skanska.se|Service Desk|Ägare(ITSO)
+jessica.axelsson@skanska.se|TUI|Förvaltningsledning(ITSM)
+jessica.axelsson@skanska.se|TUI|Ägare(ITSO)
+mathias.dackheden@skanska.se|TUI|Förvaltningsledning(PL)
+jonas.davidsson@boklok.se|TUI|Produktägare
+Henrik.Hassler@skanska.se|TUI|Ägare(PO)
+andreas.c.johansson@skanska.se|TUI|Team
+anders.ludvigsson@boklok.se|TUI|Ägare(PO)
+daniel.palsson@skanska.se|TUI|Produktägare
+andreas.sandberg@everest.se|TUI|Team
+linda.sandin@skanska.se|TUI|Team
+helena.sjolander@skanska.se|TUI|Produktägare

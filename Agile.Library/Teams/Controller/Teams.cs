@@ -3,13 +3,22 @@ using Agile.Library.Teams.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Agile.Library.Teams
 {
-    public static class Teams
+    public sealed class Teams
     {
-        public static async Task<List<Team>> GetTeamsAsync()
+        private static readonly Lazy<Teams> lazy = new Lazy<Teams>(() => new Teams());
+        public static Teams Instance { get { return lazy.Value; } }
+
+        public List<Team> All;
+        private Teams()
+        {
+            All = GetTeamsAsync().Result;
+        }
+        public async Task<List<Team>> GetTeamsAsync()
         {
             var teams = new List<Team>();
             DataSet dataSet = await Database.GetDataSetAsync($"SELECT TeamId, Teamname, TeamType FROM ViewTeams");
@@ -59,6 +68,16 @@ namespace Agile.Library.Teams
         public  static async Task<int> CreateTeamtAsync(Team team)
         {
             return await Database.ExecuteCommandAsync($"INSERT INTO Teams (Name, TeamTypeId) OUTPUT INSERTED.ID VALUES('{team.Name}', '{(int)team.TeamType}')");
+        }
+
+        public void AddTeam(Team team)
+        {
+                if (All.Where(team2 => team2.Name == team.Name).Count() > 0) return;
+                var data = Database.GetDataSetAsync("SELECT Id FROM [Teams] WHERE [Name]='" + team.Name + "'").Result;
+                if (data.Tables[0].Rows.Count > 0) return;
+                var task = Task.Run(async () => await Database.ExecuteCommandAsync("INSERT INTO [Teams] ([Name],[TeamTypeId]) VALUES ('" + team.Name + "','" + (int)team.TeamType+ "') "));
+                var id = task.Result;
+                if (id != 0) All.Add(team);
         }
     }
 }

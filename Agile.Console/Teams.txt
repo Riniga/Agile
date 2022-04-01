@@ -1,0 +1,19 @@
+﻿Business Platforms|1
+Core Infrastruktur|1
+Digihub|3
+Digital arbetsplats|3
+Entreprenad|3
+Finans|3
+Global Platforms|1
+Global Services|1
+Global Services|3
+HR|3
+Information|3
+Inkop|3
+ITLT|4
+LACE|4
+Marknad|3
+Maskinuthyrning|3
+Nordic Workplace|3
+Service Desk|1
+TUI|3

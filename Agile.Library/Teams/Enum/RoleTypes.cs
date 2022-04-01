@@ -2,7 +2,7 @@
 {
     public enum RoleTypes
     {
-        Agile,
-        SM3
+        Agile=1,
+        SM3=2
     }
 }

@@ -9,6 +9,8 @@ using System;
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace AzureWebApp.Function
 {
@@ -18,8 +20,7 @@ namespace AzureWebApp.Function
         public static async Task<IActionResult> GetEmployees([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, ILogger log)
         {
             log.LogInformation("Return a list of employees");
-            var employees = await Employees.GetEmployeesAsync();
-            return new OkObjectResult(employees);
+            return new OkObjectResult(Employees.Instance.All);
         }
 
         [FunctionName("GetEmployee")]

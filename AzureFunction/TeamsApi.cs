@@ -6,9 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Agile.Library.Teams;
 using System;
-using System.IO;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace AzureWebApp.Function
 {
@@ -18,17 +17,42 @@ namespace AzureWebApp.Function
         public static async Task<IActionResult> GetTeams([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, ILogger log)
         {
             log.LogInformation("Return a list of teams");
-            var teams = await Teams.GetTeamsAsync();
-            return new OkObjectResult(teams);
+            return new OkObjectResult(Teams.Instance.All);
+        }
+        [FunctionName("GetTeam")]
+        public static async Task<IActionResult> GetTeam([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, ILogger log)
+        {
+            var id = int.Parse(req.Query["teamId"]);
+            log.LogInformation("Return team with id: " + id);
+            return new OkObjectResult(Teams.Instance.All.Where(team=>team.Id==id).FirstOrDefault());
         }
 
-        [FunctionName("GetTeam")]
-        public static async Task<IActionResult> GetEmployee([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, ILogger log)
+        [FunctionName("GetEmployeesInTeam")]
+        public static async Task<IActionResult> GetEmployeesInTeam([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, ILogger log)
         {
-            var id = req.Query["teamId"];
-            log.LogInformation("Return a team");
-            var team = await Teams.GetTeamAsync(int.Parse(id));
-            return new OkObjectResult(team);
+            var id = int.Parse(req.Query["teamId"]);
+            log.LogInformation("Return all employee in team with id: " + id);
+
+            var result = new List<EmployeeforTeam>();
+            var employeesInTeam = Employees.Instance.All.Where(e => e.RoleInTeam.Where(r => r.Team.Id == id).Count() > 0);
+            foreach (var employee in employeesInTeam)
+            {
+                var current = new EmployeeforTeam();
+                var roleAssignmentStrings = employee.RoleInTeam.Where(r => r.Team.Id == id).Select(r => r.Role.Name).ToList();
+                current.name = employee.Firstname + " " + employee.Lastname;
+                current.role = String.Join(',', roleAssignmentStrings);
+                current.id = employee.Id;
+                result.Add(current);
+            }
+            return new OkObjectResult(result);
+
         }
+        class EmployeeforTeam
+        {
+            public int id;
+            public string name;
+            public string role;
+        }
+
     }
 }

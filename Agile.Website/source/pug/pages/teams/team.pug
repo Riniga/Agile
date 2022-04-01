@@ -5,18 +5,19 @@ block content
     h2#area.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3
     article
       .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
-        h3#name Team
+        h3 Team: 
+          span#teamName [teamname]
       div.row
         div.col-md-6.bg-light
           table#personstable_1.display.table-light.compact.cell-border
             thead
                 tr
                     th Name
-                    th Type
+                    th Role
                     th Link
             tbody
           div#result
         div.col-md-6
             img#image(width="100%")
 block scripts
-    script(src="/scripts/teams/teams.js")  
+    script(src="/scripts/teams/team.js")  

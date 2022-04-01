@@ -3,14 +3,33 @@ using Agile.Library.Teams.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Agile.Library.Teams
 {
-    public static class Roles
+    public sealed class Roles
     {
-        
-        public static async Task<List<Role>> GetRolesAsync()
+        private static readonly Lazy<Roles> lazy = new Lazy<Roles>(() => new Roles());
+        public static Roles Instance { get { return lazy.Value; } }
+
+        public List<Role> All;
+        private Roles()
+        {
+            All = GetRolesAsync().Result;
+        }
+        public void AddRole(Role role)
+        {
+            if (All.Where(role2 => role2.Name == role.Name).Count() > 0) return;
+            var data = Database.GetDataSetAsync("SELECT Id FROM [Roles] WHERE [Name]='" + role.Name+ "'").Result;
+            if (data.Tables[0].Rows.Count > 0) return;
+            var task = Task.Run(async () => await Database.ExecuteCommandAsync("INSERT INTO [Roles] ([Name],[RoleTypeId]) VALUES ('" + role.Name + "','" + (int)role.RoleType + "') "));
+            var id = task.Result;
+            if (id != 0) All.Add(role);
+        }
+
+
+        private async Task<List<Role>> GetRolesAsync()
         {
             var roles = new List<Role>();
             DataSet dataSet = await Database.GetDataSetAsync($"SELECT RoleId, RoleName, RoleType FROM ViewRoles");
@@ -56,7 +75,7 @@ namespace Agile.Library.Teams
             return role;
         }
 
-        public static async Task<int> CreateRoleAsync(Role role)
+        public async Task<int> CreateRoleAsync(Role role)
         {
             //var debtId = await Database.ExecuteCommandAsync($"INSERT INTO Debts (ContractId, PersonId) OUTPUT INSERTED.ID VALUES('{contract.Id}','{person.Id}')");
             //await Database.ExecuteCommandAsync($"INSERT INTO Transactions (DebtId, Date, Type, Amount) VALUES('{debtId}','{DateTime.Now}','{TransactionType.SetBalance}','{amount}')");

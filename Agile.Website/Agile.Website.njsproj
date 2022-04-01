@@ -69,6 +69,8 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="source\javascript\teams\roles.js" />
+    <Content Include="source\javascript\teams\role.js" />
+    <Content Include="source\javascript\teams\team.js" />
     <Content Include="source\javascript\teams\teams.js" />
     <Content Include="source\javascript\teams\employees.js">
       <SubType>Code</SubType>
