@@ -1,3 +1,4 @@
+/// <binding BeforeBuild='clean, default' ProjectOpened='watch' />
 var gulp = require('gulp');
 
 var clean = require('gulp-clean');
@@ -89,8 +90,10 @@ gulp.task('removepackage', function () {
         .pipe(clean());
 });
 
-
+var livereload = require('gulp-livereload');
+livereload({ start: true });
 gulp.task('watch', function () {
+    livereload.listen();
     gulp.watch('source/pug/**/*.pug', gulp.series('pug'));
     gulp.watch('source/sass/**/*.scss', gulp.series('sass'));
     gulp.watch('source/javascript/**/*.js', gulp.series('js'));

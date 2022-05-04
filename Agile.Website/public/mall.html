@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Rickard Nisses-Gagnér, Skanska Sverige IT">
+  <title>Skanska Agil IT Leverans - Teams</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="canonical" href="https://devopshealthradar.z16.web.core.windows.net/">
+  <link rel="apple-touch-icon" href="/images/favicon.svg">
+  <link rel="icon" type="image/svg+xml" sizes="any" href="/images/favicon.svg">
+  <link rel="alternate icon" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.svg">
+  <link href="/stylesheets/skanska.css" rel="stylesheet">
+  <script src="/scripts/skanska.js"></script>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/quicknavigator.css">
+  <script type="text/javascript" src="/scripts/quicknavigator.js"></script>
+</head>
+<body>
+  <header class="sticky top-0 z-50" id="site-header">
+    <nav class="font-Shape-Regular text-base bg-white" id="main-menu">
+      <div class="mobilemenu border-b sticky top-0 z-50">
+        <div class="mobilemenu-btn border-r border-bh-gray place-items-center pt-[11px] pr-[11px] pb-[13px] pl-[10px]"><img src="/images/Mobile_Menu.svg" alt=""></div>
+        <div class="border-r border-bh-gray place-items-center pt-[11px] pr-[13px] pb-[13px] pl-[10px]"></div>
+        <div class="justify-self-end self-center"><a href="/"><img class="mr-5 max-w-max h-5 w-[135px]" src="/images/skanska_logo.svg"></a></div>
+      </div>
+      <div class="mobile-sub-container" style="display:none;">
+        <div class="mobile-sub">
+          <div class="pl-5 flex border-b border-gray-300 font-Shape-Medium mobil-menu-item mobile-menu-item4308" id="4308"><span class="flex-auto"><a class="mobile-menu-item-link" id="4308" href="/brand-strategy/">Agil IT Leverans</a></span></div>
+          <div class="pl-5 flex border-b border-gray-300 font-Shape-Medium mobil-menu-item mobile-menu-item3835" id="3835"><span class="flex-auto">Examples</span></div>
+          <div class="pl-16 flex border-b border-gray-300 submobile-menu-item3835" id="3835"><span class="flex-auto"><a class="submobile-menu-item-link active" id="4125" href="/brand-expression/core-elements/">Sumbenu</a></span></div>
+          <div class="pl-16 bg-blue-900 border-b border-gray-300"><a href="/brand-expression/core-elements/logotype/">Menu Item 1</a></div>
+          <div class="pl-16 bg-blue-900 border-b border-gray-300"><a href="/brand-expression/core-elements/typography/">Menu Item 2</a></div>
+          <div class="pl-16 bg-blue-900 border-b border-gray-300"><a href="/brand-expression/core-elements/images/">Menu Item 3</a></div>
+          <div class="pl-16 bg-blue-900 border-b border-gray-300"><a href="/brand-expression/core-elements/icons/">Menu Item 4</a></div>
+          <div class="pl-16 bg-blue-900 border-b border-gray-300"></div>
+        </div>
+      </div>
+      <div class="z-10 hidden grid-rows-auto lg:grid lg:grid-cols-lg lg:gap-x-lg lg:gap-y-0 lg:py-[15.5px] lg:px-lg xl:grid-cols-xl xl:gap-x-xl xl:gap-y-0 xl:py-[15.5px] xl:px-xl 2xl:grid-cols-2xl 2xl:gap-x-2xl 2xl:gap-y-0 2xl:py-[15.5px] 2xl:px-2xl 3xl:grid-cols-3xl 3xl:gap-x-3xl 4xl:grid-cols-4xl 4xl:gap-x-4xl 4xl:px-4xl">
+        <div class="main-menu-item main-menu-item4308 group col-span-2 cursor-pointer" id="4308"><span class="text-bh-menu align-middle"><a class="main-menu-item-link" id="4308" href="/brand-strategy/">Agil IT Leverans</a></span></div>
+        <div class="main-menu-item main-menu-item3835 group col-span-2 cursor-pointer menu-page" id="3835"><span class="text-bh-menu align-middle">Examples</span><img class="cursor-pointer duration-300 w-10 transition ease-in-out transform align-middle inline-block mt-[2px] ml-[2px] group-hover:translate-x-1 h-[10px]" src="/images/Arrow_Main_Menu.svg" alt=""></div>
+        <!-- Seb check logo-->
+        <div class="col-start-12 flex justify-end my-auto"><a href="/"><img class="logo max-w-max w-[135px]" src="/images/skanska_logo.svg"></a></div>
+        <style>
+          a:hover.sub-menu-item-link {
+          text-decoration: underline;
+          }
+        </style>
+        <div class="sub-menu-item3835 hidden absolute bg-white col-span-full left-0 pb-50 pt-6 top-0 w-full z-10 grid lg:gap-x-lg lg:grid-cols-lg lg:px-lg md:gap-x-md md:grid-cols-md md:px-md mt-[50px] sm:gap-x-sm sm:grid-cols-sm sm:px-sm xl:gap-x-xl xl:grid-cols-xl xl:px-xl xl2:gap-x-2xl xl2:grid-cols-2xl xl2:px-2xl xl3:gap-x-3xl xl3:grid-cols-3xl xl3:px-3xl">
+          <div class="col-span-2">
+            <ul>
+              <li class="text-bh-menusub font-Shape-Medium"><a href="/brand-expression/core-elements/">Sub menu</a></li>
+              <li class="leading-normal text-bh-menusub"><a class="sub-menu-item-link" href="/brand-expression/core-elements/logotype/"> Menu Item 1</a></li>
+              <li class="leading-normal text-bh-menusub"><a class="sub-menu-item-link" href="/brand-expression/core-elements/typography/"> Menu Item 2</a></li>
+              <li class="leading-normal text-bh-menusub"><a class="sub-menu-item-link" href="/brand-expression/core-elements/images/">Menu Item 3</a></li>
+              <li class="leading-normal text-bh-menusub"><a class="sub-menu-item-link" href="/brand-expression/core-elements/icons/">Menu Item 4</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="content-container relative">
+    <section id="content">
+      <h2 class="sticky-xl-top fw-bold pt-3 pt-xl-5 pb-2 pb-xl-3">Contents</h2>
+      <article class="my-3" id="typography">
+        <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+          <h3>Typography</h3><a class="d-flex align-items-center" href="../content/typography/">Documentation</a>
+        </div>
+        <div>
+          <div class="bd-example">
+            <p class="display-1">Display 1</p>
+            <p class="display-2">Display 2</p>
+            <p class="display-3">Display 3</p>
+            <p class="display-4">Display 4</p>
+            <p class="display-5">Display 5</p>
+            <p class="display-6">Display 6</p>
+          </div>
+          <div class="bd-example">
+            <p class="h1">Heading 1</p>
+            <p class="h2">Heading 2</p>
+            <p class="h3">Heading 3</p>
+            <p class="h4">Heading 4</p>
+            <p class="h5">Heading 5</p>
+            <p class="h6">Heading 6</p>
+          </div>
+          <div class="bd-example">
+            <p class="lead">This is a lead paragraph. It stands out from regular paragraphs.</p>
+          </div>
+          <div class="bd-example">
+            <p>You can use the mark tag to 
+              <mark>highlight</mark> text.
+            </p>
+            <p>
+              <del>This line of text is meant to be treated as deleted text.</del>
+            </p>
+            <p>
+              <s>This line of text is meant to be treated as no longer accurate.</s>
+            </p>
+            <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+            <p>
+              <u>This line of text will render as underlined.</u>
+            </p>
+            <p><small>This line of text is meant to be treated as fine print.</small></p>
+            <p><strong>This line rendered as bold text.</strong></p>
+            <p><em>This line rendered as italicized text.</em></p>
+          </div>
+          <div class="bd-example">
+            <blockquote class="blockquote">
+              <p>A well-known quote, contained in a blockquote element.</p>
+              <footer class="blockquote-footer">Someone famous in 
+                <cite title="Source Title">Source Title</cite>
+              </footer>
+            </blockquote>
+          </div>
+          <div class="bd-example">
+            <ul class="list-unstyled">
+              <li>This is a list.</li>
+              <li>It appears completely unstyled.</li>
+              <li>Structurally, it&apos;s still a list.</li>
+              <li>However, this style only applies to immediate child elements.</li>
+              <li>Nested lists:
+                <ul>
+                  <li>are unaffected by this style</li>
+                  <li>will still show a bullet</li>
+                  <li>and have appropriate left margin</li>
+                </ul>
+              </li>
+              <li>This may still come in handy in some situations.</li>
+            </ul>
+          </div>
+          <div class="bd-example">
+            <ul class="list-inline">
+              <li class="list-inline-item">This is a list item.</li>
+              <li class="list-inline-item">And another one.</li>
+              <li class="list-inline-item">But they&apos;re displayed inline.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      <article class="my-3" id="images">
+        <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+          <h3>Images</h3><a class="d-flex align-items-center" href="../content/images/">Documentation</a>
+        </div>
+        <div>
+          <div class="bd-example">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg img-fluid" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Responsive image" preserveaspectratio="xMidYMid slice" focusable="false">
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#868e96"></rect>
+              <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Responsive image</text>
+            </svg>
+          </div>
+          <div class="bd-example">
+            <svg class="bd-placeholder-img img-thumbnail" width="200" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A generic square placeholder image with a white border around it, making it resemble a photograph taken with an old instant camera: 200x200" preserveaspectratio="xMidYMid slice" focusable="false">
+              <title>A generic square placeholder image with a white border around it, making it resemble a photograph taken with an old instant camera</title>
+              <rect width="100%" height="100%" fill="#868e96"></rect>
+              <text x="50%" y="50%" fill="#dee2e6" dy=".3em">200x200</text>
+            </svg>
+          </div>
+        </div>
+      </article>
+      <article class="my-3" id="tables">
+        <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+          <h3>Tables</h3><a class="d-flex align-items-center" href="../content/tables/">Documentation</a>
+        </div>
+        <div>
+          <div class="bd-example">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td colspan="2">Larry the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="bd-example">
+            <table class="table table-dark table-borderless">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td colspan="2">Larry the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="bd-example">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Class</th>
+                  <th scope="col">Heading</th>
+                  <th scope="col">Heading</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Default</th>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                </tr>
+                <tr class="table-primary">
+                  <th scope="row">Primary</th>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                </tr>
+                <tr class="table-secondary">
+                  <th scope="row">Secondary</th>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                </tr>
+                <tr class="table-success">
+                  <th scope="row">Success</th>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                </tr>
+                <tr class="table-danger">
+                  <th scope="row">Danger</th>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                </tr>
+                <tr class="table-warning">
+                  <th scope="row">Warning</th>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                </tr>
+                <tr class="table-info">
+                  <th scope="row">Info</th>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                </tr>
+                <tr class="table-light">
+                  <th scope="row">Light</th>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                </tr>
+                <tr class="table-dark">
+                  <th scope="row">Dark</th>
+                  <td>Cell</td>
+                  <td>Cell</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="bd-example">
+            <table class="table table-sm table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td colspan="2">Larry the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+      <article class="my-3" id="figures">
+        <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+          <h3>Figures</h3><a class="d-flex align-items-center" href="../content/figures/">Documentation</a>
+        </div>
+        <div>
+          <div class="bd-example">
+            <figure class="figure">
+              <svg class="bd-placeholder-img figure-img img-fluid rounded" width="400" height="300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 400x300" preserveaspectratio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#868e96"></rect>
+                <text x="50%" y="50%" fill="#dee2e6" dy=".3em">400x300</text>
+              </svg>
+              <figcaption class="figure-caption">A caption for the above image.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+    </section>
+    <section id="forms">
+      <h2 class="sticky-xl-top fw-bold pt-3 pt-xl-5 pb-2 pb-xl-3">Forms</h2>
+      <article class="my-3" id="overview">
+        <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+          <h3>Overview</h3><a class="d-flex align-items-center" href="../forms/overview/">Documentation</a>
+        </div>
+        <div>
+          <div class="bd-example">
+            <form>
+              <div class="mb-3">
+                <label class="form-label" for="exampleInputEmail1">Email address</label>
+                <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp">
+                <div class="form-text" id="emailHelp">We&apos;ll never share your email with anyone else.</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="exampleInputPassword1">Password</label>
+                <input class="form-control" id="exampleInputPassword1" type="password">
+              </div>
+              <div class="mb-3 form-check">
+                <input class="form-check-input" id="exampleCheck1" type="checkbox">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div>
+              <fieldset class="mb-3">
+                <legend>Radios buttons</legend>
+                <div class="form-check">
+                  <input class="form-check-input" id="exampleRadio1" type="radio" name="radios">
+                  <label class="form-check-label" for="exampleRadio1">Default radio</label>
+                </div>
+                <div class="mb-3 form-check">
+                  <input class="form-check-input" id="exampleRadio2" type="radio" name="radios">
+                  <label class="form-check-label" for="exampleRadio2">Another radio</label>
+                </div>
+              </fieldset>
+              <div class="mb-3">
+                <label class="form-label" for="customFile">Upload</label>
+                <input class="form-control" id="customFile" type="file">
+              </div>
+              <div class="mb-3 form-check form-switch">
+                <input class="form-check-input" id="flexSwitchCheckChecked" type="checkbox" checked="">
+                <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="customRange3">Example range</label>
+                <input class="form-range" id="customRange3" type="range" min="0" max="5" step="0.5">
+              </div>
+              <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </article>
+      <article class="my-3" id="disabled-forms">
+        <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+          <h3>Disabled forms</h3><a class="d-flex align-items-center" href="../forms/overview/#disabled-forms">Documentation</a>
+        </div>
+        <div>
+          <div class="bd-example">
+            <form>
+              <fieldset disabled="" aria-label="Disabled fieldset example">
+                <div class="mb-3">
+                  <label class="form-label" for="disabledTextInput">Disabled input</label>
+                  <input class="form-control" id="disabledTextInput" type="text" placeholder="Disabled input">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="disabledSelect">Disabled select menu</label>
+                  <select class="form-select" id="disabledSelect">
+                    <option>Disabled select</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <div class="form-check">
+                    <input class="form-check-input" id="disabledFieldsetCheck" type="checkbox" disabled="">
+                    <label class="form-check-label" for="disabledFieldsetCheck">Can&apos;t check this</label>
+                  </div>
+                </div>
+                <fieldset class="mb-3">
+                  <legend>Disabled radios buttons</legend>
+                  <div class="form-check">
+                    <input class="form-check-input" id="disabledRadio1" type="radio" name="radios" disabled="">
+                    <label class="form-check-label" for="disabledRadio1">Disabled radio</label>
+                  </div>
+                  <div class="mb-3 form-check">
+                    <input class="form-check-input" id="disabledRadio2" type="radio" name="radios" disabled="">
+                    <label class="form-check-label" for="disabledRadio2">Another radio</label>
+                  </div>
+                </fieldset>
+                <div class="mb-3">
+                  <label class="form-label" for="disabledCustomFile">Upload</label>
+                  <input class="form-control" id="disabledCustomFile" type="file" disabled="">
+                </div>
+                <div class="mb-3 form-check form-switch">
+                  <input class="form-check-input" id="disabledSwitchCheckChecked" type="checkbox" checked="" disabled="">
+                  <label class="form-check-label" for="disabledSwitchCheckChecked">Disabled checked switch checkbox input</label>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="disabledRange">Disabled range</label>
+                  <input class="form-range" id="disabledRange" type="range" min="0" max="5" step="0.5">
+                </div>
+                <button class="btn btn-primary" type="submit">Submit</button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </article>
+      <article class="my-3" id="sizing">
+        <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+          <h3>Sizing</h3><a class="d-flex align-items-center" href="../forms/form-control/#sizing">Documentation</a>
+        </div>
+        <div>
+          <div class="bd-example">
+            <div class="mb-3">
+              <input class="form-control form-control-lg" type="text" placeholder=".form-control-lg" aria-label=".form-control-lg example">
+            </div>
+            <div class="mb-3">
+              <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                <option selected="">Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <input class="form-control form-control-lg" type="file" aria-label="Large file input example">
+            </div>
+          </div>
+          <div class="bd-example">
+            <div class="mb-3">
+              <input class="form-control form-control-sm" type="text" placeholder=".form-control-sm" aria-label=".form-control-sm example">
+            </div>
+            <div class="mb-3">
+              <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <option selected="">Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <input class="form-control form-control-sm" type="file" aria-label="Small file input example">
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="my-3" id="input-group">
+        <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+          <h3>Input group</h3><a class="d-flex align-items-center" href="../forms/input-group/">Documentation</a>
+        </div>
+        <div>
+          <div class="bd-example">
+            <div class="input-group mb-3"><span class="input-group-text" id="basic-addon1">@</span>
+              <input class="form-control" type="text" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+              <input class="form-control" type="text" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2"><span class="input-group-text" id="basic-addon2">@example.com</span>
+            </div>
+            <label class="form-label" for="basic-url">Your vanity URL</label>
+            <div class="input-group mb-3"><span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+              <input class="form-control" id="basic-url" type="text" aria-describedby="basic-addon3">
+            </div>
+            <div class="input-group mb-3"><span class="input-group-text">$</span>
+              <input class="form-control" type="text" aria-label="Amount (to the nearest dollar)"><span class="input-group-text">.00</span>
+            </div>
+            <div class="input-group"><span class="input-group-text">With textarea</span>
+              <textarea class="form-control" aria-label="With textarea"></textarea>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="my-3" id="floating-labels">
+        <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+          <h3>Floating labels</h3><a class="d-flex align-items-center" href="../forms/floating-labels/">Documentation</a>
+        </div>
+        <div>
+          <div class="bd-example">
+            <form>
+              <div class="form-floating mb-3">
+                <input class="form-control" id="floatingInput" type="email" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+              </div>
+              <div class="form-floating">
+                <input class="form-control" id="floatingPassword" type="password" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+              </div>
+            </form>
+          </div>
+        </div>
+      </article>
+      <article class="my-3" id="validation">
+        <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+          <h3>Validation</h3><a class="d-flex align-items-center" href="../forms/validation/">Documentation</a>
+        </div>
+        <div>
+          <div class="bd-example">
+            <form class="row g-3">
+              <div class="col-md-4">
+                <label class="form-label" for="validationServer01">First name</label>
+                <input class="form-control is-valid" id="validationServer01" type="text" value="Mark" required="">
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label" for="validationServer02">Last name</label>
+                <input class="form-control is-valid" id="validationServer02" type="text" value="Otto" required="">
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label" for="validationServerUsername">Username</label>
+                <div class="input-group has-validation"><span class="input-group-text" id="inputGroupPrepend3">@</span>
+                  <input class="form-control is-invalid" id="validationServerUsername" type="text" aria-describedby="inputGroupPrepend3" required="">
+                  <div class="invalid-feedback">Please choose a username.</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="validationServer03">City</label>
+                <input class="form-control is-invalid" id="validationServer03" type="text" required="">
+                <div class="invalid-feedback">Please provide a valid city.</div>
+              </div>
+              <div class="col-md-3">
+                <label class="form-label" for="validationServer04">State</label>
+                <select class="form-select is-invalid" id="validationServer04" required="">
+                  <option selected="" disabled="" value="">Choose...</option>
+                  <option>...</option>
+                </select>
+                <div class="invalid-feedback">Please select a valid state.</div>
+              </div>
+              <div class="col-md-3">
+                <label class="form-label" for="validationServer05">Zip</label>
+                <input class="form-control is-invalid" id="validationServer05" type="text" required="">
+                <div class="invalid-feedback">Please provide a valid zip.</div>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input is-invalid" id="invalidCheck3" type="checkbox" value="" required="">
+                  <label class="form-check-label" for="invalidCheck3">Agree to terms and conditions</label>
+                  <div class="invalid-feedback">You must agree before submitting.</div>
+                </div>
+              </div>
+              <div class="col-12">
+                <button class="btn btn-primary" type="submit">Submit form</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </article>
+    </section>
+    <section id="components"></section>
+    <div class="bg-bh-gray-200 pt-[50px] pb-[50px]" id="footerQuicklinks">
+      <div class="gridall" style="row-gap: 10px;">
+        <div class="linkordownloadblocktypemodel col-span-full FooterMode sm:col-span-6 md:col-span-3 lg:col-span-2">
+          <h3 class="col-span-full cursor-pointer quicklink-header quicklink-header-4162 font-Shape-Medium md:col-span-2 lg:cursor-default" id="4162"><span class="align-middle text-bh-base text-bh-blue">Quicklinks</span><img class="hidden align-middle inline ml-1 h-[16px]" src="/images/Arrow_Main_Menu.svg" alt=""></h3>
+          <ul class="col-span-full quicklinks-4162 text-bh-base text-bh-blue md:col-span-2 lg:block" id="4162">
+            <li><a class="text-bh-base" href="/brand-expression/core-elements/logotype/">Logotype</a></li>
+            <li><a class="text-bh-base" href="/brand-expression/core-elements/typography/">Typography</a></li>
+            <li><a class="text-bh-base" href="/brand-expression/core-elements/images/">Images</a></li>
+            <li><a class="text-bh-base" href="/brand-expression/core-elements/icons/">Icons</a></li>
+            <li><a class="text-bh-base" href="/brand-expression/core-elements/illustrations/">Illustrations</a></li>
+            <li><a class="text-bh-base" href="/brand-expression/core-elements/color/">Color</a></li>
+            <li><a class="text-bh-base" href="/brand-expression/core-elements/brand-device/">Brand device</a></li>
+            <li><a class="text-bh-base" href="/brand-expression/core-elements/gridlayout/">Grid/Layout</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="gridall text-bh-blue pt-[50px]" style="align-items: end;">
+        <div class="col-span-full text-bh-menu md:col-span-6 lg:col-span-6 xl:col-span-6 2xl:col-span-6 leading-[28px]">
+          <p>&copy; Skanska AB 2022. Shaping the way we live.</p>
+          <p><a class="text-bh-blue underline" href="/link/208bb3860e324da59d8d6612a7271be9.aspx">Terms of use</a>,&nbsp;<a class="text-bh-blue underline" href="/link/208bb3860e324da59d8d6612a7271be9.aspx#personal">processing of personal data</a>&nbsp;and&nbsp;<a class="text-bh-blue underline" href="/link/485fa77512634181934f32bae1cb9622.aspx">cookie preferences</a></p>
+        </div>
+        <div class="col-span-full md:col-span-2"><a class="underline text-bh-menu skanska-com-link" href="http://www.skanska.com" target="_blank" http:="" www.skanska.com="" title="">skanska.com</a></div>
+        <div class="col-span-full text-left md:col-span-1 md:col-start-12 md:col-end-12 md:text-right"><a class="underline text-bh-menu" href="/login-page/Logout" title="Logout">Logout</a></div>
+      </div>
+    </div>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" crossorigin="anonymous"></script>
+  <script src="/scripts/CustomJavaScript.js"></script>
+  <script src="/scripts/settings.js"></script>
+  <script src="/scripts/common.js"></script>
+</body>
