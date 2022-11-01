@@ -9,7 +9,7 @@ using System.Linq;
 using System.Collections.Generic;
 using Agile.Library.Teams.Model;
 
-namespace AzureWebApp.Function
+namespace Agile.Api
 {
     public static class RolesApi
     {

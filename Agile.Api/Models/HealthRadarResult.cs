@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace AzureFunction.Models
+namespace Agile.Api.Models
 {
     public class HealthRadarResult
     {

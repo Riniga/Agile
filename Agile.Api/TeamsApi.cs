@@ -8,7 +8,7 @@ using Agile.Library.Teams;
 using System;
 using System.Linq;
 
-namespace AzureWebApp.Function
+namespace Agile.Api
 {
     public static class TeamsApi
     {

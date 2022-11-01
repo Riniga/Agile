@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Threading.Tasks;
 using Microsoft.Azure.Cosmos;
-using AzureFunction.Models;
+using Agile.Api.Models;
 
-namespace AzureFunction.Business
+namespace Agile.Api.Business
 {
     class CosmosHelper
     {

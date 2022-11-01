@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Agile.Library.Teams;
 
-namespace AzureWebApp.Function
+namespace Agile.Api
 {
     public static class EmployeesApi
     {
