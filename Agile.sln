@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureDevops", "AzureDevops\AzureDevops.csproj", "{BB8F5763-94A1-453F-8E37-69EC4D09C967}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agile.Api", "AzureFunction\Agile.Api.csproj", "{07B7A002-4C5A-444D-9C64-E2725FC1F485}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agile.Api", "Agile.Api\Agile.Api.csproj", "{07B7A002-4C5A-444D-9C64-E2725FC1F485}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Agile.Database", "Database\Agile.Database.sqlproj", "{33BD5C05-A2AB-4035-A00A-2EB54C6F4005}"
 EndProject
