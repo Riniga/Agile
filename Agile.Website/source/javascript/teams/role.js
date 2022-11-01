@@ -13,7 +13,7 @@ $(document).ready(function () {
         {
             ajax: { url: 'http://localhost:7071/api/GetEmployeesWithRole?roleId='+id, dataSrc: "" },
             columns: [
-                { data: 'name' },
+                { data: 'displayName' },
                 { data: 'team' },
                 { data: 'id' }
             ]

@@ -1,56 +1,20 @@
-﻿extends ../templates/startpage.pug
+﻿extends ../templates/skanska.pug
+
+
 block content
-    .mainbody
-      div
-        // Heading
-        .mb-4.mt-4.mx-sm.grid.grids.mxs.gaps.gaprows
-          h1.col-span-full(class='md:col-span-4 mb-[15px] lg:text-bh-2xl lg:leading-[45px] xl:text-bh-3xl')
-            | DevOps Health Radar
-          p#description.col-span-full.mb-10.text-bh-md.mt-2(class='md:col-start-5 md:col-span-8 lg:col-span-4 @*border-b border-bh-gray*@ @*lg:border-r lg:border-bh-gray*@ @*lg:border-b-0*@ leading-[normal]')
-            | Nu följer strax 16 stycken frågor som du skall besvara så gott du kan. En metod är att gemensamt ha ett möte för att diskuttera varje fråga och sedan svara individuellt.
-        .multipleimagesblocktypemodel
-          .mxs.mys.grid.grids.gaps.gaprows(style='margin-top:25px;margin-bottom:50px;')
-            h2.col-span-full(class='md:col-span-4') Om dig
-            .text-bh-md.col-span-full(class='md:col-start-5 lg:col-start-5 leading-[normal] md:col-span-8 lg:col-span-4')
-              p#rate 
-                | Ange din verksamhet och vilken roll (som du främst du)
-            .text-bh-md.col-span-full.md-col-span-8(class='leading-[normal] md:col-start-5 lg:col-start-9 lg:col-span-4')
-            .col-span-full.grid.grid-cols-12.gaps.gaprows(class='md:col-start-5')
-              .col-span-full.flex.items-baseline.flex-col(class='lg:col-span-12')
-                div
-                    label.col-sm-2.col-form-label(for='area') Verksamhet
-                        select#area.form-select
-                          option(value='HR') HR
-                          option(value='Maskinuthyrning') Maskinuthyrning
-                          option(value='Marknad och sälj') Marknad och sälj
-                div
-                    label.col-sm-2.col-form-label(for='role') Roll
-                        select#role.form-select
-                            option(value='teammedlem') Tillhör levererande team
-                            option(value='prioriteringsansvarig') Prioriteringsansvarig
-                            option(value='behovsansvarig') Behovsansvarig
-                            option(value='behovsspecialist') Behovsspecialist
-                            option(value='leveransansvarig') Leveransansvarig
-                            option(value='leveransledare') Leveransledare 
-                            option(value='arkitekt') Arkitekt
-
-    .grid.grid-cols-12.pys.pxs.bg-primary-blue.text-white
-      .col-span-6.flex.items-center.justify-start
-        img.rotate-180.max-w-min(class='3xl:w-[27px] 3xl:h-[25px] w-[17px] h-[16px]' style='margin-right:10px' src='/images/Arrow_Big_Icon_Blue.svg' alt='')
-        a(href='/link/f144f7b9c14c409dabc7e9af887f35bf.aspx' title='Color')
-          h2.align-middle 
-      .col-span-6.flex.items-center.justify-end.items-center
-        h2#saveandnext.align-middle(onclick="page1_saveandnext('question.html?question=0')")  Fråga 1
-        img.my-auto.max-w-min(class='3xl:w-[27px] 3xl:h-[25px] w-[17px] h-[16px]' style='margin-left:10px' src='/images/Arrow_Big_Icon.svg' alt='')
-
-    .grid.grid-cols-12.pys.pxs
-      .multipleimagesblocktypemodel
-          .mxs.mys.grid.grids.gaps.gaprows(style='margin-top:25px;margin-bottom:50px;')
-            h2.col-span-full(class='md:col-span-4') Om dig
-            .text-bh-md.col-span-full(class='md:col-start-5 lg:col-start-5 leading-[normal] md:col-span-8 lg:col-span-4')
-                img(src="/images/HealthRadarExample.png" width="300px")
-                div#result asdf
-
+  section#content.container
+    h2#area.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3 Agile IT Leverans
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3#name
+      div.row
+        div.col-md-6
+          p#description 
+          | Leverara maximalt affärsvärde genom att optimera och effektivisera vårt nyttjande av Skanskas resurser.
+          | Genom att: Anpassa vårt arbetssätt att tidigt och strukturerat leverara minsta möjliga tekniska lösningar och möjliggörare till verksamheten för att tidigt få återkoppling och anpassa vår leverans.
+          br
+          br
+          br
 
 block scripts 
   script(src="/scripts/azurefunctions.js")

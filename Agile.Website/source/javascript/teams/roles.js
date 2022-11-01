@@ -4,12 +4,11 @@ $(document).ready(function () {
             ajax: { url: 'http://localhost:7071/api/GetRoles', dataSrc: "" },
             columns: [
                 { data: 'name' },
-                { data: 'roleType' },
                 { data: 'id' }
             ],
             columnDefs: [
                 {
-                    targets: 2,
+                    targets: 1,
                     data: 'id',
                     orderable: false,
                     render: function (data, type, row, meta) {

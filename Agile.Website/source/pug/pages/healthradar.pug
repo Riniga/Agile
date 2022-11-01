@@ -1,0 +1,38 @@
+﻿extends ../templates/skanska.pug
+
+
+block content
+  section#content.container
+    h2#area.sticky-xl-top.fw-bold.pt-3.pt-xl-5.pb-2.pb-xl-3 Devops Health Radar
+    article
+      .bd-heading.sticky-xl-top.align-self-start.mt-5.mb-3.mt-xl-0.mb-xl-2
+        h3#name
+      div.row
+        div.col-md-6
+          p#description Nu följer strax 16 stycken frågor som du skall besvara så gott du kan. En metod är att gemensamt ha ett möte för att diskuttera varje fråga och sedan svara individuellt.
+          br
+          h4#question Ange ditt team och din primära roll
+          div
+            b.col-sm-2.col-form-label(for='area') Verksamhet
+                select#area.form-select
+                    option(value='HR') HR
+                    option(value='Maskinuthyrning') Maskinuthyrning
+                    option(value='Marknad och sälj') Marknad och sälj
+          div
+            b.col-sm-2.col-form-label(for='role') Roll
+                select#role.form-select
+                    option(value='teammedlem') Tillhör levererande team
+                    option(value='prioriteringsansvarig') Prioriteringsansvarig
+                    option(value='behovsansvarig') Behovsansvarig
+                    option(value='behovsspecialist') Behovsspecialist
+                    option(value='leveransansvarig') Leveransansvarig
+                    option(value='leveransledare') Leveransledare 
+                    option(value='arkitekt') Arkitekt
+         
+          button#saveandnext.btn.btn-primary(onclick="answer_saveandnext()") Nästa >
+          div#result
+        div.col-md-6
+            img(src="/images/HealthRadarExample.png" width="600px")
+
+block scripts 
+  script(src="/scripts/azurefunctions.js")

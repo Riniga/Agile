@@ -14,17 +14,37 @@ head
   link(rel='alternate icon' href='/images/favicon.ico')
   link(rel='mask-icon' href='/images/favicon.svg')
   link(href='/stylesheets/skanska.css' rel='stylesheet')
-  script(src='/scripts/skanska.js')
+  
   link(rel='stylesheet' type='text/css' href='/stylesheets/quicknavigator.css')
+  link(rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css")
+  
+  
   script(type='text/javascript' src='/scripts/quicknavigator.js')
+  script(src="https://alcdn.msauth.net/browser/2.15.0/js/msal-browser.js" integrity="sha384-dFzMiVGB5HpWZ+5w5VSif6jhWfNeplSw9ACYmQKZcY2azuT9kCxVWVI9HyfGdkHV" crossorigin="anonymous")
 
 body
-  include ../blocks/header_new.pug
+  include ../blocks/header.pug
 
   main.content-container.relative
     block content
     include ../blocks/footer.pug
   script(src='https://code.jquery.com/jquery-3.5.1.js' crossorigin='anonymous')
+  script(src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js")
+  script(src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js")
+  script(src='/scripts/checkie.js')  
+  script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous")
+  
+  //script(src='/scripts/skanska.js')
+
+  script(type="text/javascript" src="/scripts/app/authConfig.js")
+  script(type="text/javascript" src="/scripts/app/graphConfig.js")
+  script(type="text/javascript" src="/scripts/app/ui.js")
+    
+  //script(type="text/javascript" src="/scripts/app/authPopup.js")
+  script(type="text/javascript" src="/scripts/app/authRedirect.js")
+
+  script(type="text/javascript" src="/scripts/app/graph.js")
+
   script(src='/scripts/CustomJavaScript.js')
   script(src='/scripts/settings.js')
   script(src='/scripts/common.js')

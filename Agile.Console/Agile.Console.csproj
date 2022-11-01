@@ -10,15 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Employees.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Roles.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="TeamRoleForEmployees.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="Schedule.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

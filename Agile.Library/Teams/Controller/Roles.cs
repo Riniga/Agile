@@ -3,6 +3,7 @@ using Agile.Library.Teams.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,31 +14,32 @@ namespace Agile.Library.Teams
         private static readonly Lazy<Roles> lazy = new Lazy<Roles>(() => new Roles());
         public static Roles Instance { get { return lazy.Value; } }
 
-        public List<Role> All;
+        public List<MemberRoleInTeam> All;
         private Roles()
         {
             All = GetRolesAsync().Result;
         }
-        public void AddRole(Role role)
-        {
-            if (All.Where(role2 => role2.Name == role.Name).Count() > 0) return;
-            var data = Database.GetDataSetAsync("SELECT Id FROM [Roles] WHERE [Name]='" + role.Name+ "'").Result;
-            if (data.Tables[0].Rows.Count > 0) return;
-            var task = Task.Run(async () => await Database.ExecuteCommandAsync("INSERT INTO [Roles] ([Name],[RoleTypeId]) VALUES ('" + role.Name + "','" + (int)role.RoleType + "') "));
-            var id = task.Result;
-            if (id != 0) All.Add(role);
-        }
+        //public void AddRole(Role role)
+        //{
+        //    if (All.Where(role2 => role2.Name == role.Name).Count() > 0) return;
+        //    var data = Database.GetDataSetAsync("SELECT Id FROM [Roles] WHERE [Name]='" + role.Name+ "'").Result;
+        //    if (data.Tables[0].Rows.Count > 0) return;
+        //    var task = Task.Run(async () => await Database.ExecuteCommandAsync("INSERT INTO [Roles] ([Name],[RoleTypeId]) VALUES ('" + role.Name + "','" + (int)role.RoleType + "') "));
+        //    var id = task.Result;
+        //    if (id != 0) All.Add(role);
+        //}
 
 
-        private async Task<List<Role>> GetRolesAsync()
+        private async Task<List<MemberRoleInTeam>> GetRolesAsync()
         {
-            var roles = new List<Role>();
-            DataSet dataSet = await Database.GetDataSetAsync($"SELECT RoleId, RoleName, RoleType FROM ViewRoles");
+            var roles = new List<MemberRoleInTeam>();
+            DataSet dataSet = await Database.GetDataSetAsync($"SELECT EmployeeId, TeamId, RoleId, RoleName FROM ViewRoles");
             foreach (DataTable thisTable in dataSet.Tables)
             {
                 foreach (DataRow row in thisTable.Rows)
                 {
-                    roles.Add(new Role { Id = (int)row["RoleId"], Name = (string)row["RoleName"], RoleType = (RoleTypes)System.Enum.Parse(typeof(RoleTypes), (string)row["RoleType"]) });
+                    var role = new Role() { Id = (int)row["RoleId"], Name = (string)row["RoleName"] };
+                    roles.Add(new MemberRoleInTeam { TeamId = (string)row["TeamId"],MemberId= (string)row["EmployeeId"], Role=role });
                 }
             }
             return roles;

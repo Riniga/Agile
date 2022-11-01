@@ -1,26 +1,4 @@
 #footerQuicklinks.bg-bh-gray-200(class='pt-[50px] pb-[50px]')
-    .gridall(style='row-gap: 10px;')
-        .linkordownloadblocktypemodel.col-span-full.FooterMode(class='sm:col-span-6 md:col-span-3 lg:col-span-2')
-          h3#4162.col-span-full.cursor-pointer.quicklink-header.quicklink-header-4162.font-Shape-Medium(class='md:col-span-2 lg:cursor-default')
-            span.align-middle.text-bh-base.text-bh-blue Quicklinks
-            img.hidden.align-middle.inline.ml-1(class='h-[16px]' src='/images/Arrow_Main_Menu.svg' alt='')
-          ul#4162.col-span-full.quicklinks-4162.text-bh-base.text-bh-blue(class='md:col-span-2 lg:block')
-            li
-              a.text-bh-base(href='/brand-expression/core-elements/logotype/') Logotype
-            li
-              a.text-bh-base(href='/brand-expression/core-elements/typography/') Typography
-            li
-              a.text-bh-base(href='/brand-expression/core-elements/images/') Images
-            li
-              a.text-bh-base(href='/brand-expression/core-elements/icons/') Icons
-            li
-              a.text-bh-base(href='/brand-expression/core-elements/illustrations/') Illustrations
-            li
-              a.text-bh-base(href='/brand-expression/core-elements/color/') Color
-            li
-              a.text-bh-base(href='/brand-expression/core-elements/brand-device/') Brand device
-            li
-              a.text-bh-base(href='/brand-expression/core-elements/gridlayout/') Grid/Layout
     .gridall.text-bh-blue(class='pt-[50px]' style='align-items: end;')
         .col-span-full.text-bh-menu(class='md:col-span-6 lg:col-span-6 xl:col-span-6 2xl:col-span-6 leading-[28px]')
             p &copy; Skanska AB 2022. Shaping the way we live.
@@ -31,7 +9,8 @@
                 | &nbsp;and&nbsp;
                 a.text-bh-blue.underline(href='/link/485fa77512634181934f32bae1cb9622.aspx') cookie preferences
         .col-span-full(class='md:col-span-2')
-            a.underline.text-bh-menu.skanska-com-link(href='http://www.skanska.com' target='_blank' http:='' www.skanska.com='' title='') skanska.com
+            span#sessioninfo 
         .col-span-full.text-left(class='md:col-span-1 md:col-start-12 md:col-end-12 md:text-right')
-            a.underline.text-bh-menu(href='/login-page/Logout' title='Logout')
-                | Logout
+            button#SignIn.btn.btn-secondary(type="button" onclick="signIn()") Sign In
+            button#seeProfile.btn.btn-primary(onclick="seeProfile()") See Profile
+            button#readMail.btn.btn-primary(onclick="readMail()") Read Mail

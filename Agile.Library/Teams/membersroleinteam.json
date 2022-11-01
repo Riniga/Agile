@@ -1,0 +1,14 @@
+{
+  "values" : [
+    {
+      "memberId": "Johanna",
+      "teamId": "team1",
+      "roleName": "Member"
+    },
+    {
+      "memberId": "Peter",
+      "teamId": "team1",
+      "roleName": "Scrum Mster"
+    }
+  ]
+}

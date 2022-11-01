@@ -1,32 +1,107 @@
 <!DOCTYPE html>
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="Rickard Nisses-Gagnér, Skanska Sverige IT">
-  <title>Skanska Agil transformationspuls</title><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Skanska Agil IT Leverans - Teams</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="canonical" href="https://devopshealthradar.z16.web.core.windows.net/">
-  <link rel="stylesheet" href="/stylesheets/ui.css">
+  <link rel="apple-touch-icon" href="/images/favicon.svg">
+  <link rel="icon" type="image/svg+xml" sizes="any" href="/images/favicon.svg">
+  <link rel="alternate icon" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.svg">
+  <link href="/stylesheets/skanska.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/quicknavigator.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+  <script type="text/javascript" src="/scripts/quicknavigator.js"></script>
+  <script src="https://alcdn.msauth.net/browser/2.15.0/js/msal-browser.js" integrity="sha384-dFzMiVGB5HpWZ+5w5VSif6jhWfNeplSw9ACYmQKZcY2azuT9kCxVWVI9HyfGdkHV" crossorigin="anonymous"></script>
 </head>
-<body class="bg-dark d-flex-flex-column h-100">
-  <header class="bd-header bg-light py-3 d-flex align-items-stretch border-bottom border-dark">
-    <div class="container-fluid d-flex align-items-center">
-      <h1 class="d-flex align-items-center fs-4 text-dark mb-0"><a href="/"><img class="me-3" src="https://www.skanska.se/4991f5/globalassets/common-items/skanska-orig-logo-rgb-534.png" height="50px" alt="Skanska"></a>Agil transformationspuls</h1><a href="/result.html" class="ms-auto link-dark">Resultat</a>
-    </div>
-  </header>
-  <aside class="bg-dark bd-aside sticky-xl-top text-muted align-self-start mb-3 mb-xl-5 px-2">
-    <h2 class="text-white h6 pt-4 pb-3 mb-4 border-bottom">Hantera Teams</h2>
-    <nav class="small" id="toc">
-      <ul class="list-unstyled">
-        <li></li><a class="d-inline-flex align-items-center rounded" href="/teams/employees.html">Medarbetare</a>
-        <li></li><a class="d-inline-flex align-items-center rounded" href="/teams/teams.html">Team</a>
-        <li></li><a class="d-inline-flex align-items-center rounded" href="/teams/roles.html">Roller</a>
-      </ul>
+<body>
+  <header class="sticky top-0 z-50" id="site-header">
+    <nav class="font-Shape-Regular text-base bg-white" id="main-menu">
+      <div class="mobilemenu border-b sticky top-0 z-50">
+        <div class="mobilemenu-btn border-r border-bh-gray place-items-center pt-[11px] pr-[11px] pb-[13px] pl-[10px]"><img src="/images/Mobile_Menu.svg" alt=""></div>
+        <div class="border-bh-gray place-items-center pt-[11px] pr-[13px] pb-[13px] pl-[10px]"></div>
+        <div class="justify-self-end self-center"><a href="/"><img class="mr-5 max-w-max h-5 w-[135px]" src="/images/skanska_logo.svg"></a></div>
+      </div>
+      <div class="mobile-sub-container" style="display:none;">
+        <div class="mobile-sub">
+          <div class="pl-5 flex border-b border-gray-300 font-Shape-Medium mobil-menu-item mobile-menu-item4308" id="4308"><span class="flex-auto"><a class="mobile-menu-item-link" id="4308" href="/">Agil IT Leverans</a></span></div>
+          <div class="pl-5 flex border-b border-gray-300 font-Shape-Medium mobil-menu-item mobile-menu-item3835" id="3835"><a class="flex-auto" href="/">Health Radar</a></div>
+          <div class="pl-5 flex border-b border-gray-300 font-Shape-Medium mobil-menu-item mobile-menu-item3835" id="3835"><span class="flex-auto">Agile Teams</span></div>
+          <div class="pl-16 bg-blue-900 border-b border-gray-300"><a href="/teams/teams.html">Teams</a></div>
+          <div class="pl-16 bg-blue-900 border-b border-gray-300"><a href="/teams/employees.html">Employees</a></div>
+          <div class="pl-16 bg-blue-900 border-b border-gray-300"><a href="/teams/roles.html">Roles</a></div>
+        </div>
+      </div>
+      <div class="border-b hidden grid-rows-auto lg:grid lg:grid-cols-lg lg:gap-x-lg lg:gap-y-0 lg:py-[15.5px] lg:px-lg xl:grid-cols-xl xl:gap-x-xl xl:gap-y-0 xl:py-[15.5px] xl:px-xl 2xl:grid-cols-2xl 2xl:gap-x-2xl 2xl:gap-y-0 2xl:py-[15.5px] 2xl:px-2xl 3xl:grid-cols-3xl 3xl:gap-x-3xl 4xl:grid-cols-4xl 4xl:gap-x-4xl 4xl:px-4xl">
+        <div class="main-menu-item main-menu-item4308 group col-span-2 cursor-pointer" id="4308"><b class="text-bh-menu align-middle"><a class="main-menu-item-link" id="4308" href="/">Agil IT Leverans</a></b></div>
+        <!--.main-menu-item.col-span-2.cursor-pointer.menu-page
+        //span.text-bh-menu.align-middle Health Radar
+        
+        -->
+        <div class="main-menu-item main-menu-itemhealthradar group col-span-2 cursor-pointer menu-page" id="healthradar"><span class="text-bh-menu align-middle">Health Radar</span><img class="cursor-pointer duration-300 w-10 transition ease-in-out transform align-middle inline-block mt-[2px] ml-[2px] group-hover:translate-x-1 h-[10px]" src="/images/Arrow_Main_Menu.svg" alt=""></div>
+        <div class="sub-menu-itemhealthradar hidden absolute bg-white col-span-full left-0 pb-50 pt-6 top-0 w-full z-10 grid lg:gap-x-lg lg:grid-cols-lg lg:px-lg md:gap-x-md md:grid-cols-md md:px-md mt-[50px] sm:gap-x-sm sm:grid-cols-sm sm:px-sm xl:gap-x-xl xl:grid-cols-xl xl:px-xl xl2:gap-x-2xl xl2:grid-cols-2xl xl2:px-2xl xl3:gap-x-3xl xl3:grid-cols-3xl xl3:px-3xl">
+          <div class="col-span-2">
+            <ol>
+              <li><b>Behovsinsamling</b>
+                <ol class="pl-5">
+                  <li><a href="/question.html?question=0">Lösningar</a></li>
+                  <li><a href="/question.html?question=1">Samarbete</a></li>
+                  <li><a href="/question.html?question=2">Arkitektur</a></li>
+                  <li><a href="/question.html?question=3">Funktioner</a></li>
+                </ol>
+              </li>
+              <li><b>Integrera</b>
+                <ol class="pl-5">
+                  <li><a href="/question.html?question=4">Utveckling</a></li>
+                  <li><a href="/question.html?question=5">Byggen</a></li>
+                  <li><a href="/question.html?question=6">Testning</a></li>
+                  <li><a href="/question.html?question=7">Acceptans  </a></li>
+                </ol>
+              </li>
+              <li><b>Leverans</b>
+                <ol class="pl-5">
+                  <li><a href="/question.html?question=8">Deploy</a></li>
+                  <li><a href="/question.html?question=9">Verifikation</a></li>
+                  <li><a href="/question.html?question=10">Monitorering</a></li>
+                  <li><a href="/question.html?question=11">Åtgärda </a></li>
+                </ol>
+              </li>
+              <li><b>Release</b>
+                <ol class="pl-5">
+                  <li><a href="/question.html?question=12">Release</a></li>
+                  <li><a href="/question.html?question=13">Stabilisering</a></li>
+                  <li><a href="/question.html?question=14">Mätning</a></li>
+                  <li><a href="/question.html?question=15">Lärande</a></li>
+                </ol>
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="main-menu-item main-menu-item3835 group col-span-2 cursor-pointer menu-page" id="3835"><span class="text-bh-menu align-middle">Agile Teams</span><img class="cursor-pointer duration-300 w-10 transition ease-in-out transform align-middle inline-block mt-[2px] ml-[2px] group-hover:translate-x-1 h-[10px]" src="/images/Arrow_Main_Menu.svg" alt=""></div>
+        <div class="sub-menu-item3835 hidden absolute bg-white col-span-full left-0 pb-50 pt-6 top-0 w-full z-10 grid lg:gap-x-lg lg:grid-cols-lg lg:px-lg md:gap-x-md md:grid-cols-md md:px-md mt-[50px] sm:gap-x-sm sm:grid-cols-sm sm:px-sm xl:gap-x-xl xl:grid-cols-xl xl:px-xl xl2:gap-x-2xl xl2:grid-cols-2xl xl2:px-2xl xl3:gap-x-3xl xl3:grid-cols-3xl xl3:px-3xl">
+          <div class="col-span-2">
+            <ul>
+              <li class="leading-normal text-bh-menusub"><a class="sub-menu-item-link" href="/teams/teams.html"> Teams</a></li>
+              <li class="leading-normal text-bh-menusub"><a class="sub-menu-item-link" href="/teams/employees.html"> Employees</a></li>
+              <li class="leading-normal text-bh-menusub"><a class="sub-menu-item-link" href="/teams/roles.html"> Roles</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-start-12 flex justify-end my-auto"><a href="/"><img class="logo max-w-max w-[135px]" src="/images/skanska_logo.svg"></a></div>
+        <style>
+          a:hover.sub-menu-item-link {
+          text-decoration: underline;
+          }
+        </style>
+      </div>
     </nav>
-  </aside>
-  <div class="bd-cheatsheet container-fluid bg-dark">
-    <section id="content">
+  </header>
+  <main class="content-container relative">
+    <section class="container" id="content">
       <div></div>
       <h2 class="sticky-xl-top fw-bold pt-3 pt-xl-5 pb-2 pb-xl-3" id="area"></h2>
       <article>
@@ -68,16 +143,35 @@
         </div>
       </article>
     </section>
-    <div class="spinner-border text-primary" id="spinner" role="status" hidden></div>
-  </div>
-  <div class="row container-fluid bg-dark"><span class="text-muted" id="sessioninfo">Sessioninfo</span></div>
+    <div class="bg-bh-gray-200 pt-[50px] pb-[50px]" id="footerQuicklinks">
+      <div class="gridall text-bh-blue pt-[50px]" style="align-items: end;">
+        <div class="col-span-full text-bh-menu md:col-span-6 lg:col-span-6 xl:col-span-6 2xl:col-span-6 leading-[28px]">
+          <p>&copy; Skanska AB 2022. Shaping the way we live.</p>
+          <p><a class="text-bh-blue underline" href="/link/208bb3860e324da59d8d6612a7271be9.aspx">Terms of use</a>,&nbsp;<a class="text-bh-blue underline" href="/link/208bb3860e324da59d8d6612a7271be9.aspx#personal">processing of personal data</a>&nbsp;and&nbsp;<a class="text-bh-blue underline" href="/link/485fa77512634181934f32bae1cb9622.aspx">cookie preferences</a></p>
+        </div>
+        <div class="col-span-full md:col-span-2"><span id="sessioninfo"> </span></div>
+        <div class="col-span-full text-left md:col-span-1 md:col-start-12 md:col-end-12 md:text-right">
+          <button class="btn btn-secondary" id="SignIn" type="button" onclick="signIn()">Sign In</button>
+          <button class="btn btn-primary" id="seeProfile" onclick="seeProfile()">See Profile</button>
+          <button class="btn btn-primary" id="readMail" onclick="readMail()">Read Mail</button>
+        </div>
+      </div>
+    </div>
+  </main>
   <script src="https://code.jquery.com/jquery-3.5.1.js" crossorigin="anonymous"></script>
   <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
   <script src="/scripts/checkie.js"> </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+  <!--script(src='/scripts/skanska.js')-->
+  <script type="text/javascript" src="/scripts/app/authConfig.js"></script>
+  <script type="text/javascript" src="/scripts/app/graphConfig.js"></script>
+  <script type="text/javascript" src="/scripts/app/ui.js"></script>
+  <!--script(type="text/javascript" src="/scripts/app/authPopup.js")-->
+  <script type="text/javascript" src="/scripts/app/authRedirect.js"></script>
+  <script type="text/javascript" src="/scripts/app/graph.js"></script>
+  <script src="/scripts/CustomJavaScript.js"></script>
   <script src="/scripts/settings.js"></script>
-  <script src="/scripts/ui.js"></script>
   <script src="/scripts/common.js"></script>
 </body>
 <script src="/scripts/teams/employee.js"> </script>

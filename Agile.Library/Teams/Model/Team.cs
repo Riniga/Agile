@@ -7,9 +7,14 @@ namespace Agile.Library.Teams.Model
 {
     public class Team
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
-        [JsonConverter(typeof(JsonStringEnumConverter))]
-        public TeamTypes TeamType { get; set; }
+        public string url;
+        public string description;
+        public string identityUrl;
+        public string projectName;
+        public string projectId;
+
+        public List<Employee> Members { get; set; }
     }
 }

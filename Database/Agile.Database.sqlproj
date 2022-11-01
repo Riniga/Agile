@@ -58,25 +58,15 @@
     <Folder Include="Properties" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Employees.sql" />
-    <Build Include="Teams.sql" />
-    <Build Include="TeamTypes.sql" />
     <Build Include="RoleInTeam.sql" />
     <Build Include="Roles.sql" />
-    <Build Include="RoleTypes.sql" />
-    <Build Include="View1.sql" />
-    <Build Include="ViewEmployees.sql" />
-    <Build Include="sp_CreateEmployee.sql" />
-    <Build Include="SubTeams.sql" />
-    <Build Include="TeamPrimaryContacts.sql" />
     <Build Include="Courses.sql" />
     <Build Include="CourseParticipations.sql" />
     <Build Include="CourseInvitations.sql" />
     <Build Include="DeliveryPlannings.sql" />
     <Build Include="DeliveryPlanningParticipations.sql" />
     <Build Include="DeliveryPlanningParticipationScales.sql" />
-    <Build Include="ViewTeams.sql" />
-    <Build Include="ViewRoles.sql" />
+    <Build Include="ViewMemberRoles.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Database.refactorlog" />
@@ -84,8 +74,5 @@
   <ItemGroup>
     <None Include="Database.publish.xml" />
     <None Include="Database.Recreate.publish.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <PostDeploy Include="Script.PostDeployment1.sql" />
   </ItemGroup>
 </Project>

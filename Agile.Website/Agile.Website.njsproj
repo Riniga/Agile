@@ -4,6 +4,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>Agile.Website</Name>
     <RootNamespace>Agile.Website</RootNamespace>
+    <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -18,8 +19,8 @@
     <OutputPath>.</OutputPath>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
-    <NodejsPort>1337</NodejsPort>
-    <StartWebBrowser>true</StartWebBrowser>
+    <NodejsPort>7080</NodejsPort>
+    <StartWebBrowser>True</StartWebBrowser>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,10 +29,12 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="AzureDevopsService.cs" />
     <Content Include="gulpfile.js" />
     <Content Include="package-lock.json" />
-    <Content Include="server.js" />
     <Content Include="package.json" />
+    <Content Include="server.js" />
+    <Content Include="package_old.json" />
     <Content Include="README.md" />
     <Content Include="source\data\answeres.json" />
     <Content Include="source\data\questions.json" />
@@ -55,6 +58,12 @@
     <Content Include="source\images\integrate3.png" />
     <Content Include="source\images\integrate4.jpg" />
     <Content Include="source\javascript\admin.js" />
+    <Content Include="source\javascript\app\authConfig.js" />
+    <Content Include="source\javascript\app\authPopup.js" />
+    <Content Include="source\javascript\app\authRedirect.js" />
+    <Content Include="source\javascript\app\graph.js" />
+    <Content Include="source\javascript\app\graphConfig.js" />
+    <Content Include="source\javascript\app\ui.js" />
     <Content Include="source\javascript\azurefunctions.js" />
     <Content Include="source\javascript\checkie.js" />
     <Content Include="source\javascript\common.js" />
@@ -83,9 +92,8 @@
     <Content Include="source\pug\blocks\header.pug" />
     <Content Include="source\pug\blocks\modals.pug" />
     <Content Include="source\pug\pages\admin.pug" />
-    <Content Include="source\pug\pages\nymall.pug" />
+    <Content Include="source\pug\pages\healthradar.pug" />
     <Content Include="source\pug\pages\index.pug" />
-    <Content Include="source\pug\pages\mall.pug" />
     <Content Include="source\pug\pages\teams\employee.pug" />
     <Content Include="source\pug\pages\teams\role.pug" />
     <Content Include="source\pug\pages\teams\roles.pug" />
@@ -94,9 +102,7 @@
     <Content Include="source\pug\pages\teams\employees.pug" />
     <Content Include="source\pug\pages\question.pug" />
     <Content Include="source\pug\pages\result.pug" />
-    <Content Include="source\pug\templates\startpage.pug" />
-    <Content Include="source\pug\templates\teams.pug" />
-    <Content Include="source\pug\templates\startpage_old.pug" />
+    <Content Include="source\pug\templates\skanska.pug" />
     <Content Include="source\sass\quicknavigator.scss">
       <SubType>Code</SubType>
     </Content>
@@ -114,6 +120,7 @@
     <Folder Include="source\fonts\shapeSans\WOFF\" />
     <Folder Include="source\images\" />
     <Folder Include="source\javascript\" />
+    <Folder Include="source\javascript\app\" />
     <Folder Include="source\javascript\teams\" />
     <Folder Include="source\pug\" />
     <Folder Include="source\pug\blocks\" />

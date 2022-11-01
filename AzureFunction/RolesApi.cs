@@ -7,17 +7,25 @@ using Microsoft.Extensions.Logging;
 using Agile.Library.Teams;
 using System.Linq;
 using System.Collections.Generic;
-using System;
+using Agile.Library.Teams.Model;
 
 namespace AzureWebApp.Function
 {
     public static class RolesApi
     {
         [FunctionName("GetRoles")]
-        public static async Task<IActionResult> GetTeams([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, ILogger log)
+        public static async Task<IActionResult> GetRoles([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, ILogger log)
         {
             log.LogInformation("Return a list of roles");
-            return new OkObjectResult(Roles.Instance.All);
+            List<Role> roles = new List<Role>();
+
+            var membersWithroles = Roles.Instance.All;
+            foreach (var row in membersWithroles)
+            {
+                if (roles.Where(role=>role.Id == row.Role.Id).Count()==0) roles.Add(row.Role);
+            }
+            
+            return new OkObjectResult(roles);
         }
 
         [FunctionName("GetRole")]
@@ -25,7 +33,7 @@ namespace AzureWebApp.Function
         {
             var id = req.Query["roleId"];
             log.LogInformation("Featch and return role with id: " + id);
-            return new OkObjectResult(Roles.Instance.All.Where(role => role.Id == int.Parse(id)).FirstOrDefault());
+            return new OkObjectResult(Roles.Instance.All.Where(role => role.Role.Id == int.Parse(id)).FirstOrDefault());
         }
 
         [FunctionName("GetEmployeesWithRole")]
@@ -33,27 +41,8 @@ namespace AzureWebApp.Function
         {
             var id = int.Parse(req.Query["roleId"]);
             log.LogInformation("Return all employee with role with id: " + id);
-
-            var result = new List<EmployeeWithRole>();
             var employeesInTeam = Employees.Instance.All.Where(e => e.RoleInTeam.Where(r => r.Role.Id == id).Count() > 0);
-            foreach (var employee in employeesInTeam)
-            {
-                var current = new EmployeeWithRole();
-                var roleAssignmentStrings = employee.RoleInTeam.Where(r => r.Role.Id == id).Select(r => r.Team.Name).ToList();
-                current.name = employee.Firstname + " " + employee.Lastname;
-                current.team = String.Join(',', roleAssignmentStrings);
-                current.id = employee.Id;
-                result.Add(current);
-            }
-            return new OkObjectResult(result);
-
+            return new OkObjectResult(employeesInTeam);
         }
-        class EmployeeWithRole
-        {
-            public int id;
-            public string name;
-            public string team;
-        }
-
     }
 }

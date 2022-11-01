@@ -21,7 +21,7 @@ namespace AzureDevops
         {
             logger = log;
             configuration = config;
-            Settings.CacheEnabled = configuration.GetValue<string>("CacheEnabled").ToLower() == "true";
+            Settings.CacheEnabled = false;// configuration.GetValue<string>("CacheEnabled").ToLower() == "true";
         }
 
     public void Run()

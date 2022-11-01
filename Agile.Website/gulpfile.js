@@ -92,6 +92,7 @@ gulp.task('removepackage', function () {
 
 var livereload = require('gulp-livereload');
 livereload({ start: true });
+
 gulp.task('watch', function () {
     livereload.listen();
     gulp.watch('source/pug/**/*.pug', gulp.series('pug'));

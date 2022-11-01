@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 
@@ -16,7 +14,7 @@ namespace Agile.Library.Teams
         private static string GetConnectionString()
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            builder.DataSource = "(LocalDb)\\MSSQLLocalDB";
+            builder.DataSource = "SEHP5CG2118GRZ\\SQLEXPRESS";
             builder.IntegratedSecurity = true;
             builder.PersistSecurityInfo = false;
             builder.Pooling = false;
@@ -24,7 +22,7 @@ namespace Agile.Library.Teams
             builder.ConnectTimeout = 60;
             builder.Encrypt = false;
             builder.TrustServerCertificate = false;
-            builder.InitialCatalog = "AzureDevopsDb";
+            builder.InitialCatalog = "Agile.Database";
             return builder.ConnectionString;
         }
         public static async Task<DataSet> GetDataSetAsync(string sSQL)
@@ -46,6 +44,7 @@ namespace Agile.Library.Teams
             using SqlCommand command = new SqlCommand(sSQL, connection);
             return (int)await command.ExecuteScalarAsync();
         }
+
         public static async Task<int> ExecuteCommandAsync(string sSQL)
         {
             using SqlConnection connection = new SqlConnection(GetConnectionString());
@@ -54,6 +53,5 @@ namespace Agile.Library.Teams
             int id = await command.ExecuteNonQueryAsync();
             return id;
         }
-
     }
 }

@@ -1,9 +1,13 @@
 ﻿using Agile.Library.Teams.Enum;
 using Agile.Library.Teams.Model;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace Agile.Library.Teams
@@ -11,6 +15,10 @@ namespace Agile.Library.Teams
     public sealed class Teams
     {
         private static readonly Lazy<Teams> lazy = new Lazy<Teams>(() => new Teams());
+
+        private static string personalaccesstoken = "r73bcrgl5xeeuhlgeo7qx6w57wu2sw7rwqv5s32qvbidm3rzv7na"; // Skanska Agie
+        private static string organization = "skanskanordic";
+        private static string project = "0439fbd7-edf7-4560-81a5-d10eb74f33d3";
         public static Teams Instance { get { return lazy.Value; } }
 
         public List<Team> All;
@@ -18,66 +26,80 @@ namespace Agile.Library.Teams
         {
             All = GetTeamsAsync().Result;
         }
-        public async Task<List<Team>> GetTeamsAsync()
+        private async Task<List<Team>> GetTeamsAsync()
         {
+            var cacheFile = "teams.json";
             var teams = new List<Team>();
-            DataSet dataSet = await Database.GetDataSetAsync($"SELECT TeamId, Teamname, TeamType FROM ViewTeams");
-            foreach (DataTable thisTable in dataSet.Tables)
+
+            if (File.Exists(cacheFile) && File.GetCreationTime(cacheFile) >DateTime.Now.AddMinutes(-60) )
             {
-                foreach (DataRow row in thisTable.Rows)
+                teams = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Team>>(File.ReadAllText(cacheFile));
+            }
+            else
+            { 
+                try
                 {
-                    teams.Add(new Team 
-                    { 
-                        Id = (int)row["TeamId"], 
-                        Name = (string)row["TeamName"], 
-                        TeamType= (TeamTypes)System.Enum.Parse(typeof(TeamTypes), (string)row["TeamType"]),
-                    });
+                    var organization = "skanskanordic";
+                    var project = "0439fbd7-edf7-4560-81a5-d10eb74f33d3";
+                    using (HttpClient client = new HttpClient())
+                    {
+                        client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(string.Format("{0}:{1}", "", personalaccesstoken))));
+                        using (HttpResponseMessage response = client.GetAsync($"https://dev.azure.com/{organization}/_apis/projects/{project}/teams").Result)
+                        {
+                            response.EnsureSuccessStatusCode();
+                            string responseBody = await response.Content.ReadAsStringAsync();
+                            var responseObject = Newtonsoft.Json.JsonConvert.DeserializeObject<TeamsResponse>(responseBody);
+                            foreach (var team in responseObject.value)
+                            {
+                                team.Members = GetTeamMembersAsync(team.Id).Result;
+                                teams.Add(team);
+                            }
+                            Console.WriteLine("Done! Retrieved all teams with team members!");
+                        }
+                    }
                 }
+                catch (Exception ex){ Console.WriteLine("boom: " + ex.Message); }
+                File.Delete(cacheFile);
+                File.WriteAllText(cacheFile, Newtonsoft.Json.JsonConvert.SerializeObject(teams));
             }
             return teams;
         }
-        public static async Task<List<Team>> GetTeamsAsync(Employee employee)
+        private async Task<List<Employee>> GetTeamMembersAsync(string teamId)
         {
-            var employeeTeams= new List<Team>();
-            DataSet dataSet = await Database.GetDataSetAsync($"SELECT TeamId, TeamName, TeamType FROM ViewEmployeeTeams WHERE EmployeeId='{employee.Id}'");
-            foreach (DataTable thisTable in dataSet.Tables)
+            var members = new List<Employee>();
+
+            try
             {
-                foreach (DataRow row in thisTable.Rows)
+                
+                using (HttpClient client = new HttpClient())
                 {
-                    employeeTeams.Add(new Team { Id = (int)row["TeamId"], Name = (string)row["TeamName"], TeamType = (TeamTypes)System.Enum.Parse(typeof(TeamTypes), (string)row["TeamType"]) });
+                    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(string.Format("{0}:{1}", "", personalaccesstoken))));
+                    using (HttpResponseMessage response = client.GetAsync($"https://dev.azure.com/{organization}/_apis/projects/{project}/teams/{teamId}/members?api-version=6.0").Result)
+                    {
+                        response.EnsureSuccessStatusCode();
+                        string responseBody = await response.Content.ReadAsStringAsync();
+                        var responseObject = Newtonsoft.Json.JsonConvert.DeserializeObject<TeamMembersResponse>(responseBody);
+                        foreach (var member in responseObject.value)
+                        {
+                            //var roleinteam = Roles.Instance.All.Where(memberroleinteam => memberroleinteam.MemberId == member.identity.Id && memberroleinteam.TeamId==teamId);
+                            //member.identity.RoleInTeam = new List<RoleInTeam>();
+                            //foreach (var role in roleinteam)
+                            //{
+                            //    member.identity.RoleInTeam.Add(new RoleInTeam { Role= role.Role, TeamId = teamId  }) ;
+                            //}
+                            members.Add(member.identity);
+                        }
+                        Console.WriteLine("Done! Retrieved team members for team: " + teamId);
+                    }
                 }
             }
-            return employeeTeams;
+            catch (Exception ex) { Console.WriteLine("boom: " + ex.Message); }
+            return members;
         }
-
-        public static async Task<Team> GetTeamAsync(int Id)
-        {
-            Team team = null;
-            var contracts = new List<Team>();
-            DataSet dataSet = await Database.GetDataSetAsync($"SELECT Id, Name FROM Teams WHERE Id ='{Id}'");
-            foreach (DataTable thisTable in dataSet.Tables)
-            {
-                foreach (DataRow row in thisTable.Rows)
-                {
-                    team = new Team { Id = (int)row["Id"], Name = (string)row["Name"] };
-                }
-            }
-            if (team == null) throw new Exception($"Team with id {Id} not found");
-            return team;
-        }
-        public  static async Task<int> CreateTeamtAsync(Team team)
-        {
-            return await Database.ExecuteCommandAsync($"INSERT INTO Teams (Name, TeamTypeId) OUTPUT INSERTED.ID VALUES('{team.Name}', '{(int)team.TeamType}')");
-        }
-
-        public void AddTeam(Team team)
-        {
-                if (All.Where(team2 => team2.Name == team.Name).Count() > 0) return;
-                var data = Database.GetDataSetAsync("SELECT Id FROM [Teams] WHERE [Name]='" + team.Name + "'").Result;
-                if (data.Tables[0].Rows.Count > 0) return;
-                var task = Task.Run(async () => await Database.ExecuteCommandAsync("INSERT INTO [Teams] ([Name],[TeamTypeId]) VALUES ('" + team.Name + "','" + (int)team.TeamType+ "') "));
-                var id = task.Result;
-                if (id != 0) All.Add(team);
-        }
+        private class TeamsResponse { public List<Team> value; }
+        private class TeamMembersResponse { public List<Member> value; }
+        private class Member { public Employee identity; }
     }
 }

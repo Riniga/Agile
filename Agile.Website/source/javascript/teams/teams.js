@@ -4,12 +4,12 @@ $(document).ready(function () {
             ajax: { url: 'http://localhost:7071/api/GetTeams', dataSrc: "" },
             columns: [
                 { data: 'name' },
-                { data: 'teamType' },
+                //{ data: 'teamType' },
                 { data: 'id' }
             ],
             columnDefs: [
                 {
-                    targets: 2,
+                    targets: 1,
                     data: 'id',
                     orderable: false,
                     render: function (data, type, row, meta) {

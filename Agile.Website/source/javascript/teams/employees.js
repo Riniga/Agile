@@ -3,9 +3,8 @@ $(document).ready(function () {
         {
             ajax: { url: 'http://localhost:7071/api/GetEmployees', dataSrc: "" },
             columns: [
-                { data: 'firstname' },
-                { data: 'lastname' },
-                { data: 'email' },
+                { data: 'displayName' },
+                { data: 'uniqueName' },
                 { data: 'id' }
             ],
             columnDefs: [
@@ -17,14 +16,14 @@ $(document).ready(function () {
                 //    }
                 //},
                 {
-                    targets: 2,
+                    targets: 1,
                     data: 'email',
                     render: function (data, type, row, meta) {
                         return '<a href="mailto:' + data + ' ">' + data + '</a>';
                     }
                 },
                 {
-                    targets: 3,
+                    targets: 2,
                     data: 'id',
                     orderable: false,
                     render: function (data, type, row, meta) {
