@@ -18,6 +18,7 @@ namespace Agile.Library.Teams
         public List<Team> All;
         private Teams()
         {
+            Console.WriteLine("In constructor");
             All = GetTeamsAsync().Result;
         }
         private async Task<List<Team>> GetTeamsAsync()
@@ -46,9 +47,7 @@ namespace Agile.Library.Teams
                 }
             }
             catch (Exception ex) { Console.WriteLine("boom: " + ex.Message); }
-
             await CosmosCache<List<Team>>.Set("teams", teams, 60);
-
             return teams;
         }
         private async Task<List<Employee>> GetTeamMembersAsync(string teamId)

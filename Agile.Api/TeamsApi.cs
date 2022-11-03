@@ -5,7 +5,6 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Agile.Library.Teams;
-using System;
 using System.Linq;
 
 namespace Agile.Api
@@ -23,7 +22,7 @@ namespace Agile.Api
         {
             var id = req.Query["teamId"];
             log.LogInformation("Return team with id: " + id);
-            return new OkObjectResult(Teams.Instance.All.Where(team=>team.Id==id).FirstOrDefault());
+            return new OkObjectResult(Teams.Instance.All.Where(team=>team.id==id).FirstOrDefault());
 
         }
 
