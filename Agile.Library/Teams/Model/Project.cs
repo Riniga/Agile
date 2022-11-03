@@ -1,4 +1,5 @@
 ﻿using Agile.Library.Teams.Enum;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
@@ -8,6 +9,7 @@ namespace Agile.Library.Teams.Model
     public class Project
     {
         public string id { get; set; }
+        [JsonProperty(PropertyName = "name")]
         public string name { get; set; }
         public string url;
         public string description;

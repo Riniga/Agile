@@ -16,7 +16,7 @@ namespace AzureDevops
 
             foreach (var team in allTeams)
             {
-                foreach (var member in team.Members) Console.WriteLine(member.uniqueName+ ";" + team.Name);
+                foreach (var member in team.Members) Console.WriteLine(member.uniqueName+ ";" + team.name);
             }
         }
     }

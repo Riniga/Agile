@@ -9,7 +9,12 @@ namespace Agile.Api.Business
 {
     class CosmosHelper
     {
+        private static string endpointUrl = Environment.GetEnvironmentVariable("EndpointUrl");
+        private static string primaryKey = Environment.GetEnvironmentVariable("PrimaryKey");
+        private static string databaseId = Environment.GetEnvironmentVariable("DatabaseId");
+        private static string containerId = "HealthRadarResult";
         private static string partitionKeyPath = "/id";
+
         private static CosmosClient _cosmosClient;
 
         internal static async Task<List<HealthRadarResult>> GetAllResultsFromCosmosDb()
@@ -46,10 +51,6 @@ namespace Agile.Api.Business
         }
         private static async Task<Container> GetContainer()
         {
-            string endpointUrl = Environment.GetEnvironmentVariable("EndpointUrl");  //ConfigurationManager.AppSettings["EndpointUrl"];
-            string primaryKey = Environment.GetEnvironmentVariable("PrimaryKey");  //ConfigurationManager.AppSettings["PrimaryKey"];
-            string databaseId = Environment.GetEnvironmentVariable("DatabaseId");  //ConfigurationManager.AppSettings["DatabaseId"];
-            string containerId = Environment.GetEnvironmentVariable("ContainerId");  //ConfigurationManager.AppSettings["ContainerId"];
             _cosmosClient = new CosmosClient(endpointUrl, primaryKey);
             Database database = await _cosmosClient.CreateDatabaseIfNotExistsAsync(databaseId);
             Container container = await database.CreateContainerIfNotExistsAsync(containerId, partitionKeyPath);

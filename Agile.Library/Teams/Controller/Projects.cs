@@ -19,6 +19,10 @@ namespace Agile.Library.Teams
     public sealed class Projects
     {
         private static readonly Lazy<Projects> lazy = new Lazy<Projects>(() => new Projects());
+        private static string personalaccesstoken = "r73bcrgl5xeeuhlgeo7qx6w57wu2sw7rwqv5s32qvbidm3rzv7na"; // Skanska Agie
+        private static string organization = "skanskanordic";
+        private static string project = "0439fbd7-edf7-4560-81a5-d10eb74f33d3";
+
         public static Projects Instance { get { return lazy.Value; } }
 
         public List<Project> All;
@@ -28,43 +32,33 @@ namespace Agile.Library.Teams
         }
         private async Task<List<Project>> GetProjectsAsync()
         {
-            var cacheFile = "projects.json";
-            var projects = new List<Project>();
-
-            if (File.Exists(cacheFile) && File.GetCreationTime(cacheFile) >DateTime.Now.AddMinutes(-60) )
+            var projects = await CosmosCache<List<Project>>.Get("projects");
+            if (projects != null && projects.Count > 0) return projects;
+            try
             {
-                projects = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Project>>(File.ReadAllText(cacheFile));
-            }
-            else
-            { 
-                try
+                
+                using (HttpClient client = new HttpClient())
                 {
-                    var organization = "skanskanordic";
-                    var project = "0439fbd7-edf7-4560-81a5-d10eb74f33d3";
-                    var personalaccesstoken = "6yw2enihff7pvygx5kacfnhqovub4yfbmlsdlube3mdub2qmrasa";
-                    using (HttpClient client = new HttpClient())
+                    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(string.Format("{0}:{1}", "", personalaccesstoken))));
+                    using (HttpResponseMessage response = client.GetAsync($"https://dev.azure.com/{organization}/_apis/projects").Result)
                     {
-                        client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-                        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(string.Format("{0}:{1}", "", personalaccesstoken))));
-                        using (HttpResponseMessage response = client.GetAsync($"https://dev.azure.com/{organization}/_apis/projects").Result)
+                        projects = new List<Project>();
+                        response.EnsureSuccessStatusCode();
+                        string responseBody = await response.Content.ReadAsStringAsync();
+                        var responseObject = Newtonsoft.Json.JsonConvert.DeserializeObject<ProjectsResponse>(responseBody);
+                        foreach (var currentproject in responseObject.value)
                         {
-                            response.EnsureSuccessStatusCode();
-                            string responseBody = await response.Content.ReadAsStringAsync();
-                            var responseObject = Newtonsoft.Json.JsonConvert.DeserializeObject<ProjectsResponse>(responseBody);
-                            foreach (var currentproject in responseObject.value)
-                            {
-                                //currentproject.Admins = GetProjectAdminsAsync(currentproject.id).Result;
-                                projects.Add(currentproject);
-                            }
-                            
-                            Console.WriteLine("Done! Retrieved all teams with team members!");
+                            //currentproject.Admins = GetProjectAdminsAsync(currentproject.id).Result;
+                            projects.Add(currentproject);
                         }
+                            
+                        Console.WriteLine("Done! Retrieved all teams!");
                     }
                 }
-                catch (Exception ex){ Console.WriteLine("boom: " + ex.Message); }
-                File.Delete(cacheFile);
-                File.WriteAllText(cacheFile, Newtonsoft.Json.JsonConvert.SerializeObject(projects));
             }
+            catch (Exception ex){ Console.WriteLine("boom: " + ex.Message); }
+            if (projects!= null) await CosmosCache<List<Project>>.Set("projects", projects, 60);
             return projects;
         }
         private async Task<List<Employee>> GetProjectAdminsAsync(string projectId)
@@ -73,9 +67,6 @@ namespace Agile.Library.Teams
 
             try
             {
-                var organization = "skanskanordic";
-                var project = "0439fbd7-edf7-4560-81a5-d10eb74f33d3";
-                var personalaccesstoken = "6yw2enihff7pvygx5kacfnhqovub4yfbmlsdlube3mdub2qmrasa";
                 using (HttpClient client = new HttpClient())
                 {
                     client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));

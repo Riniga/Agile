@@ -6,7 +6,9 @@
     <RootNamespace>Agile.Api</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="Properties\PublishProfiles\devopshealthradar - Zip Deploy.pubxml.user" />
+    <Compile Remove="Properties\PublishProfiles\**" />
+    <EmbeddedResource Remove="Properties\PublishProfiles\**" />
+    <None Remove="Properties\PublishProfiles\**" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.16.0" />
@@ -32,5 +34,8 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>local.settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\ServiceDependencies\" />
   </ItemGroup>
 </Project>
