@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "Agile.Console": {
+      "commandName": "Project"
+    }
+  }
+}

@@ -19,9 +19,11 @@ namespace Agile.Library.Teams
     public sealed class Projects
     {
         private static readonly Lazy<Projects> lazy = new Lazy<Projects>(() => new Projects());
-        private static string personalaccesstoken = "r73bcrgl5xeeuhlgeo7qx6w57wu2sw7rwqv5s32qvbidm3rzv7na"; // Skanska Agie
+        //private static string personalaccesstoken = "r73bcrgl5xeeuhlgeo7qx6w57wu2sw7rwqv5s32qvbidm3rzv7na"; // Skanska Agie
+        private static string personalaccesstoken = "64qnswlxedpllzovjq5kzwymf2n5it743hwzrpmrhujvqllljeva"; // Skanska Agie
         private static string organization = "skanskanordic";
         private static string project = "0439fbd7-edf7-4560-81a5-d10eb74f33d3";
+        private static string cacheKey = "projects_" + project;
 
         public static Projects Instance { get { return lazy.Value; } }
 
@@ -32,7 +34,7 @@ namespace Agile.Library.Teams
         }
         private async Task<List<Project>> GetProjectsAsync()
         {
-            var projects = await CosmosCache<List<Project>>.Get("projects");
+            var projects = await CosmosCache<List<Project>>.Get(cacheKey);
             if (projects != null && projects.Count > 0) return projects;
             try
             {
@@ -41,7 +43,7 @@ namespace Agile.Library.Teams
                 {
                     client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(string.Format("{0}:{1}", "", personalaccesstoken))));
-                    using (HttpResponseMessage response = client.GetAsync($"https://dev.azure.com/{organization}/_apis/projects").Result)
+                    using (HttpResponseMessage response = client.GetAsync($"https://dev.azure.com/{organization}/_apis/projects?$top=1000").Result)
                     {
                         projects = new List<Project>();
                         response.EnsureSuccessStatusCode();
@@ -58,7 +60,7 @@ namespace Agile.Library.Teams
                 }
             }
             catch (Exception ex){ Console.WriteLine("boom: " + ex.Message); }
-            if (projects!= null) await CosmosCache<List<Project>>.Set("projects", projects, 60);
+            if (projects!= null) await CosmosCache<List<Project>>.Set(cacheKey, projects, 60);
             return projects;
         }
         private async Task<List<Employee>> GetProjectAdminsAsync(string projectId)

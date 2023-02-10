@@ -9,30 +9,35 @@ namespace Agile.Library.Teams
 {
     public sealed class Teams
     {
-        private static readonly Lazy<Teams> lazy = new Lazy<Teams>(() => new Teams());
-        private static string personalaccesstoken = "r73bcrgl5xeeuhlgeo7qx6w57wu2sw7rwqv5s32qvbidm3rzv7na"; // Skanska Agie
-        private static string organization = "skanskanordic";
-        private static string project = "0439fbd7-edf7-4560-81a5-d10eb74f33d3";
+        public static readonly Lazy<Teams> lazy = new Lazy<Teams>(() => new Teams());
+        public static string cacheKey = "teams_" + Settings.DevopsProject;
+
         public static Teams Instance { get { return lazy.Value; } }
 
         public List<Team> All;
         private Teams()
         {
-            Console.WriteLine("In constructor");
+
             All = GetTeamsAsync().Result;
         }
         private async Task<List<Team>> GetTeamsAsync()
         {
-            var teams = await CosmosCache<List<Team>>.Get("teams");
-            if (teams!=null && teams.Count>0) return teams;
+
+            var teams = new List<Team>();
+            if (Settings.UseCache)
+            { 
+                teams = await CosmosCache<List<Team>>.Get(cacheKey);
+                if (teams!=null && teams.Count>0) return teams;
+            }
+
             try
             {
                 teams = new List<Team>();
                 using (HttpClient client = new HttpClient())
                 {
                     client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(string.Format("{0}:{1}", "", personalaccesstoken))));
-                    using (HttpResponseMessage response = client.GetAsync($"https://dev.azure.com/{organization}/_apis/projects/{project}/teams").Result)
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(string.Format("{0}:{1}", "", Settings.DevopsPersonalaccesstoken))));
+                    using (HttpResponseMessage response = client.GetAsync($"https://dev.azure.com/{Settings.DevopsOrganization}/_apis/projects/{Settings.DevopsProject}/teams").Result)
                     {
                         response.EnsureSuccessStatusCode();
                         string responseBody = await response.Content.ReadAsStringAsync();
@@ -47,7 +52,7 @@ namespace Agile.Library.Teams
                 }
             }
             catch (Exception ex) { Console.WriteLine("boom: " + ex.Message); }
-            await CosmosCache<List<Team>>.Set("teams", teams, 60);
+            if (Settings.UseCache) await CosmosCache<List<Team>>.Set(cacheKey, teams, 60);
             return teams;
         }
         private async Task<List<Employee>> GetTeamMembersAsync(string teamId)
@@ -60,8 +65,8 @@ namespace Agile.Library.Teams
                 using (HttpClient client = new HttpClient())
                 {
                     client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(string.Format("{0}:{1}", "", personalaccesstoken))));
-                    using (HttpResponseMessage response = client.GetAsync($"https://dev.azure.com/{organization}/_apis/projects/{project}/teams/{teamId}/members?api-version=6.0").Result)
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(string.Format("{0}:{1}", "", Settings.DevopsPersonalaccesstoken))));
+                    using (HttpResponseMessage response = client.GetAsync($"https://dev.azure.com/{Settings.DevopsOrganization}/_apis/projects/{Settings.DevopsProject}/teams/{teamId}/members?api-version=6.0").Result)
                     {
                         response.EnsureSuccessStatusCode();
                         string responseBody = await response.Content.ReadAsStringAsync();

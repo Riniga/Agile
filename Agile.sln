@@ -13,9 +13,11 @@ Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Agile.Website", "Agile.Webs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agile.Library", "Agile.Library\Agile.Library.csproj", "{618004E5-E9BE-4D2F-A5E2-BE3C191ED3C1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agile.Console", "Agile.Console\Agile.Console.csproj", "{F67CE1A8-F24A-4604-9D0B-A467C3E3213B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agile.Devops", "Agile.Console\Agile.Devops.csproj", "{F67CE1A8-F24A-4604-9D0B-A467C3E3213B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agile.EmailImporter", "Agile.EmailImporter\Agile.EmailImporter.csproj", "{6F4FAADD-DB13-44F9-8BF4-582FEA33091F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agile.ActiveDirectory", "Agile.ActiveDirectory\Agile.ActiveDirectory.csproj", "{DCE7E6B8-6ECC-4648-8C12-9C94F3189797}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{6F4FAADD-DB13-44F9-8BF4-582FEA33091F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F4FAADD-DB13-44F9-8BF4-582FEA33091F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F4FAADD-DB13-44F9-8BF4-582FEA33091F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCE7E6B8-6ECC-4648-8C12-9C94F3189797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCE7E6B8-6ECC-4648-8C12-9C94F3189797}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCE7E6B8-6ECC-4648-8C12-9C94F3189797}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCE7E6B8-6ECC-4648-8C12-9C94F3189797}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
