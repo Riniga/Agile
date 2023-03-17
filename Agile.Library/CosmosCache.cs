@@ -43,14 +43,11 @@ namespace Agile.Library
 
         private static async Task<Container> GetContainer()
         {
-            var endpointUrl = Environment.GetEnvironmentVariable("EndpointUrl");
-            var primaryKey = Environment.GetEnvironmentVariable("PrimaryKey");
-            var databaseId = Environment.GetEnvironmentVariable("DatabaseId");
             var cacheContainerId = "Cache";
             var partitionKeyPath = "/key";
 
-            var cosmosClient = new CosmosClient(endpointUrl, primaryKey);
-            Database database = await cosmosClient.CreateDatabaseIfNotExistsAsync(databaseId);
+            var cosmosClient = new CosmosClient(Settings.CosmosDbEndpointUrl, Settings.CosmosDbPrimaryKey);
+            Database database = await cosmosClient.CreateDatabaseIfNotExistsAsync(Settings.CosmosDbDatabaseId);
             Container container = await database.CreateContainerIfNotExistsAsync(cacheContainerId, partitionKeyPath);
             return container;
         }
