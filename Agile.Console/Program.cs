@@ -1,5 +1,6 @@
 ﻿using Agile.Library;
 using Agile.Library.Teams;
+using System;
 using System.Diagnostics;
 using System.IO;
 
@@ -20,9 +21,9 @@ namespace Agile.Command
 
         private static void ConfigSettings()
         {
-            Settings.UseCache = true; // You must start "Cosmos DB Emulator"
+            Settings.UseCache = false; // You must start "Cosmos DB Emulator"
+            Settings.DevopsPersonalaccesstoken = Environment.GetEnvironmentVariable("AZURE_DEVOPS_PAT"); 
 
-            Settings.DevopsPersonalaccesstoken = "64qnswlxedpllzovjq5kzwymf2n5it743hwzrpmrhujvqllljeva"; // Skanska Agie
             Settings.DevopsOrganization = "skanskanordic";
             Settings.DevopsProject = "0439fbd7-edf7-4560-81a5-d10eb74f33d3"; //Skanska Sverige IT
             //Settings.project = "28de8608-aa74-4d08-bdbe-1321f5d033f7"; //HQ-Infrastructure
