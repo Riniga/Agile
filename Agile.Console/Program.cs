@@ -29,7 +29,7 @@ namespace Agile.Command
             //Settings.project = "28de8608-aa74-4d08-bdbe-1321f5d033f7"; //HQ-Infrastructure
 
             Settings.CosmosDbEndpointUrl = "https://localhost:8081";
-            Settings.CosmosDbPrimaryKey = "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==";
+            Settings.CosmosDbPrimaryKey = "[find this from cosmos db emulator]";
             Settings.CosmosDbDatabaseId = "Agile";
         }
 
