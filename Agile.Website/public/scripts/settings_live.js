@@ -1,2 +1,2 @@
-const GetAllHealthRadarResultsUrl = "https://skanskaagileapi.azurewebsites.net/api/GetAllHealthRadarResults?code=G4v2DgGVqbgbSxbjJNvP1I4lMBu-VTGrvqyCkfE4fKO7AzFuXPkWRQ==";
-const SaveUserHealthRadarResultUrl = "https://skanskaagileapi.azurewebsites.net/api/SaveUserHealthRadarResult?code=Mbu70xzusAPzFTwkJ32vZ3ITQex8_PfNodTFxorj66_AAzFu7RYkOA==";
+const GetAllHealthRadarResultsUrl = "https://skanskaagileapi.azurewebsites.net/api/GetAllHealthRadarResults?code=[]";
+const SaveUserHealthRadarResultUrl = "https://skanskaagileapi.azurewebsites.net/api/SaveUserHealthRadarResult?code=[]";
